@@ -632,7 +632,106 @@ body {
 //subscribe
 
 // download
-.section-download {}
+.section-download {
+    width: 1600px;
+    height: 468px;
+    background: #F5F6F7;
+
+    &-wrapper {
+
+        display: flex;
+        flex-direction: column;
+
+        &-title {
+
+            // position: absolute;
+            width: 255px;
+            height: 28px;
+            margin-left: 675px;
+            // top: 120px;
+            margin-top: 120px;
+
+            /* h2-24-bold */
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 28px;
+            // display: flex;
+            // align-items: flex-end;
+            text-align: center;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            color: #373737;
+        }
+
+        &-text {
+            margin-top: 20px;
+            // position: absolute;
+            width: 483px;
+            height: 40px;
+            // left: 559px;
+            // top: 168px;
+            margin-left: 560px;
+
+            /* body-14-reg */
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 140%;
+            /* or 20px */
+
+            // display: flex;
+            // align-items: center;
+            text-align: center;
+
+            color: #4E4E4E;
+        }
+
+        &-button {
+            margin-left: 597px;
+
+            // display: flex;
+
+            button {
+                // width: 188px;
+                height: 50px;
+                // left: 597px;
+                // top: 238px;
+                margin-top: 30px;
+
+                // position: absolute;
+                width: 128px;
+                height: 50px;
+                left: 0px;
+                top: 0px;
+
+                background: #00AFDB;
+                border-radius: 0px;
+
+                img {
+                    // position: absolute;
+                    width: 60px;
+                    height: 50px;
+                    // left: 0px;
+                    // top: 0px;
+    
+                    background: #009CC2;
+                    border-radius: 0px;
+                }
+    
+
+            }
+
+           
+            ;
+        }
+    }
+}
 
 //download
 
