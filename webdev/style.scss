@@ -427,7 +427,7 @@ body {
     // left: 0px;
     // top: 0px;
 
-    background: #e7cdcd;
+    background-color: white;
 
     &-content {
         // margin-top: 120px;
@@ -527,7 +527,107 @@ body {
 //implement
 
 // subscribe
-.section-subscribe {}
+.section-subscribe {
+    width: 1600px;
+    height: 598px;
+    background-image: url("assets/pexels-christina-morillo.png");
+    display: flex;
+
+    &-content {
+        width: 406px;
+        height: 104px;
+        margin-left: 597px;
+        margin-top: 217px;
+        // color: yellowgreen;
+        // background-color: red;
+
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+
+        &-title {
+            // position: absolute;
+            width: 406px;
+            height: 28px;
+            text-align: center;
+            // left: 13px;
+            // top: 0px;
+
+            /* h2-24-bold */
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 28px;
+            // display: flex;
+            // align-items: flex-end;
+            text-align: center;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            color: #FFFFFF;
+        }
+
+        &-form {
+            margin-top: 30px;
+            width: 406px;
+            height: 46px;
+            // background-color: springgreen;
+
+            display: flex;
+            align-items: center;
+
+            &__input {
+                input {
+                    // position: absolute;
+                    width: 313px;
+                    height: 45px;
+                    font-family: Roboto;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 14px;
+                    line-height: 140%;
+
+                    background: #FFFFFF;
+                    border-radius: 0px;
+                    border: 0;
+
+                    padding-left: 24px;
+                }
+
+
+
+            }
+
+            &__button {
+
+                button {
+                    // position: absolute;
+                    width: 66px;
+                    height: 46px;
+                    display: flex;
+                    // flex-direction: row;
+                    // padding: 15px 47px;
+
+                    background: #00AFDB;
+                    border-radius: 0px;
+                    border: 0;
+
+                    img {
+                        padding-top: 16px;
+                        padding-left: 19px;
+                    }
+                }
+
+            }
+
+        }
+    }
+
+
+
+}
 
 //subscribe
 

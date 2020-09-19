@@ -351,7 +351,7 @@
 .section-implement {
   width: 1600px;
   height: 842px;
-  background: #e7cdcd;
+  background-color: white;
 }
 
 .section-implement-content {
@@ -430,5 +430,86 @@
   text-align: center;
   text-transform: uppercase;
   color: #FFFFFF;
+}
+
+.section-subscribe {
+  width: 1600px;
+  height: 598px;
+  background-image: url("assets/pexels-christina-morillo.png");
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.section-subscribe-content {
+  width: 406px;
+  height: 104px;
+  margin-left: 597px;
+  margin-top: 217px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.section-subscribe-content-title {
+  width: 406px;
+  height: 28px;
+  text-align: center;
+  /* h2-24-bold */
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.section-subscribe-content-form {
+  margin-top: 30px;
+  width: 406px;
+  height: 46px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section-subscribe-content-form__input input {
+  width: 313px;
+  height: 45px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 140%;
+  background: #FFFFFF;
+  border-radius: 0px;
+  border: 0;
+  padding-left: 24px;
+}
+
+.section-subscribe-content-form__button button {
+  width: 66px;
+  height: 46px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #00AFDB;
+  border-radius: 0px;
+  border: 0;
+}
+
+.section-subscribe-content-form__button button img {
+  padding-top: 16px;
+  padding-left: 19px;
 }
 /*# sourceMappingURL=style.css.map */
