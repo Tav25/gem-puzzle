@@ -1,0 +1,17 @@
+/* import  */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+/* /import */
+.section-outer {
+  background-color: red;
+}
+
+.section-inner {
+  width: 1600px;
+  margin: 0 auto;
+}
+
+.section-header {
+  color: white;
+  background-image: url("");
+}
+/*# sourceMappingURL=style.css.map */
