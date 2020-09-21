@@ -569,6 +569,7 @@
 .section-subscribe-content-form__button button img {
   padding-top: 16px;
   padding-left: 19px;
+  height: 14px;
 }
 
 .section-subscribe-content-form__button button:hover {
