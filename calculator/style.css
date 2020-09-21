@@ -1,4 +1,87 @@
 body {
   background-color: #2B4D6C;
 }
+
+.calculator {
+  margin: 50px auto;
+  background-image: url(assets/body.png);
+  width: 491px;
+  height: 736px;
+}
+
+.calculator-body-display {
+  margin-left: 12px;
+  width: 405px;
+  height: 200px;
+}
+
+.calculator-body-keyboard-top {
+  margin-left: 12px;
+  width: 405px;
+  height: 472px;
+}
+
+.calculator-body-keyboard-top-key1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 5px;
+}
+
+.calculator-body-keyboard-top-key2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 5px;
+}
+
+.calculator-body-keyboard-top-key3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 5px;
+}
+
+.calculator-body-keyboard-top-key4 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 5px;
+}
+
+.calculator-body-keyboard-top-key5 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 5px;
+}
+
+.calculator-body-keyboard img {
+  cursor: pointer;
+}
+
+.calculator-body-keyboard img:hover {
+  background-color: #e7e7e7;
+  border-radius: 15px;
+}
+
+.calculator-body-keyboard img:active {
+  background-color: #f3f3f3;
+  border-radius: 15px;
+}
 /*# sourceMappingURL=style.css.map */
