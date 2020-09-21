@@ -208,7 +208,7 @@ body {
 
             button:hover {
                 font-size: 14px;
-                background: #009bc2;
+                background: #009CC2;
                 // opacity: 0.8;
             }
 
@@ -318,7 +318,7 @@ body {
 
                 button:hover {
                     font-size: 14px;
-                    background: #009bc2;
+                    background: #009CC2;
                     // opacity: 0.8;
                 }
             }
@@ -378,7 +378,7 @@ body {
         }
 
         img:hover {
-            opacity: 0.8;
+            opacity: 0.5;
         }
     }
 
@@ -583,7 +583,7 @@ body {
 
                 button:hover {
                     font-size: 14px;
-                    background: #009bc2;
+                    background: #009CC2;
                     // opacity: 0.8;
                 }
             }
@@ -651,6 +651,7 @@ body {
             &__input {
                 input {
                     // position: absolute;
+                    outline: none;
                     width: 313px;
                     height: 45px;
                     font-family: Roboto;
@@ -662,6 +663,7 @@ body {
                     background: #FFFFFF;
                     border-radius: 0px;
                     border: 0;
+
 
                     padding-left: 24px;
                 }
@@ -698,6 +700,15 @@ body {
                     font-size: 14px;
                     background: #009BC2;
                     // opacity: 0.8;
+                }
+
+                button:active,
+                button:focus {
+                    outline: none;
+                }
+
+                button::-moz-focus-inner {
+                    border: 0;
                 }
 
             }
@@ -944,7 +955,7 @@ body {
                 text-decoration: none;
             }
 
-            a:hover{
+            a:hover {
                 text-decoration: underline;
 
             }

@@ -177,7 +177,7 @@
 
 .section-yourLife-wrapper__button button:hover {
   font-size: 14px;
-  background: #009bc2;
+  background: #009CC2;
 }
 
 .section-rappresent {
@@ -272,7 +272,7 @@
 
 .section-rappresent-content-wrapper__button button:hover {
   font-size: 14px;
-  background: #009bc2;
+  background: #009CC2;
 }
 
 .section-rappresent-content-image {
@@ -318,7 +318,7 @@
 }
 
 .section-ourCommunity-pagenav img:hover {
-  opacity: 0.8;
+  opacity: 0.5;
 }
 
 .section-ourCommunity-content {
@@ -485,7 +485,7 @@
 
 .section-implement-content-wrapper__button button:hover {
   font-size: 14px;
-  background: #009bc2;
+  background: #009CC2;
 }
 
 .section-subscribe {
@@ -540,6 +540,7 @@
 }
 
 .section-subscribe-content-form__input input {
+  outline: none;
   width: 313px;
   height: 45px;
   font-family: Roboto;
@@ -573,6 +574,15 @@
 .section-subscribe-content-form__button button:hover {
   font-size: 14px;
   background: #009BC2;
+}
+
+.section-subscribe-content-form__button button:active,
+.section-subscribe-content-form__button button:focus {
+  outline: none;
+}
+
+.section-subscribe-content-form__button button::-moz-focus-inner {
+  border: 0;
 }
 
 .section-subscribe-content-emailerror {
