@@ -147,12 +147,15 @@
                         <div class="section-subscribe-content-title">sign up for our newsletter</div>
                         <div class="section-subscribe-content-form">
                             <div class="section-subscribe-content-form__input">
-                                <input type="text" placeholder="E-mail">
+                                <input type="text" placeholder="E-mail" onblur="validateEmail(this);">
                             </div>
                             <div class="section-subscribe-content-form__button">
                                 <button><img src="assets/check-icon.png" alt="check"></button>
                             </div>
                         </div>
+                        <div class="section-subscribe-content-emailerror">Invalid Email Address</div>
+                            
+                        
                     </div>
                 </div>
             </section>
@@ -202,5 +205,18 @@
 
     </div>
 </body>
+<script>
+    function validateEmail(emailField){
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
+        if (reg.test(emailField.value) == false) 
+        {
+            alert('Invalid Email Address');
+            return false;
+        }
+
+        return true;
+
+}
+</script>
 </html>

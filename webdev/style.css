@@ -145,6 +145,7 @@
 }
 
 .section-yourLife-wrapper__button button {
+  cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -172,6 +173,11 @@
   text-align: center;
   text-transform: uppercase;
   color: #FFFFFF;
+}
+
+.section-yourLife-wrapper__button button:hover {
+  font-size: 14px;
+  background: #009bc2;
 }
 
 .section-rappresent {
@@ -230,10 +236,14 @@
   font-size: 14px;
   line-height: 140%;
   color: #4E4E4E;
-  margin-bottom: 30px;
+}
+
+.section-rappresent-content-wrapper__button {
+  margin-top: 33px;
 }
 
 .section-rappresent-content-wrapper__button button {
+  cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -258,6 +268,11 @@
   text-align: center;
   text-transform: uppercase;
   color: #FFFFFF;
+}
+
+.section-rappresent-content-wrapper__button button:hover {
+  font-size: 14px;
+  background: #009bc2;
 }
 
 .section-rappresent-content-image {
@@ -296,6 +311,14 @@
           align-items: center;
   text-align: center;
   color: #373737;
+}
+
+.section-ourCommunity-pagenav img {
+  cursor: pointer;
+}
+
+.section-ourCommunity-pagenav img:hover {
+  opacity: 0.8;
 }
 
 .section-ourCommunity-content {
@@ -433,6 +456,7 @@
 }
 
 .section-implement-content-wrapper__button button {
+  cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -457,6 +481,11 @@
   text-align: center;
   text-transform: uppercase;
   color: #FFFFFF;
+}
+
+.section-implement-content-wrapper__button button:hover {
+  font-size: 14px;
+  background: #009bc2;
 }
 
 .section-subscribe {
@@ -538,6 +567,17 @@
 .section-subscribe-content-form__button button img {
   padding-top: 16px;
   padding-left: 19px;
+}
+
+.section-subscribe-content-emailerror {
+  margin-top: 5px;
+  color: red;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 140%;
+  opacity: 0.9;
 }
 
 .section-download {
