@@ -239,7 +239,7 @@ body {
 
         &-wrapper {
 
-            margin: 120px 0px 0px 270px;
+            margin: 120px 0px 0px 269px;
             display: flex;
             flex-direction: column;
             // color: yellowgreen;
@@ -280,7 +280,7 @@ body {
 
             &__button {
 
-                margin-top: 33px;
+                margin-top: 35px;
 
 
                 // background-color: red;
@@ -327,7 +327,7 @@ body {
         }
 
         &-image {
-            margin: 120px 270px 0px 0px;
+            margin: 120px 269px 0px 0px;
             // position: absolute;
             width: 407px;
             height: 582px;
@@ -673,9 +673,11 @@ body {
             &__button {
 
                 button {
+                    cursor: pointer;
+
                     // position: absolute;
                     width: 66px;
-                    height: 46px;
+                    height: 47px;
                     display: flex;
                     // flex-direction: row;
                     // padding: 15px 47px;
@@ -688,6 +690,14 @@ body {
                         padding-top: 16px;
                         padding-left: 19px;
                     }
+
+
+                }
+
+                button:hover {
+                    font-size: 14px;
+                    background: #009BC2;
+                    // opacity: 0.8;
                 }
 
             }
@@ -695,7 +705,8 @@ body {
         }
 
         &-emailerror {
-            margin-top: 5px;
+            margin-top: 20px;
+            padding-left: 24px;
             color: red;
             font-family: Roboto;
             font-style: normal;
@@ -786,19 +797,21 @@ body {
         }
 
         &-button {
+
             display: flex;
             justify-content: center;
             align-items: center;
 
             button {
+                cursor: pointer;
                 display: inline-flex;
 
 
                 // width: 188px;
                 // height: 50px;
                 // left: 597px;
-                margin-right: 15px;
-                margin-left: 15px;
+                margin-right: 14px;
+                margin-left: 14px;
                 margin-top: 30px;
 
                 // position: absolute;
@@ -837,6 +850,14 @@ body {
 
             }
 
+            button:hover {
+                font-size: 14px;
+                background: #009BC2;
+                // background-size: 110%;
+
+                // opacity: 0.8;
+            }
+
 
             &-text {
                 width: 128px;
@@ -873,6 +894,7 @@ body {
                 background-position: 50%;
                 background-repeat: no-repeat;
                 /* Отменяем повторение фона */
+
             }
 
 
@@ -906,22 +928,29 @@ body {
 
 
         &-nav {
-            font-family: Roboto;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 14px;
-            line-height: 140%;
-            /* identical to box height, or 20px */
-
-
-            color: #FFFFFF;
 
             width: 40%;
-
             display: flex;
+            color: #4e4e4e;
+
+            a {
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 140%;
+                /* identical to box height, or 20px */
+                color: #FFFFFF;
+                text-decoration: none;
+            }
+
+            a:hover{
+                text-decoration: underline;
+
+            }
 
             div {
-                padding: 0px 20px 0px 20px;
+                padding: 0px 19px 0px 19px;
             }
 
 

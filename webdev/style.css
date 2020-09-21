@@ -203,7 +203,7 @@
 }
 
 .section-rappresent-content-wrapper {
-  margin: 120px 0px 0px 270px;
+  margin: 120px 0px 0px 269px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -239,7 +239,7 @@
 }
 
 .section-rappresent-content-wrapper__button {
-  margin-top: 33px;
+  margin-top: 35px;
 }
 
 .section-rappresent-content-wrapper__button button {
@@ -276,7 +276,7 @@
 }
 
 .section-rappresent-content-image {
-  margin: 120px 270px 0px 0px;
+  margin: 120px 269px 0px 0px;
   width: 407px;
   height: 582px;
 }
@@ -554,8 +554,9 @@
 }
 
 .section-subscribe-content-form__button button {
+  cursor: pointer;
   width: 66px;
-  height: 46px;
+  height: 47px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -569,8 +570,14 @@
   padding-left: 19px;
 }
 
+.section-subscribe-content-form__button button:hover {
+  font-size: 14px;
+  background: #009BC2;
+}
+
 .section-subscribe-content-emailerror {
-  margin-top: 5px;
+  margin-top: 20px;
+  padding-left: 24px;
   color: red;
   font-family: Roboto;
   font-style: normal;
@@ -648,11 +655,12 @@
 }
 
 .section-download-wrapper-button button {
+  cursor: pointer;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  margin-right: 15px;
-  margin-left: 15px;
+  margin-right: 14px;
+  margin-left: 14px;
   margin-top: 30px;
   width: 188px;
   height: 46px;
@@ -667,6 +675,11 @@
   color: #FFFFFF;
   background: #00AFDB;
   border-radius: 0px;
+}
+
+.section-download-wrapper-button button:hover {
+  font-size: 14px;
+  background: #009BC2;
 }
 
 .section-download-wrapper-button-text {
@@ -724,6 +737,14 @@
 }
 
 .section-footer-wrapper-nav {
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #4e4e4e;
+}
+
+.section-footer-wrapper-nav a {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
@@ -731,14 +752,15 @@
   line-height: 140%;
   /* identical to box height, or 20px */
   color: #FFFFFF;
-  width: 40%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  text-decoration: none;
+}
+
+.section-footer-wrapper-nav a:hover {
+  text-decoration: underline;
 }
 
 .section-footer-wrapper-nav div {
-  padding: 0px 20px 0px 20px;
+  padding: 0px 19px 0px 19px;
 }
 
 .section-footer-wrapper-logo img {

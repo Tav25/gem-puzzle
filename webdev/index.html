@@ -153,7 +153,7 @@
                                 <button><img src="assets/check-icon.png" alt="check"></button>
                             </div>
                         </div>
-                        <div class="section-subscribe-content-emailerror">Invalid Email Address</div>
+                        <div id="myText" class="section-subscribe-content-emailerror"></div>
                             
                         
                     </div>
@@ -206,15 +206,15 @@
     </div>
 </body>
 <script>
-    function validateEmail(emailField){
+    const validateEmail = (emailField) => {
         var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
-        if (reg.test(emailField.value) == false) 
+        if (reg.test(emailField.value) === false ) 
         {
-            alert('Invalid Email Address');
+            document.querySelector("#myText").innerHTML = "Invalid Email Address";
             return false;
         }
-
+        document.querySelector("#myText").innerHTML = '';
         return true;
 
 }
