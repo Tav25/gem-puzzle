@@ -32,6 +32,15 @@ body {
     z-index: 20;
     // left: calc(50% - 1600px/2);
 
+    &-h1hiden{
+        width: 0px;
+        height: 0px;
+
+        h1{
+            font-size: 1px
+        }
+    }
+
 
     &-meny {
         // background-color: red;
@@ -52,15 +61,37 @@ body {
             width: 140px;
 
         }
+        
 
         a {
             font-family: Roboto;
             font-style: normal;
-            font-weight: 500;
+            font-weight: normal;
             font-size: 14px;
             line-height: 140%;
             color: #FFFFFF;
+            // opacity: 0.8;
         }
+
+        .underline {
+            text-decoration: underline;
+            opacity: 1;
+        }
+
+        .opacity{
+            opacity: 0.8;
+        }
+
+
+        a:hover {
+            opacity: 1;
+          }
+
+        
+
+        
+
+
     }
 
 
