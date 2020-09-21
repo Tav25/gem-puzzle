@@ -398,6 +398,14 @@
           justify-content: space-between;
 }
 
+.section-ourCommunity-content-wrapper2__image3 {
+  overflow: hidden;
+}
+
+.section-ourCommunity-content-wrapper2 img {
+  margin-right: 30px;
+}
+
 .section-implement {
   width: 1600px;
   height: 842px;

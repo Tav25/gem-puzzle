@@ -475,6 +475,21 @@ body {
             flex-direction: row;
             justify-content: space-between;
 
+            &__image3 {
+                overflow: hidden;
+
+                img{
+                    // object-fit: cover;
+                    // width: 100px;
+                    // height: 100px;
+                    
+                }
+            }
+            
+            img {
+                margin-right: 30px;
+            }
+
         }
     }
 
