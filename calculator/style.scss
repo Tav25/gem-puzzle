@@ -6,7 +6,7 @@ body {
     margin: 50px auto;
     background-image: url(assets/body.png);
     width: 491px;
-    height: 736px;
+    height: 864px;
 
 
     &-body {
@@ -35,6 +35,7 @@ body {
         }
 
         &-keyboard {
+            margin-top: 32px;
             &-top {
                 margin-left: 12px;
                 width: 405px;
@@ -42,6 +43,13 @@ body {
 
                 // display: flex;
                 // align-content: space-around;
+                &-key0 {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 5px;
+
+                }
+
                 &-key1 {
                     display: flex;
                     justify-content: space-between;

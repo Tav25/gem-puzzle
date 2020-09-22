@@ -6,7 +6,7 @@ body {
   margin: 50px auto;
   background-image: url(assets/body.png);
   width: 491px;
-  height: 736px;
+  height: 864px;
 }
 
 .calculator-body-display {
@@ -26,10 +26,24 @@ body {
   padding-top: 90px;
 }
 
+.calculator-body-keyboard {
+  margin-top: 32px;
+}
+
 .calculator-body-keyboard-top {
   margin-left: 12px;
   width: 405px;
   height: 472px;
+}
+
+.calculator-body-keyboard-top-key0 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 5px;
 }
 
 .calculator-body-keyboard-top-key1 {
