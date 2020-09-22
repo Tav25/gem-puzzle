@@ -17,6 +17,7 @@ const calculation = (num) => {
 const reset = () => {
     buffer1 = "";
     buffer2 = "";
+    afterRez = "";
     // showDigital(0);
 }
 
@@ -50,13 +51,19 @@ const result = (bf) => {
     }
 
     // buffer2 = "";
-    showDigital(afterRez);
+    showDigital(( Math.floor(afterRez * 100) / 100 ));
     // afterRez = "";
     // buffer1 = 
-    buffer2 = afterRez;
-    buffer1 = "";    
+    buffer1 = afterRez;
+    buffer2 = "";
+    afterRez = "";
 }
-
+const bufferResort = () => {
+    if (buffer2 === "") {
+        buffer2 = buffer1;
+        buffer1 = "";
+    }
+}
 
 dig1.onclick = function (event) { calculation(this.id[3]) }
 dig2.onclick = function (event) { calculation(this.id[3]) }
@@ -71,9 +78,9 @@ dig0.onclick = function (event) { calculation(this.id[3]) }
 
 point.onclick = function (event) { calculation(".") }
 
-backspace.onclick = function (event) { 
+backspace.onclick = function (event) {
     buffer1 = buffer1.slice(0, -1);
-    if (buffer1 === "") {buffer1 = 0}
+    if (buffer1 === "") { buffer1 = 0 }
     showDigital(buffer1)
     console.log();
 }
@@ -86,32 +93,28 @@ ac.onclick = function (event) {
 
 plus.onclick = function (event) {
     buttonFunction = "sum"
-    buffer2 = buffer1;
-    buffer1 = "";
+    bufferResort();
     showDigital(0);
-
 }
 
 
 
 subtract.onclick = function (event) {
     buttonFunction = "sub"
-    buffer2 = buffer1;
-    buffer1 = "";
+    bufferResort();
     showDigital(0);
+
 }
 
 multiply.onclick = function (event) {
     buttonFunction = "mul"
-    buffer2 = buffer1;
-    buffer1 = "";
+    bufferResort();
     showDigital(0);
 }
 
 sublime.onclick = function (event) {
     buttonFunction = "sul"
-    buffer2 = buffer1;
-    buffer1 = "";
+    bufferResort();
     showDigital(0);
 }
 
@@ -122,15 +125,7 @@ rez.onclick = function (event) {
 }
 
 
-
-
-
-
-
-
-
-
-// ! 
+// ! console help function 
 
 AllKeys.onclick = function (event) {
     console.log("b1:" + buffer1 + " b2:" + buffer2 + " rez:" + afterRez + " f:" + buttonFunction);
