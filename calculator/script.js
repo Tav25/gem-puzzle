@@ -1,19 +1,26 @@
 // ! help functions
 
-let x = "";
+let buffer1 = "";// show on display
+let buffer2 = "";// memory
+let buttonFunction;
 
 const showDigital = (input = "0") => {
     document.getElementById("maindisplay").innerHTML = input;
 }
 
 let calculation = (num) => {
-    x = num + x;
-    showDigital(x);
+    buffer1 = buffer1 + num;
+    showDigital(buffer1);
 }
 
+const reset = () => {
+    buffer1 = "";
+    showDigital(0);
+}
 
-// dig0.onclick = function (event) {
-//     console.log(this.id)
+// const result = () => {
+//     buffer1 = "";
+//     showDigital(0);
 // }
 
 dig1.onclick = function (event) { calculation(this.id[3]) }
@@ -27,12 +34,20 @@ dig8.onclick = function (event) { calculation(this.id[3]) }
 dig9.onclick = function (event) { calculation(this.id[3]) }
 dig0.onclick = function (event) { calculation(this.id[3]) }
 
-dig0.onclick = function (event) {
-    x = ""
-    showDigital(x);
+ac.onclick = function (event) {
+    reset();
 }
 
 
+plus.onclick = function (event) {
+    buffer2 = buffer1
+    buttonFunction = "sum"
+    // reset();
+}
+
+rez.onclick = function (event) {
+    showDigital(buffer1*1+1*buffer2);
+}
 
 
 
