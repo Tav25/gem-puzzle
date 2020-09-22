@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+
     <title>Document</title>
 
 </head>
@@ -13,45 +15,56 @@
 
     <div class="calculator">
         <div class="calculator-body">
-            <div class="calculator-body-display"></div>
-            <div class="calculator-body-keyboard">
+            <div class="calculator-body-display">
+                <div id="maindisplay">
+                    5555
+                </div>
+            </div>
+            <div class="calculator-body-keyboard" id="AllKeys">
                 <div class="calculator-body-keyboard-top">
                     <div class="calculator-body-keyboard-top-key1">
-                        <div id="id"><img src="assets/ac.png" alt=""></div>
-                        <div id="id"><img src="assets/bac.png" alt=""></div>
-                        <div id="id"><img src="assets/percent.png" alt=""></div>
-                        <div id="id"><img src="assets/dev.png" alt=""></div>
+                        <div id = "ac" class="functional"><img src="assets/ac.png" alt=""></div>
+                        <div class="functional"><img src="assets/bac.png" alt=""></div>
+                        <div class="functional"><img src="assets/percent.png" alt=""></div>
+                        <div class="functional"><img src="assets/dev.png" alt=""></div>
                     </div>
                     <div class="calculator-body-keyboard-top-key2">
-                        <div id="id"><img src="assets/7.png" alt=""></div>
-                        <div id="id"><img src="assets/8.png" alt=""></div>
-                        <div id="id"><img src="assets/9.png" alt=""></div>
-                        <div id="id"><img src="assets/mn.png" alt=""></div>
-                        
+                        <div id="dig7" class="digital"><img src="assets/7.png" alt=""></div>
+                        <div id="dig8" class="digital"><img src="assets/8.png" alt=""></div>
+                        <div id="dig9" class="digital"><img src="assets/9.png" alt=""></div>
+                        <div class="functional"><img src="assets/mn.png" alt=""></div>
+
                     </div>
                     <div class="calculator-body-keyboard-top-key3">
-                        <div id="id"><img src="assets/4.png" alt=""></div>
-                        <div id="id"><img src="assets/5.png" alt=""></div>
-                        <div id="id"><img src="assets/6.png" alt=""></div>
-                        <div id="id"><img src="assets/min.png" alt=""></div>
-                        
+                        <div id="dig4" class="digital"><img src="assets/4.png" alt=""></div>
+                        <div id="dig5" class="digital"><img src="assets/5.png" alt=""></div>
+                        <div id="dig6" class="digital"><img src="assets/6.png" alt=""></div>
+                        <div class="functional"><img src="assets/min.png" alt=""></div>
+
                     </div>
                     <div class="calculator-body-keyboard-top-key4">
-                        <div id="id"><img src="assets/1.png" alt=""></div>
-                        <div id="id"><img src="assets/2.png" alt=""></div>
-                        <div id="id"><img src="assets/3.png" alt=""></div>
-                        <div id="id"><img src="assets/plus.png" alt=""></div>
+                        <div id="dig1" class="digital"><img src="assets/1.png" alt=""></div>
+                        <div id="dig2" class="digital"><img src="assets/2.png" alt=""></div>
+                        <div id="dig3" class="digital"><img src="assets/3.png" alt=""></div>
+                        <div class="functional"><img src="assets/plus.png" alt=""></div>
                     </div>
                     <div class="calculator-body-keyboard-top-key5">
-                        <div id="id"><img src="assets/0.png" alt="" ></div>
-                        <div id="id"><img src="assets/point.png" alt=""></div>
-                        <div id="id"><img src="assets/rez.png" alt="" ></div>
+                        <div id="dig0" value="0" class="digital"><img src="assets/0.png" alt=""></div>
+                        <div class="functional"><img src="assets/point.png" alt=""></div>
+                        <div class="functional"><img src="assets/rez.png" alt=""></div>
                     </div>
                 </div>
             </div>
         </div>
 
     </div>
+    <button type="button" onclick='showDigital()'>Click Me!</button>
+
+    <input type="button" value="Нажми меня" id="elem">
+
+    <script src="script.js"></script>
+
+
 </body>
 
 </html>
