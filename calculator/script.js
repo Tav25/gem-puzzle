@@ -15,13 +15,46 @@ let calculation = (num) => {
 
 const reset = () => {
     buffer1 = "";
-    showDigital(0);
+    buffer2 = "";
+    // showDigital(0);
 }
 
-// const result = () => {
-//     buffer1 = "";
-//     showDigital(0);
-// }
+const result = (bf) => {
+
+
+
+    switch (bf) {
+        case "sum":
+            console.log("+");
+            buffer1 = (buffer2 * 1) + (1 * buffer1);
+            break;
+
+        case "sub":
+            console.log("-");
+            buffer1 = (buffer2 * 1) - (1 * buffer1);
+            break;
+
+        case "mul":
+            console.log("*");
+            buffer1 = (buffer2 * 1) * (1 * buffer1);
+            break;
+
+        case "sul":
+            console.log("/");
+            buffer1 = (buffer2 * 1) / (1 * buffer1);
+            break;
+
+        default:
+            break;
+    }
+
+
+
+
+    buffer2 = "";
+    showDigital(buffer1);
+}
+
 
 dig1.onclick = function (event) { calculation(this.id[3]) }
 dig2.onclick = function (event) { calculation(this.id[3]) }
@@ -36,18 +69,45 @@ dig0.onclick = function (event) { calculation(this.id[3]) }
 
 ac.onclick = function (event) {
     reset();
+    showDigital(0);
 }
 
-
 plus.onclick = function (event) {
-    buffer2 = buffer1
     buttonFunction = "sum"
-    // reset();
+    buffer2 = buffer1;
+    buffer1 = "";
+    showDigital(0);
+
+}
+
+subtract.onclick = function (event) {
+    buttonFunction = "sub"
+    buffer2 = buffer1;
+    buffer1 = "";
+    showDigital(0);
+}
+
+multiply.onclick = function (event) {
+    buttonFunction = "mul"
+    buffer2 = buffer1;
+    buffer1 = "";
+    showDigital(0);
+}
+
+sublime.onclick = function (event) {
+    buttonFunction = "sul"
+    buffer2 = buffer1;
+    buffer1 = "";
+    showDigital(0);
 }
 
 rez.onclick = function (event) {
-    showDigital(buffer1*1+1*buffer2);
+    result(buttonFunction);
+    // reset();
+
 }
+
+
 
 
 
@@ -55,28 +115,12 @@ rez.onclick = function (event) {
 
 
 // ! 
-console.log('Test');
 
-// dig1.onclick = function(event) {
-    //     // вывести тип события, элемент и координаты клика
-    //     console.log(event.type + " на " + event.currentTarget);
-//     console.log(event.clientX + ":" + event.clientY);
-
-//   }
+AllKeys.onclick = function (event) {
+    console.log("b1:" + buffer1 + " b2:" + buffer2 + " f:" + buttonFunction);
+}
 
 
-//   $("#popupShapes ul li input").click(function(element) {
-//     var el = $(this).val();
-//     console.log(el);
-//   });
-
-
-// !
-
-
-// $("#testarea").mousemove(function(e) {
-// 	$("#info").val($(e.target).attr("id"));
-// })
 
 
 
