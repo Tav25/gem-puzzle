@@ -3,12 +3,13 @@
 let buffer1 = "";// show on display
 let buffer2 = "";// memory
 let buttonFunction;
+let afterRez;
 
 const showDigital = (input = "0") => {
     document.getElementById("maindisplay").innerHTML = input;
 }
 
-let calculation = (num) => {
+const calculation = (num) => {
     buffer1 = buffer1 + num;
     showDigital(buffer1);
 }
@@ -26,33 +27,34 @@ const result = (bf) => {
     switch (bf) {
         case "sum":
             console.log("+");
-            buffer1 = (buffer2 * 1) + (1 * buffer1);
+            afterRez = (buffer2 * 1) + (1 * buffer1);
             break;
 
         case "sub":
             console.log("-");
-            buffer1 = (buffer2 * 1) - (1 * buffer1);
+            afterRez = (buffer2 * 1) - (1 * buffer1);
             break;
 
         case "mul":
             console.log("*");
-            buffer1 = (buffer2 * 1) * (1 * buffer1);
+            afterRez = (buffer2 * 1) * (1 * buffer1);
             break;
 
         case "sul":
             console.log("/");
-            buffer1 = (buffer2 * 1) / (1 * buffer1);
+            afterRez = (buffer2 * 1) / (1 * buffer1);
             break;
 
         default:
             break;
     }
 
-
-
-
-    buffer2 = "";
-    showDigital(buffer1);
+    // buffer2 = "";
+    showDigital(afterRez);
+    // afterRez = "";
+    // buffer1 = 
+    buffer2 = afterRez;
+    buffer1 = "";    
 }
 
 
@@ -67,6 +69,16 @@ dig8.onclick = function (event) { calculation(this.id[3]) }
 dig9.onclick = function (event) { calculation(this.id[3]) }
 dig0.onclick = function (event) { calculation(this.id[3]) }
 
+point.onclick = function (event) { calculation(".") }
+
+backspace.onclick = function (event) { 
+    buffer1 = buffer1.slice(0, -1);
+    if (buffer1 === "") {buffer1 = 0}
+    showDigital(buffer1)
+    console.log();
+}
+
+
 ac.onclick = function (event) {
     reset();
     showDigital(0);
@@ -79,6 +91,8 @@ plus.onclick = function (event) {
     showDigital(0);
 
 }
+
+
 
 subtract.onclick = function (event) {
     buttonFunction = "sub"
@@ -114,10 +128,12 @@ rez.onclick = function (event) {
 
 
 
+
+
 // ! 
 
 AllKeys.onclick = function (event) {
-    console.log("b1:" + buffer1 + " b2:" + buffer2 + " f:" + buttonFunction);
+    console.log("b1:" + buffer1 + " b2:" + buffer2 + " rez:" + afterRez + " f:" + buttonFunction);
 }
 
 
