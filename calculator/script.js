@@ -8,6 +8,7 @@ let buttonFunction = "";
 let lastNumber = 0;
 let clickControl = false;
 let buttonFunctionMemory = "";
+let hasPoint = false;
 
 
 const showDigital = (input = "0") => {
@@ -15,13 +16,19 @@ const showDigital = (input = "0") => {
 }
 
 const calculation = (num = 0) => {
+
+    if ((buttonFunction !== "") && (clickControl === false)) { reset() }// сброс после "= число"
+
     if (buttonFunction === "") {
         buffer1 = (buffer1 + num) * 1;
+        if (num === ".") {buffer1 = (buffer1 + num)}// точка
         showDigital(buffer1);
     } else {
         buffer2 = (buffer2 + num) * 1;
+        if (num === ".") {buffer2 = (buffer2 + num)}// точка
         showDigital(buffer2);
     }
+
     lastNumber = buffer2;
 
 }
@@ -49,7 +56,7 @@ const bufferResort = () => {
 const result = (bf) => {
     // buffer1 = 50;
     // buffer2 = 75;
-    console.log("result clickControl=" + clickControl + "  F:" + bf + " FM:" + buttonFunctionMemory);
+    // console.log("result clickControl=" + clickControl + "  F:" + bf + " FM:" + buttonFunctionMemory);
 
     if (buttonFunctionMemory === "") {
         console.log("new fun");
@@ -68,12 +75,12 @@ const result = (bf) => {
             break;
 
         case "mul":
-            if(buffer2 === 0) {buffer2 = 1}
+            if (buffer2 === 0) { buffer2 = 1 }
             afterRez = buffer1 * buffer2;
             break;
 
         case "sul":
-            if(buffer2 === 0) {buffer2 = 1}
+            if (buffer2 === 0) { buffer2 = 1 }
             afterRez = buffer1 / buffer2;
             break;
         default:
@@ -102,9 +109,7 @@ dig9.onclick = function (event) { calculation(this.id[3]) }
 dig0.onclick = function (event) { calculation(this.id[3]) }
 
 point.onclick = function (event) {
-    // calculation("1.0") 
-
-    // showDigital(buffer1 + ".");
+    calculation(".")
 }
 
 backspace.onclick = function (event) {
@@ -157,7 +162,7 @@ rez.onclick = function (event) {
 // ! console help function 
 
 AllKeys.onclick = function (event) {
-    console.log(`^${buffer1}^^${buffer2}^^${afterRez}^^${lastNumber}^^${buttonFunction}^^${buttonFunctionMemory}`)
+    console.log(`^${buffer1}^^${buffer2}^^${afterRez}^^${lastNumber}^^${buttonFunction}^^${buttonFunctionMemory} ^^${clickControl}`)
 }
 
 
