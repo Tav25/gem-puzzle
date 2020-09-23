@@ -7,6 +7,7 @@ let afterRez = 0;
 let buttonFunction = "";
 let lastNumber = 0;
 let clickControl = false;
+let buttonFunctionMemory = "";
 
 
 const showDigital = (input = "0") => {
@@ -33,6 +34,7 @@ const reset = () => {
     buttonFunction = "";
     lastNumber = 0;
     clickControl = false;
+    buttonFunctionMemory = "";
     console.log("--------------------------")
 
 }
@@ -47,39 +49,40 @@ const bufferResort = () => {
 const result = (bf) => {
     // buffer1 = 50;
     // buffer2 = 75;
-    console.log("result clickControl=" + clickControl);
+    console.log("result clickControl=" + clickControl + "  F:" + bf + " FM:" + buttonFunctionMemory);
 
-    switch (bf) {
+    if (buttonFunctionMemory === "") {
+        console.log("new fun");
+        buttonFunctionMemory = bf;
+    }
+    // buttonFunctionMemory = bf;
+    if (clickControl === false) { buffer2 = lastNumber; }
+    switch (buttonFunctionMemory) {
+
         case "sum":
-            // console.log("+");
             afterRez = buffer1 + buffer2;
-            buffer1 = afterRez
-            buffer2 = lastNumber;
-            if (clickControl === true) { buffer2 = 0; }
             break;
+
         case "sub":
-            console.log("-");
             afterRez = buffer1 - buffer2;
-            buffer1 = afterRez
-            buffer2 = lastNumber;
-            if (clickControl === true) { buffer2 = 0; }
             break;
+
         case "mul":
-            console.log("*");
+            if(buffer2 === 0) {buffer2 = 1}
             afterRez = buffer1 * buffer2;
-            buffer1 = afterRez
-            buffer2 = lastNumber;
             break;
+
         case "sul":
-            console.log("/");
+            if(buffer2 === 0) {buffer2 = 1}
             afterRez = buffer1 / buffer2;
-            buffer1 = afterRez
-            buffer2 = lastNumber;
             break;
         default:
             // afterRez = "0"
             break;
     }
+    buffer1 = afterRez
+    buffer2 = 0;
+    buttonFunctionMemory = bf;
 
     // showDigital(afterRez);
     showDigital((Math.floor(afterRez * 100) / 100));
@@ -119,24 +122,28 @@ ac.onclick = function (event) {
 
 plus.onclick = function (event) {
     clickControl = true;
-    result(buttonFunction);
     buttonFunction = "sum"
+    result(buttonFunction);
 
 }
 
 subtract.onclick = function (event) {
     clickControl = true;
-    result(buttonFunction);
     buttonFunction = "sub"
+    result(buttonFunction);
 }
 
 multiply.onclick = function (event) {
+    clickControl = true;
     buttonFunction = "mul"
+    result(buttonFunction);
 
 }
 
 sublime.onclick = function (event) {
+    clickControl = true;
     buttonFunction = "sul"
+    result(buttonFunction);
 
 }
 
@@ -150,7 +157,7 @@ rez.onclick = function (event) {
 // ! console help function 
 
 AllKeys.onclick = function (event) {
-    console.log(`^${buffer1}^^${buffer2}^^${afterRez}^^${buttonFunction}`)
+    console.log(`^${buffer1}^^${buffer2}^^${afterRez}^^${lastNumber}^^${buttonFunction}^^${buttonFunctionMemory}`)
 }
 
 
