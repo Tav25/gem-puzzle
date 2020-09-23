@@ -17,15 +17,19 @@ const showDigital = (input = "0") => {
 
 const calculation = (num = 0) => {
 
+
     if ((buttonFunction !== "") && (clickControl === false)) { reset() }// сброс после "= число"
 
+
     if (buttonFunction === "") {
-        buffer1 = (buffer1 + num) * 1;
-        if (num === ".") { buffer1 = (buffer1 + num) }// точка
+        if ((num === ".") || (num === "0")) { buffer1 = (buffer1 + num) }
+        else { buffer1 = (buffer1 + num) * 1; }// точка
+        if (buffer1 === "00") { buffer1 = 0 }
         showDigital(buffer1);
     } else {
-        buffer2 = (buffer2 + num) * 1;
-        if (num === ".") { buffer2 = (buffer2 + num) }// точка
+        if ((num === ".") || (num === "0")) { buffer2 = (buffer2 + num) }
+        else { buffer2 = (buffer2 + num) * 1; }// точка
+        if (buffer2 === "00") { buffer2 = 0 }
         showDigital(buffer2);
     }
 
@@ -42,6 +46,7 @@ const reset = () => {
     lastNumber = 0;
     clickControl = false;
     buttonFunctionMemory = "";
+    hasPoint = false;
     console.log("--------------------------")
 
 }
@@ -54,6 +59,7 @@ const bufferResort = () => {
 }
 
 const result = (bf) => {
+    hasPoint = false;
     // buffer1 = 50;
     // buffer2 = 75;
     // console.log("result clickControl=" + clickControl + "  F:" + bf + " FM:" + buttonFunctionMemory);
@@ -85,7 +91,7 @@ const result = (bf) => {
             break;
 
         case "rootNumber":
-            if (buffer1 < 0){ 
+            if (buffer1 < 0) {
                 afterRez = NaN;
                 break;
             }
@@ -109,11 +115,12 @@ const result = (bf) => {
     buttonFunctionMemory = bf;
 
     // showDigital(afterRez);
-    showDigital((Math.floor(afterRez * 100) / 100));
+    showDigital((Math.floor(afterRez * 1000) / 1000));
+    // showDigital(afterRez);
     if (afterRez !== afterRez) { //if NaN
         showDigital("Err");
         reset();
-    } 
+    }
 
 }
 
@@ -143,13 +150,21 @@ minus_sign.onclick = function (event) {
 
 
 
-point.onclick = function (event) { calculation(".") }
+point.onclick = function (event) {
+    if (hasPoint === false) { calculation(".") }
+    hasPoint = true;
+}
 
 backspace.onclick = function (event) {
-    buffer1 = buffer1.toString().slice(0, -1) * 1;
-    if (buffer1 === 0) { buffer1 = 0 }
-    showDigital(buffer1);
-    console.log();
+
+    if (afterRez === 0) {
+
+        if ((buffer1 < 0) && (buffer1 > -10)) { buffer1 = 0 }// error "-5"
+        buffer1 = buffer1.toString().slice(0, -1) * 1;
+        if (buffer1 === 0) { buffer1 = 0 }
+        showDigital(buffer1);
+        console.log();
+    }
 }
 
 
