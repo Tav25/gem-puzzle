@@ -16,7 +16,7 @@ body {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 72px;
+  font-size: 84px;
   line-height: 84px;
   text-align: right;
   color: #36A54F;
@@ -27,7 +27,7 @@ body {
 }
 
 .calculator-body-keyboard {
-  margin-top: 30px;
+  margin-top: 32px;
 }
 
 .calculator-body-keyboard-top {
