@@ -21,11 +21,11 @@ const calculation = (num = 0) => {
 
     if (buttonFunction === "") {
         buffer1 = (buffer1 + num) * 1;
-        if (num === ".") {buffer1 = (buffer1 + num)}// точка
+        if (num === ".") { buffer1 = (buffer1 + num) }// точка
         showDigital(buffer1);
     } else {
         buffer2 = (buffer2 + num) * 1;
-        if (num === ".") {buffer2 = (buffer2 + num)}// точка
+        if (num === ".") { buffer2 = (buffer2 + num) }// точка
         showDigital(buffer2);
     }
 
@@ -83,6 +83,23 @@ const result = (bf) => {
             if (buffer2 === 0) { buffer2 = 1 }
             afterRez = buffer1 / buffer2;
             break;
+
+        case "rootNumber":
+            if (buffer1 < 0){ 
+                afterRez = NaN;
+                break;
+            }
+
+            afterRez = Math.sqrt(buffer1);
+            // buffer1 = afterRez;// show on display
+            // buffer2 = 0;// memory
+            buttonFunction = "";
+            lastNumber = 0;
+            // clickControl = true;
+            bf = "";
+            console.log(afterRez);
+            break;
+
         default:
             // afterRez = "0"
             break;
@@ -93,6 +110,10 @@ const result = (bf) => {
 
     // showDigital(afterRez);
     showDigital((Math.floor(afterRez * 100) / 100));
+    if (afterRez !== afterRez) { //if NaN
+        showDigital("Err");
+        reset();
+    } 
 
 }
 
@@ -108,9 +129,21 @@ dig8.onclick = function (event) { calculation(this.id[3]) }
 dig9.onclick = function (event) { calculation(this.id[3]) }
 dig0.onclick = function (event) { calculation(this.id[3]) }
 
-point.onclick = function (event) {
-    calculation(".")
+
+minus_sign.onclick = function (event) {
+
+    if (buttonFunction === "") {
+        buffer1 = (buffer1) * -1;
+        showDigital(buffer1);
+    } else {
+        buffer2 = (buffer2) * -1;
+        showDigital(buffer2);
+    }
 }
+
+
+
+point.onclick = function (event) { calculation(".") }
 
 backspace.onclick = function (event) {
     buffer1 = buffer1.toString().slice(0, -1) * 1;
@@ -123,6 +156,12 @@ backspace.onclick = function (event) {
 ac.onclick = function (event) {
     reset();
     showDigital(0);
+}
+
+root_number.onclick = function (event) {
+    clickControl = false;
+    buttonFunction = "rootNumber"
+    result(buttonFunction);
 }
 
 plus.onclick = function (event) {
