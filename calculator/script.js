@@ -78,25 +78,25 @@ const result = (bf) => {
     if (clickControl === false) { buffer2 = lastNumber; }
     switch (buttonFunctionMemory) {
 
-        case "sum":
+        case "+":
             afterRez = buffer1 + buffer2;
             break;
 
-        case "sub":
+        case "-":
             afterRez = buffer1 - buffer2;
             break;
 
-        case "mul":
+        case "*":
             if (buffer2 === 0) { buffer2 = 1 }
             afterRez = buffer1 * buffer2;
             break;
 
-        case "sul":
+        case "/":
             if (buffer2 === 0) { buffer2 = 1 }
             afterRez = buffer1 / buffer2;
             break;
 
-        case "rootNumber":
+        case "√":
             if (buffer1 < 0) {
                 afterRez = NaN;
                 break;
@@ -112,14 +112,14 @@ const result = (bf) => {
             console.log(afterRez);
             break;
 
-        case "c2":
+        case "**":
             // if (buffer2 === 0) { buffer2 = 1 }
             afterRez = Math.pow(buffer1, 2); 
             buttonFunction = "";
             lastNumber = 0;
             break;
 
-        case "cx":
+        case "**x":
             if (buffer2 === 0) { buffer2 = 1 }
             afterRez = Math.pow(buffer1, buffer2); 
             break;
@@ -194,45 +194,45 @@ ac.onclick = function (event) {
 
 c2.onclick = function (event) {
     clickControl = false;
-    buttonFunction = "c2"
+    buttonFunction = "**"
     result(buttonFunction);
 }
 
 cx.onclick = function (event) {
     clickControl = true;
-    buttonFunction = "cx"
+    buttonFunction = "**x"
     result(buttonFunction);
 }
 
 root_number.onclick = function (event) {
     clickControl = false;
-    buttonFunction = "rootNumber"
+    buttonFunction = "√"
     result(buttonFunction);
 }
 
 plus.onclick = function (event) {
     clickControl = true;
-    buttonFunction = "sum"
+    buttonFunction = "+"
     result(buttonFunction);
 
 }
 
 subtract.onclick = function (event) {
     clickControl = true;
-    buttonFunction = "sub"
+    buttonFunction = "-"
     result(buttonFunction);
 }
 
 multiply.onclick = function (event) {
     clickControl = true;
-    buttonFunction = "mul"
+    buttonFunction = "*"
     result(buttonFunction);
 
 }
 
 sublime.onclick = function (event) {
     clickControl = true;
-    buttonFunction = "sul"
+    buttonFunction = "/"
     result(buttonFunction);
 
 }

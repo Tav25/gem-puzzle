@@ -5,25 +5,25 @@ body {
 .calculator {
   margin: 50px auto;
   background-image: url(assets/body.png);
-  width: 491px;
-  height: 864px;
+  width: 400px;
+  height: 660px;
 }
 
 .calculator-body-display {
   margin-left: 12px;
-  width: 405px;
-  height: 200px;
+  width: 330px;
+  height: 150px;
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 84px;
+  font-size: 72px;
   line-height: 84px;
   text-align: right;
   color: #36A54F;
 }
 
 .calculator-body-display #maindisplay {
-  padding-top: 90px;
+  padding-top: 75px;
 }
 
 .calculator-body-keyboard {
@@ -31,9 +31,9 @@ body {
 }
 
 .calculator-body-keyboard-top {
-  margin-left: 12px;
-  width: 405px;
-  height: 472px;
+  margin-left: 8px;
+  width: 340px;
+  height: 430px;
 }
 
 .calculator-body-keyboard-top-key0 {
@@ -43,7 +43,6 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 5px;
 }
 
 .calculator-body-keyboard-top-key1 {
@@ -53,7 +52,6 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 5px;
 }
 
 .calculator-body-keyboard-top-key2 {
@@ -63,7 +61,6 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 5px;
 }
 
 .calculator-body-keyboard-top-key3 {
@@ -73,7 +70,6 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 5px;
 }
 
 .calculator-body-keyboard-top-key4 {
@@ -83,7 +79,6 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 5px;
 }
 
 .calculator-body-keyboard-top-key5 {
@@ -93,7 +88,6 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 5px;
 }
 
 .calculator-body-keyboard img {
