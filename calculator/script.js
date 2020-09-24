@@ -1,4 +1,4 @@
-// ! help functions
+
 
 let buffer1 = 0;// show on display
 let buffer2 = 0;// memory
@@ -11,12 +11,18 @@ let buttonFunctionMemory = "";
 let hasPoint = false;
 
 
-const showDigital = (input = "0") => {
-    document.getElementById("maindisplay").innerHTML = input;
+const showDigital = (input = 0) => {
+    if ((input > 99999999) || (input < -99999999) || (input.toString().includes('e') === true)) {
+        console.log(input = "Err");
+        reset();
+    }
+
+    document.getElementById("maindisplay").innerHTML = input.toString().slice(0, 9);
 }
 
 const calculation = (num = 0) => {
 
+    if ((buffer2.toString().length >= 10) || (buffer1.toString().length >= 10)) { num = "" }
 
     if ((buttonFunction !== "") && (clickControl === false)) { reset() }// сброс после "= число"
 
@@ -106,17 +112,30 @@ const result = (bf) => {
             console.log(afterRez);
             break;
 
+        case "c2":
+            // if (buffer2 === 0) { buffer2 = 1 }
+            afterRez = Math.pow(buffer1, 2); 
+            buttonFunction = "";
+            lastNumber = 0;
+            break;
+
+        case "cx":
+            if (buffer2 === 0) { buffer2 = 1 }
+            afterRez = Math.pow(buffer1, buffer2); 
+            break;
+
         default:
             // afterRez = "0"
             break;
     }
+    afterRez = (Math.floor(afterRez * 1000000) / 1000000)
     buffer1 = afterRez
     buffer2 = 0;
     buttonFunctionMemory = bf;
 
     // showDigital(afterRez);
-    showDigital((Math.floor(afterRez * 1000) / 1000));
-    // showDigital(afterRez);
+    // showDigital((Math.floor(afterRez * 1000) / 1000));
+    showDigital(afterRez);
     if (afterRez !== afterRez) { //if NaN
         showDigital("Err");
         reset();
@@ -171,6 +190,18 @@ backspace.onclick = function (event) {
 ac.onclick = function (event) {
     reset();
     showDigital(0);
+}
+
+c2.onclick = function (event) {
+    clickControl = false;
+    buttonFunction = "c2"
+    result(buttonFunction);
+}
+
+cx.onclick = function (event) {
+    clickControl = true;
+    buttonFunction = "cx"
+    result(buttonFunction);
 }
 
 root_number.onclick = function (event) {
