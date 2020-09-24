@@ -1,4 +1,4 @@
-// ! help functions
+
 
 let buffer1 = 0;// show on display
 let buffer2 = 0;// memory
@@ -12,7 +12,7 @@ let hasPoint = false;
 
 
 const showDigital = (input = 0) => {
-    if ((input > 99999999) || (input < -99999999) || (input.toString().includes('e') === true)){
+    if ((input > 99999999) || (input < -99999999) || (input.toString().includes('e') === true)) {
         console.log(input = "Err");
         reset();
     }
@@ -22,7 +22,7 @@ const showDigital = (input = 0) => {
 
 const calculation = (num = 0) => {
 
-    if ((buffer2.toString().length >= 10) || (buffer1.toString().length >= 10)) {num = ""}
+    if ((buffer2.toString().length >= 10) || (buffer1.toString().length >= 10)) { num = "" }
 
     if ((buttonFunction !== "") && (clickControl === false)) { reset() }// сброс после "= число"
 
@@ -112,6 +112,18 @@ const result = (bf) => {
             console.log(afterRez);
             break;
 
+        case "c2":
+            // if (buffer2 === 0) { buffer2 = 1 }
+            afterRez = Math.pow(buffer1, 2); 
+            buttonFunction = "";
+            lastNumber = 0;
+            break;
+
+        case "cx":
+            if (buffer2 === 0) { buffer2 = 1 }
+            afterRez = Math.pow(buffer1, buffer2); 
+            break;
+
         default:
             // afterRez = "0"
             break;
@@ -178,6 +190,18 @@ backspace.onclick = function (event) {
 ac.onclick = function (event) {
     reset();
     showDigital(0);
+}
+
+c2.onclick = function (event) {
+    clickControl = false;
+    buttonFunction = "c2"
+    result(buttonFunction);
+}
+
+cx.onclick = function (event) {
+    clickControl = true;
+    buttonFunction = "cx"
+    result(buttonFunction);
 }
 
 root_number.onclick = function (event) {
