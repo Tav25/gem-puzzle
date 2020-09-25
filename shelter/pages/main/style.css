@@ -331,6 +331,138 @@ html {
   background: #FFFFFF;
 }
 
+.section-help-wrapper {
+  width: 1200px;
+  height: 431px;
+  padding-top: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section-help-wrapper-title {
+  width: 310px;
+  height: 90px;
+  /* h3 */
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 35px;
+  line-height: 130%;
+  text-align: center;
+  letter-spacing: 0.06em;
+  color: #545454;
+}
+
+.section-help-wrapper-wrapperIcons0 {
+  width: 1026px;
+  height: 113px;
+  padding-top: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+}
+
+.section-help-wrapper-wrapperIcons0-icon {
+  height: 113px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section-help-wrapper-wrapperIcons0-icon-image {
+  width: 60px;
+  height: 60px;
+}
+
+.section-help-wrapper-wrapperIcons0-icon-text {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 115%;
+  padding-top: 30px;
+  text-align: center;
+  letter-spacing: 0.06em;
+  /* color-dark-l */
+  color: #545454;
+}
+
+.section-help-wrapper-wrapperIcons1 {
+  height: 113px;
+  width: 858px;
+  padding-top: 55px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+}
+
+.section-help-wrapper-wrapperIcons1-icon {
+  height: 113px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section-help-wrapper-wrapperIcons1-icon-image {
+  width: 60px;
+  height: 60px;
+}
+
+.section-help-wrapper-wrapperIcons1-icon-text {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 115%;
+  padding-top: 30px;
+  text-align: center;
+  letter-spacing: 0.06em;
+  /* color-dark-l */
+  color: #545454;
+}
+
 .section-inAddition {
   height: 464px;
   top: 2984px;
