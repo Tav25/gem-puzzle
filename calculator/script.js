@@ -129,7 +129,7 @@ const result = (bf) => {
             // afterRez = "0"
             break;
     }
-    afterRez = (Math.floor(afterRez * 1000000) / 1000000)
+    afterRez = (Math.floor(afterRez * 10000) / 10000)
     buffer1 = afterRez
     buffer2 = 0;
     buttonFunctionMemory = bf;
