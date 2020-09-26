@@ -88,7 +88,8 @@ const result = (bf) => {
 
         case "*":
             if (buffer2 === 0) { buffer2 = 1 }
-            afterRez = buffer1 * buffer2;
+            afterRez = (buffer1) * (buffer2);
+            // if ((buffer2 < 0) && (buffer1 < 0)) { afterRez = 777 }
             break;
 
         case "/":
@@ -114,14 +115,14 @@ const result = (bf) => {
 
         case "**":
             // if (buffer2 === 0) { buffer2 = 1 }
-            afterRez = Math.pow(buffer1, 2); 
+            afterRez = Math.pow(buffer1, 2);
             buttonFunction = "";
             lastNumber = 0;
             break;
 
         case "**x":
             if (buffer2 === 0) { buffer2 = 1 }
-            afterRez = Math.pow(buffer1, buffer2); 
+            afterRez = Math.pow(buffer1, buffer2);
             break;
 
         default:
@@ -160,9 +161,11 @@ minus_sign.onclick = function (event) {
 
     if (buttonFunction === "") {
         buffer1 = (buffer1) * -1;
+        lastNumber = buffer1;
         showDigital(buffer1);
     } else {
         buffer2 = (buffer2) * -1;
+        lastNumber = buffer2;
         showDigital(buffer2);
     }
 }
