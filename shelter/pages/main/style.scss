@@ -376,6 +376,8 @@ html {
     height: 611px;
     background: #FFFFFF;
 
+
+
     &-wrapper {
         width: 1200px;
         height: 431px;
@@ -501,8 +503,135 @@ html {
     top: 2984px;
 
     /* color-light-l */
+    background-color: #F6F6F6;
 
-    background: #F6F6F6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    &-wrapper {
+        // width: 1200px;
+        height: 284px;
+        margin-top: 80px;
+        // background-color: chartreuse;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+        &-image {
+            width: 505px;
+            height: 261px;
+            margin-right: 30px;
+        }
+
+        &-content {
+            width: 380px;
+            height: 282px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            align-content: flex-start;
+
+            &-title {
+                width: 300px;
+                height: 90px;
+                font-family: Georgia;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 35px;
+                line-height: 130%;
+                letter-spacing: 0.06em;
+
+                /* color-dark-l */
+
+                color: #545454;
+            }
+
+            &-bank {
+                width: 310px;
+                height: 17px;
+
+                /* h5 */
+
+                font-family: Georgia;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 15px;
+                line-height: 110%;
+
+                letter-spacing: 0.06em;
+
+                /* color-dark-l */
+
+                color: #545454;
+            }
+
+            &-card {
+
+                display: flex;
+                align-items: flex-start;
+                align-content: flex-start;
+
+                padding: 10px 0px 0px 15px;
+
+
+                width: 334px;
+                height: 32px;
+
+
+                /* color-primary */
+
+                background: #F1CDB3;
+                border-radius: 9px;
+
+                &-icon {
+                    margin-right: 15px;
+                }
+
+                &-number {
+
+                    width: 275px;
+                    height: 23px;
+
+
+                    /* h4 */
+
+                    font-family: Georgia;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 20px;
+                    line-height: 115%;
+                    /* identical to box height, or 23px */
+
+                    letter-spacing: 0.06em;
+
+                    /* color-dark-l */
+
+                    color: #545454;
+                }
+
+            }
+
+            &-text {
+                width: 380px;
+                height: 72px;
+
+                /* donation-description */
+
+                font-family: Arial;
+                font-style: italic;
+                font-weight: normal;
+                font-size: 12px;
+                line-height: 18px;
+                color: #B2B2B2;
+            }
+
+        }
+    }
 }
 
 .section-footer {
