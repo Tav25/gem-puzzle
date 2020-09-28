@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
 
-    <title>Document</title>
+    <title>Calculator</title>
 
 </head>
 
@@ -16,6 +16,7 @@
     <div class="calculator">
         <div class="calculator-body">
             <div class="calculator-body-display">
+                <div id="fun"></div>
                 <div id="maindisplay">
                     0
                 </div>
@@ -26,12 +27,12 @@
                         <div id="ac" class="functional"><img src="assets/ce.png" alt=""></div>
                         <div id="cx" class="functional"><img src="assets/cx.png" alt=""></div>
                         <div id="c2" class="functional"><img src="assets/c2.png" alt=""></div>
-                        <div class="functional"><img src="assets/button.png" alt=""></div>
+                        <div id="pi" class="functional"><img src="assets/pi.png" alt=""></div>
                     </div>
                     <div class="calculator-body-keyboard-top-key1">
                         <div id="backspace" class="functional"><img src="assets/backspace.png" alt=""></div>
-                        <div id="minus_sign" class="functional" ><img src="assets/to_minus.png" alt=""></div>
-                        <div id="root_number" class="functional" ><img src="assets/root.png" alt=""></div>
+                        <div id="minus_sign" class="functional"><img src="assets/to_minus.png" alt=""></div>
+                        <div id="root_number" class="functional"><img src="assets/root.png" alt=""></div>
                         <div id="sublime" class="functional"><img src="assets/dev.png" alt=""></div>
                     </div>
                     <div class="calculator-body-keyboard-top-key2">
@@ -62,6 +63,19 @@
                 </div>
             </div>
         </div>
+
+    </div>
+
+    <div class="instruction">
+        <ul>
+            <li> Калькулятор выполняет четыре арифметические операции, извлечение квадратного корня, возведение числа в степень .
+            </li>
+            <li>Если результата вычислений превышеат 8 символов или при извлечение квадратного корня из отрицательного числа
+                на дисплей выводится надпись «Err».</li>
+            <li>Есть кнопка числа "Пи", возведение в квадратный корень и повторное нажатие на "=" с выводом результата <br>( 2 +
+                3 => 5 => 8 => 11 )</li>
+            <li>discord: TURBIN#3078</li>
+        </ul>
 
     </div>
 

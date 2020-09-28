@@ -1,8 +1,8 @@
 
 
-let buffer1 = 0;// show on display
-let buffer2 = 0;// memory
-let buffer3 = 0;// memory
+let buffer1 = 0;
+let buffer2 = 0;
+let buffer3 = 0;
 let afterRez = 0;
 let buttonFunction = "";
 let lastNumber = 0;
@@ -18,6 +18,10 @@ const showDigital = (input = 0) => {
     }
 
     document.getElementById("maindisplay").innerHTML = input.toString().slice(0, 9);
+}
+
+const showFun = (input = "") => {
+    document.getElementById("fun").innerHTML = input;
 }
 
 const calculation = (num = 0) => {
@@ -53,6 +57,7 @@ const reset = () => {
     clickControl = false;
     buttonFunctionMemory = "";
     hasPoint = false;
+    showFun("")
     console.log("--------------------------")
 
 }
@@ -65,6 +70,7 @@ const bufferResort = () => {
 }
 
 const result = (bf) => {
+    showFun(bf);
     hasPoint = false;
     // buffer1 = 50;
     // buffer2 = 75;
@@ -104,11 +110,8 @@ const result = (bf) => {
             }
 
             afterRez = Math.sqrt(buffer1);
-            // buffer1 = afterRez;// show on display
-            // buffer2 = 0;// memory
             buttonFunction = "";
             lastNumber = 0;
-            // clickControl = true;
             bf = "";
             console.log(afterRez);
             break;
@@ -156,6 +159,18 @@ dig8.onclick = function (event) { calculation(this.id[3]) }
 dig9.onclick = function (event) { calculation(this.id[3]) }
 dig0.onclick = function (event) { calculation(this.id[3]) }
 
+pi.onclick = function (event) {
+    if (buttonFunction === "") {
+        buffer1 = 3.1416;
+        lastNumber = buffer1;
+        showDigital(buffer1);
+    } else {
+        buffer2 = 3.1416;
+        lastNumber = buffer2;
+        showDigital(buffer2);
+    }
+}
+
 
 minus_sign.onclick = function (event) {
 
@@ -187,6 +202,7 @@ backspace.onclick = function (event) {
         showDigital(buffer1);
         console.log();
     }
+    // showFun("<=");
 }
 
 
@@ -210,6 +226,7 @@ cx.onclick = function (event) {
 root_number.onclick = function (event) {
     clickControl = false;
     buttonFunction = "√"
+    buttonFunctionMemory = "";
     result(buttonFunction);
 }
 
@@ -243,6 +260,8 @@ sublime.onclick = function (event) {
 rez.onclick = function (event) {
     clickControl = false;
     result(buttonFunction);
+    showFun("=");
+
     // buttonFunction = "";
 }
 
