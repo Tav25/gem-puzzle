@@ -16,14 +16,21 @@ body {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 72px;
   line-height: 84px;
   text-align: right;
   color: #36A54F;
 }
 
 .calculator-body-display #maindisplay {
-  padding-top: 75px;
+  font-size: 72px;
+}
+
+.calculator-body-display #fun {
+  padding-top: 20px;
+  padding-right: 5px;
+  font-size: 32px;
+  height: 50px;
+  opacity: 0.5;
 }
 
 .calculator-body-keyboard {
@@ -102,5 +109,17 @@ body {
 .calculator-body-keyboard img:active {
   background-color: #f3f3f3;
   border-radius: 15px;
+}
+
+.instruction {
+  margin: 50px auto;
+  color: #b1b1b1;
+  width: 500px;
+  font-size: 14px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+li {
+  margin: 10px;
 }
 /*# sourceMappingURL=style.css.map */

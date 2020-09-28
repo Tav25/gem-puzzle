@@ -19,17 +19,23 @@ body {
             font-family: Roboto;
             font-style: normal;
             font-weight: normal;
-            font-size: 72px;
+
             line-height: 84px;
             text-align: right;
-
             color: #36A54F;
             // background-color: yellow;
 
             #maindisplay {
-                padding-top: 75px;
-                // background-color: black;
+                // margin-top: 0px;
+                font-size: 72px;
+            }
 
+            #fun{
+                padding-top: 20px;
+                padding-right: 5px;
+                font-size: 32px;
+                height: 50px;
+                opacity: 0.5;
 
             }
         }
@@ -99,4 +105,17 @@ body {
         }
 
     }
+}
+
+.instruction{
+    margin: 50px auto;
+    color: rgb(177, 177, 177);
+    width: 500px;
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+li{
+    margin: 10px;
 }
