@@ -94,7 +94,10 @@ const result = (bf) => {
 
         case "*":
             if (buffer2 === 0) { buffer2 = 1 }
-            afterRez = (buffer1) * (buffer2);
+            // afterRez = (buffer1) * (buffer2);
+            cf = 10;
+            afterRez = (buffer1 * cf) * (buffer2 * cf) / (cf * cf) //(buffer1 * cf) * (buffer2 * cf) / (cf * cf)
+
             // if ((buffer2 < 0) && (buffer1 < 0)) { afterRez = 777 }
             break;
 
