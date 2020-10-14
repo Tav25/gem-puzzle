@@ -94,7 +94,10 @@ const result = (bf) => {
 
         case "*":
             if (buffer2 === 0) { buffer2 = 1 }
-            afterRez = (buffer1) * (buffer2);
+            // afterRez = (buffer1) * (buffer2);
+            cf = 10;
+            afterRez = (buffer1 * cf) * (buffer2 * cf) / (cf * cf) //(buffer1 * cf) * (buffer2 * cf) / (cf * cf)
+
             // if ((buffer2 < 0) && (buffer1 < 0)) { afterRez = 777 }
             break;
 
@@ -110,7 +113,8 @@ const result = (bf) => {
             }
 
             afterRez = Math.sqrt(buffer1);
-            buttonFunction = "";
+            // buttonFunction = "";
+            buttonFunction = "√"
             lastNumber = 0;
             bf = "";
             console.log(afterRez);
@@ -193,13 +197,22 @@ point.onclick = function (event) {
 }
 
 backspace.onclick = function (event) {
-
-    if (afterRez === 0) {
-
+    
+    console.log("<--")
+    if (clickControl === false) {
         if ((buffer1 < 0) && (buffer1 > -10)) { buffer1 = 0 }// error "-5"
         buffer1 = buffer1.toString().slice(0, -1) * 1;
         if (buffer1 === 0) { buffer1 = 0 }
         showDigital(buffer1);
+        console.log();
+    }
+
+    if (clickControl === true){
+        if ((buffer2 < 0) && (buffer2 > -10)) { buffer2 = 0 }// error "-5"
+        buffer2 = buffer2.toString().slice(0, -1) * 1;
+        lastNumber = buffer2;
+        if (buffer2 === 0) { buffer2 = 0 }
+        showDigital(buffer2);
         console.log();
     }
     // showFun("<=");
@@ -224,7 +237,7 @@ cx.onclick = function (event) {
 }
 
 root_number.onclick = function (event) {
-    clickControl = false;
+    clickControl = true;
     buttonFunction = "√"
     buttonFunctionMemory = "";
     result(buttonFunction);
@@ -269,7 +282,7 @@ rez.onclick = function (event) {
 // ! console help function 
 
 AllKeys.onclick = function (event) {
-    console.log(`^${buffer1}^^${buffer2}^^${afterRez}^^${lastNumber}^^${buttonFunction}^^${buttonFunctionMemory} ^^${clickControl}`)
+    console.log(`b1:${buffer1} b2:${buffer2} ar:${afterRez} ln:${lastNumber} bf:${buttonFunction} bfm:${buttonFunctionMemory} cc:${clickControl}`)
 }
 
 
