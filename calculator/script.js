@@ -113,7 +113,8 @@ const result = (bf) => {
             }
 
             afterRez = Math.sqrt(buffer1);
-            buttonFunction = "";
+            // buttonFunction = "";
+            buttonFunction = "√"
             lastNumber = 0;
             bf = "";
             console.log(afterRez);
@@ -236,7 +237,7 @@ cx.onclick = function (event) {
 }
 
 root_number.onclick = function (event) {
-    clickControl = false;
+    clickControl = true;
     buttonFunction = "√"
     buttonFunctionMemory = "";
     result(buttonFunction);
