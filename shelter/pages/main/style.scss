@@ -432,9 +432,9 @@ html {
                     align-items: center;
 
                     &-image {
-                        width: 200px;
-                        height: 240px;
-                        margin-top: 30px;
+                        width: 270px;
+                        height: 270px;
+                        // margin-top: 30px;
                     }
 
                     &-name {
@@ -791,7 +791,7 @@ html {
 }
 
 .section-footer {
-    height: 355px;
+    height: 350px;
     background: url(../../assets/images/noise_lines_transparent@2X.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
 
     display: flex;
