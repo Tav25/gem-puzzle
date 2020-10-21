@@ -20,11 +20,14 @@ html {
   width: 1200px;
 }
 
+.header-main-wrapper {
+  background-color: turquoise;
+}
+
 .section-header {
   position: absolute;
-  width: 1200px;
+  left: calc(50% - 1200px/2);
   height: 60px;
-  left: 360px;
   top: 60px;
 }
 

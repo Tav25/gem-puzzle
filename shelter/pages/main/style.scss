@@ -28,11 +28,17 @@ html {
 }
 
 
+.header-main-wrapper{
+    background-color: turquoise;
+}
+
+
 .section-header {
-    position: absolute;
-    width: 1200px;
+  position: absolute;
+  left: calc(50% - 1200px/2); 
+//   margin-left: -150px; /* половина ширины блока, который центрируем */
     height: 60px;
-    left: 360px;
+    // left: 360px;
     top: 60px;
 
     &-wrapper {
