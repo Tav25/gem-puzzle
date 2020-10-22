@@ -1,12 +1,70 @@
-.inputName {
+body {
+    margin: 0px;
+    height: 100%;
+    width: 100%
+    background-size: cover;
+    background-position: top center;
+    background-image: url("https://raw.githubusercontent.com/irinainina/ready-projects/momentum/momentum/assets/images/night/17.jpg");  
+    transition: background-image 1s ease-in-out;
 }
+
+.main{
+    margin: 0px;width: 100%;margin-top: 5%;
+}
+
+.time{
+    font-size: 111px;
+    color: white;
+}
+
+.date{
+    font-size: 40px; 
+    color: white;
+}
+
+.weather{
+    font-size: 40px;
+    color: white;
+}
+
+.greeting{
+    font-size: 50px;
+    color: white;
+}
+.titleFocus{
+    font-size: 25px;
+    color: white;
+}
+
+.quote{
+    color: white;
+    font-size: 18px;
+    
+}
+
+.nextQuote{
+color:black;
+/* width: 300px; */
+/* height: 50px; */
+
+background: #EEEEEE;
+border-radius: 3px;
+}
+
+.focus{
+    color: white;
+    font-size: 24px;
+    transition: background-image 1s ease-in-out;
+    line-height: 1.5;
+}
+
 
 .inputText {
     border: 0;
-    background: rgba(255, 255, 255, 0.5);
-    color: #343A40;
+    background: rgba(255, 255, 255, 0);
+    color: white;
     /* outline: none; */
-    /* color: red; */
+    /* color: white; */
     white-space: nowrap;
     min-width: 20px;
     /* overflow: hidden; */
@@ -26,11 +84,25 @@
     white-space: nowrap;
 }
 
-.nextQuote{
+.nextQuote {
     font-size: 14px;
 }
 
-.nextQuote:hover{
+.nextQuote:hover {
     cursor: pointer;
 
+}
+
+
+.iconWeather{
+    height: 85px;
+    margin-bottom: 10px;
+}
+
+.description{
+    font-size: 20px;
+}
+
+.city{
+    line-height: 1.5;
 }
