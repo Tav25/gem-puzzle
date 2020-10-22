@@ -1,0 +1,36 @@
+.inputName {
+}
+
+.inputText {
+    border: 0;
+    background: rgba(255, 255, 255, 0.5);
+    color: #343A40;
+    /* outline: none; */
+    /* color: red; */
+    white-space: nowrap;
+    min-width: 20px;
+    /* overflow: hidden; */
+}
+
+.inputText br {
+    display: none;
+}
+
+.inputText * {
+    display: inline;
+    white-space: nowrap;
+}
+
+
+.greeting {
+    white-space: nowrap;
+}
+
+.nextQuote{
+    font-size: 14px;
+}
+
+.nextQuote:hover{
+    cursor: pointer;
+
+}
