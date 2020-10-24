@@ -557,6 +557,12 @@ html {
         justify-content: space-between;
         align-items: center;
 
+        @media (max-width: 767px) {
+            margin-top: 42px;
+            height: 707px;
+            // justify-content: space-start;
+        }
+
         &-title {
             width: 400px;
             height: 90px;
@@ -575,6 +581,10 @@ html {
             /* color-dark-l */
 
             color: #545454;
+
+            @media (max-width: 767px) {
+                font-size: 25px;
+            }
         }
 
         &-slider {
@@ -587,6 +597,19 @@ html {
             height: 435px;
             width: 1200px;
 
+
+            @media (max-width: 1279px) {
+                width: 708px;
+            }
+
+            @media (max-width: 767px) {
+                width: 270px;
+                height: 635px;
+                flex-wrap: wrap;
+
+            }
+
+
             &-navLeft {
 
                 width: 52px;
@@ -597,6 +620,11 @@ html {
                 border: 2px solid #F1CDB3;
                 box-sizing: border-box;
                 border-radius: 100px;
+
+                @media (max-width: 767px) {
+                    margin-left: 43px;
+
+                }
 
                 img {
                     // background-color: tomato;
@@ -615,6 +643,11 @@ html {
                 box-sizing: border-box;
                 border-radius: 100px;
 
+                @media (max-width: 767px) {
+                    margin-right: 43px;
+
+                }
+
                 img {
                     // background-color: tomato;
                     margin-top: 21px;
@@ -624,13 +657,45 @@ html {
             }
 
             &-cardWrapper {
+
+
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
 
                 width: 990px;
                 height: 435px;
+
+
+                @media (max-width: 1279px) {
+                    width: 583px;
+                }
+
+                @media (max-width: 767px) {
+                    width: 270px;
+                    margin-bottom: 20px;
+                    margin-top: 27px;
+                    order: -1;
+                    // background-color: hotpink;
+                }
+
                 // background-color: rgb(51, 210, 30);
+
+                .slideCard3 {
+                    // background-color: greenyellow;
+
+                    @media (max-width: 1279px) {
+                        display: none;
+                    }
+                }
+
+                .slideCard2 {
+                    // background-color: greenyellow;
+
+                    @media (max-width: 767px) {
+                        display: none;
+                    }
+                }
 
                 &-card {
                     height: 435px;

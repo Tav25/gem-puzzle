@@ -606,6 +606,13 @@ html {
           align-items: center;
 }
 
+@media (max-width: 767px) {
+  .section-ourFriends-wrapper {
+    margin-top: 42px;
+    height: 707px;
+  }
+}
+
 .section-ourFriends-wrapper-title {
   width: 400px;
   height: 90px;
@@ -620,6 +627,12 @@ html {
   letter-spacing: 0.06em;
   /* color-dark-l */
   color: #545454;
+}
+
+@media (max-width: 767px) {
+  .section-ourFriends-wrapper-title {
+    font-size: 25px;
+  }
 }
 
 .section-ourFriends-wrapper-slider {
@@ -638,6 +651,21 @@ html {
   width: 1200px;
 }
 
+@media (max-width: 1279px) {
+  .section-ourFriends-wrapper-slider {
+    width: 708px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-ourFriends-wrapper-slider {
+    width: 270px;
+    height: 635px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
 .section-ourFriends-wrapper-slider-navLeft {
   width: 52px;
   height: 52px;
@@ -646,6 +674,12 @@ html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 100px;
+}
+
+@media (max-width: 767px) {
+  .section-ourFriends-wrapper-slider-navLeft {
+    margin-left: 43px;
+  }
 }
 
 .section-ourFriends-wrapper-slider-navLeft img {
@@ -661,6 +695,12 @@ html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 100px;
+}
+
+@media (max-width: 767px) {
+  .section-ourFriends-wrapper-slider-navRight {
+    margin-right: 43px;
+  }
 }
 
 .section-ourFriends-wrapper-slider-navRight img {
@@ -680,6 +720,35 @@ html {
           align-items: center;
   width: 990px;
   height: 435px;
+}
+
+@media (max-width: 1279px) {
+  .section-ourFriends-wrapper-slider-cardWrapper {
+    width: 583px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-ourFriends-wrapper-slider-cardWrapper {
+    width: 270px;
+    margin-bottom: 20px;
+    margin-top: 27px;
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+  }
+}
+
+@media (max-width: 1279px) {
+  .section-ourFriends-wrapper-slider-cardWrapper .slideCard3 {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-ourFriends-wrapper-slider-cardWrapper .slideCard2 {
+    display: none;
+  }
 }
 
 .section-ourFriends-wrapper-slider-cardWrapper-card {
