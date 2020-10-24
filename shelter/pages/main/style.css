@@ -565,6 +565,15 @@ html {
 .section-ourFriends {
   height: 877px;
   background-color: #F6F6F6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 @media (max-width: 1279px) {
@@ -577,6 +586,180 @@ html {
   .section-ourFriends {
     height: 791px;
   }
+}
+
+.section-ourFriends-wrapper {
+  height: 697px;
+  margin-top: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section-ourFriends-wrapper-title {
+  width: 400px;
+  height: 90px;
+  /* h3 */
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 35px;
+  line-height: 130%;
+  /* or 45px */
+  text-align: center;
+  letter-spacing: 0.06em;
+  /* color-dark-l */
+  color: #545454;
+}
+
+.section-ourFriends-wrapper-slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  height: 435px;
+  width: 1200px;
+}
+
+.section-ourFriends-wrapper-slider-navLeft {
+  width: 52px;
+  height: 52px;
+  /* color-primary */
+  border: 2px solid #F1CDB3;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 100px;
+}
+
+.section-ourFriends-wrapper-slider-navLeft img {
+  margin-top: 21px;
+  margin-left: 17px;
+}
+
+.section-ourFriends-wrapper-slider-navRight {
+  width: 52px;
+  height: 52px;
+  /* color-primary */
+  border: 2px solid #F1CDB3;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 100px;
+}
+
+.section-ourFriends-wrapper-slider-navRight img {
+  margin-top: 21px;
+  margin-left: 17px;
+}
+
+.section-ourFriends-wrapper-slider-cardWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 990px;
+  height: 435px;
+}
+
+.section-ourFriends-wrapper-slider-cardWrapper-card {
+  height: 435px;
+  width: 270px;
+  background: #FAFAFA;
+  border-radius: 9px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section-ourFriends-wrapper-slider-cardWrapper-card-image {
+  width: 270px;
+  height: 270px;
+}
+
+.section-ourFriends-wrapper-slider-cardWrapper-card-name {
+  /* pets-card-title */
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 23px;
+  /* identical to box height */
+  text-align: center;
+  letter-spacing: 0.06em;
+  /* pets-card-title */
+  color: #545454;
+  margin-top: 30px;
+}
+
+.section-ourFriends-wrapper-slider-cardWrapper-card-button {
+  margin-top: 30px;
+}
+
+.section-ourFriends-wrapper-slider-cardWrapper-card-button button {
+  width: 187px;
+  height: 52px;
+  border: 2px solid #F1CDB3;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 100px;
+  margin: 0px 0px;
+  background-color: #FAFAFA;
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 130%;
+  /* identical to box height, or 22px */
+  letter-spacing: 0.06em;
+  /* color-dark-xl */
+  color: #292929;
+  /* Inside Auto Layout */
+  margin: 0px 10px;
+}
+
+.section-ourFriends-wrapper-button button {
+  width: 261px;
+  height: 52px;
+  background: #F1CDB3;
+  border-radius: 100px;
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 130%;
+  /* identical to box height, or 22px */
+  letter-spacing: 0.06em;
+  /* color-dark-xl */
+  color: #292929;
+  border: 0;
 }
 
 .section-help {
