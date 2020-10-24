@@ -22,7 +22,7 @@ html {
 .section-outer {
     // width: 1200px;
     margin: 0 auto;
-    background-color: rosybrown;
+    // background-color: rosybrown;
 
 }
 
@@ -43,7 +43,157 @@ html {
 
 
 .section-header {
-    background-color: seagreen;
+    position: absolute;
+    left: calc(50% - 1200px/2);
+    height: 60px;
+    top: 60px;
+
+    @media (max-width: 1279px) {
+        left: calc(50% - 768px/2);
+        top: 30px;
+
+    }
+
+    @media (max-width: 767px) {
+        left: calc(50% - 320px/2);
+        // top: 30px;
+
+    }
+
+    &-wrapper {
+        z-index: 10;
+        // margin-top: 60px;
+        width: 1200px;
+        height: 60px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media (max-width: 1279px) {
+
+            margin-left: 30px;
+            width: 708px;
+            // margin-top: 0px;
+
+        }
+
+
+        @media (max-width: 767px) {
+            width: 200px;
+            margin-left: 10px;
+
+            // margin-top: 0px;
+            
+
+        }
+
+
+        &-logo {
+            width: 184px;
+            height: 60px;
+
+            &-main {
+                width: 184px;
+                height: 35px;
+
+                /* logo_title */
+
+                font-family: Georgia;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 32px;
+                line-height: 110%;
+                /* or 35px */
+
+                display: flex;
+                align-items: center;
+                letter-spacing: 0.06em;
+
+                /* color-primary */
+
+                color: #F1CDB3;
+            }
+
+            &-text {
+                margin-top: 10px;
+                margin-left: 5px;
+                width: 184px;
+                height: 15px;
+
+                /* logo_subtitle */
+
+                font-family: Arial;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 13px;
+                line-height: 15px;
+                /* identical to box height */
+
+                display: flex;
+                align-items: center;
+                letter-spacing: 0.1em;
+
+                /* color-light-xl */
+
+                color: #FFFFFF;
+            }
+        }
+
+        &-burger {
+            @media (min-width: 767px) {
+                display: none;
+
+                
+            }
+            
+            margin-left: 43px;
+            margin-top: 3px;
+
+            // background-color: greenyellow;
+        }
+
+        &-navigate {
+            width: 443px;
+            height: 27px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &-menu {
+                left: 0%;
+                right: 0%;
+
+                /* paragraph-l */
+
+                font-family: Arial;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 15px;
+                line-height: 160%;
+                /* identical to box height, or 24px */
+
+                display: flex;
+                align-items: center;
+
+                /* color-light-l */
+
+                color: #CDCDCD;
+
+                /* Inside Auto Layout */
+
+                margin: 10px 0px;
+            }
+
+            @media (max-width: 767px) {
+                display: none;
+            }
+        }
+
+
+    }
+
 }
 
 //////////////////////////////////////////////@while condition {
