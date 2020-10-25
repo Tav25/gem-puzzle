@@ -7,8 +7,9 @@ const timeD = document.querySelector('.time'),
     focusD = document.querySelector('.focus'),
     quoteD = document.querySelector('.quote'),
     nextQuoteD = document.querySelector('.nextQuote'),
+    cityWeather = "gfgfhgf"
 
-    cityD = document.querySelector('.city'),
+cityD = document.querySelector('.city'),
     descriptionD = document.querySelector('.description'),
     iconD = document.querySelector('.iconWeather'),
     temperatureD = document.querySelector('.temperature'),
@@ -67,12 +68,16 @@ function test1() {
     nextImageHour(0, 0, -1)
 }
 
+function cl(v) {
+    console.log(v)
+}
+
 
 
 function nextImageHour(h = 0, m = 0, x = 1) {
 
-    console.log("nextImageHour h: ")
-    
+    // console.log("nextImageHour h: ")
+
     if (m === 0) {
         // let h = 3;
         let timeOfDay = ""
@@ -112,23 +117,57 @@ function zero(num) {
 
 }
 
+function getCity() {
+    cl("+++++GN")
+    if (localStorage.getItem('cityS') === null) {
+        cityD.textContent = '[Enter city]';
+        cl("+++++GN+1")
+    } else {
+        cityD.textContent = localStorage.getItem('cityS');
+        cl("+++++GN+2")
+    }
+}
+
+function setCity() {
+    cl("00000000000")
+    cityD.addEventListener('keyup', event => {
+        if (event.keyCode === 13) {
+            localStorage.setItem('cityS', cityD.innerText);
+            cityD.blur()
+            cl("1111111111111")
+        }
+        else {
+            localStorage.setItem('cityS', cityD.innerText);
+            cl("22222222222")
+            weather(localStorage.getItem('cityS'))
+            cl("3333333333")
+        }
+    });
+}
+
 
 function getName() {
+    cl("+++++GN")
     if (localStorage.getItem('nameS') === null) {
         nameD.textContent = '[Enter Name]';
+        cl("+++++GN+1")
     } else {
         nameD.textContent = localStorage.getItem('nameS');
+        cl("+++++GN+2")
     }
 }
 
 function setName() {
+    cl("+++++SN")
     nameD.addEventListener('keyup', event => {
         if (event.keyCode === 13) {
             localStorage.setItem('nameS', nameD.innerText);
             nameD.blur()
+            cl("+++++SN+1")
         }
         else {
             localStorage.setItem('nameS', nameD.innerText);
+            cl("+++++SN+2")
         }
     });
 }
@@ -159,12 +198,19 @@ function setFocus() {
 
 }
 
+
+
 function setFocusZero() {
     focusD.innerHTML = '&nbsp;'
 }
 
 function setNameZero() {
     nameD.innerHTML = '&nbsp;'
+}
+
+
+function setCityZero() {
+    cityD.innerHTML = '&nbsp;'
 }
 
 
@@ -183,7 +229,7 @@ function quote() {
 }
 
 
-function weather(city = "minsk") {
+function weather(city = cityWeather) {
     // let XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
     let xhr = new XMLHttpRequest();
     xhr.open('GET', 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&lang=en&appid=4cc45adc1d4e95ce710a4c884b625ab0&units=metric', false);
@@ -200,8 +246,8 @@ function weather(city = "minsk") {
         console.log(weatJSon.wind.speed); //speed wind
 
         //
-        cityD.innerHTML = weatJSon.name;
-        // iconD.innerHTML = 'dfsfsd'
+        
+        iconD.src= "http://openweathermap.org/img/wn/" +weatJSon.weather[0].icon +"@4x.png"
         temperatureD.innerHTML = weatJSon.main.temp + "&deg;"
         descriptionD.innerHTML = `${weatJSon.weather[0].description}  humidity:${weatJSon.main.humidity}%  wind speed:${weatJSon.wind.speed}ms`
         // humidityD.innerHTML = 'dfsfsd'
@@ -218,6 +264,7 @@ function weather(city = "minsk") {
 
 focusD.addEventListener("mouseup", setFocusZero);
 nameD.addEventListener("mouseup", setNameZero);
+cityD.addEventListener("mouseup", setCityZero);
 
 nextQuoteD.addEventListener("mouseup", quote);
 
@@ -228,22 +275,29 @@ buttonLeftD.addEventListener("mouseup", test1);
 
 
 
-nextImageHour(i,0,1);
+nextImageHour(i, 0, 1);
 showTime();
-weather()
+weather();
+
 getName();
 setName();
 
 getFocus();
 setFocus();
 
+
+getCity()
+setCity()
+
 quote();
+weather()
 
 
 
 
 localStorage.removeItem('nameS');
 localStorage.removeItem('focusS');
+localStorage.removeItem('cityS');
 
 
 
@@ -255,5 +309,4 @@ localStorage.removeItem('focusS');
 // console.log( result.length ); // 1
 
 
-weather()
 
