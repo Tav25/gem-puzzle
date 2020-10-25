@@ -7,8 +7,9 @@ const timeD = document.querySelector('.time'),
     focusD = document.querySelector('.focus'),
     quoteD = document.querySelector('.quote'),
     nextQuoteD = document.querySelector('.nextQuote'),
+    cityWeather = ""
 
-    cityD = document.querySelector('.city'),
+cityD = document.querySelector('.city'),
     descriptionD = document.querySelector('.description'),
     iconD = document.querySelector('.iconWeather'),
     temperatureD = document.querySelector('.temperature'),
@@ -58,21 +59,25 @@ function showTime() {
 }
 
 function test0() {
-    console.log("Test")
-    nextImageHour(0, 0, 1)
+    console.log("Test+" + i)
+    nextImageHour2(1)
 }
 
 function test1() {
-    console.log("Test")
-    nextImageHour(0, 0, -1)
+    console.log("Test-" + i)
+    nextImageHour2(-1)
+}
+
+function cl(v) {
+    console.log(v)
 }
 
 
 
 function nextImageHour(h = 0, m = 0, x = 1) {
 
-    console.log("nextImageHour h: ")
-    
+    // console.log("nextImageHour h: ")
+
     if (m === 0) {
         // let h = 3;
         let timeOfDay = ""
@@ -98,6 +103,25 @@ function nextImageHour(h = 0, m = 0, x = 1) {
 
 
 
+function nextImageHour2(x) {
+    i = i + x;
+    cl("pered: " + arrImage[i] + ".jpg")
+    if (i === 24) { i = 0 }
+    if (i === -1) { i = 23 }
+
+    block.style.backgroundImage = "url('../momentum/assets/images/" + arrImage[i] + ".jpg')";
+    if (arrImage[i + 1]) { bufferD.style.backgroundImage = "url('../momentum/assets/images/" + arrImage[i + 1] + ".jpg')"; }
+    if (arrImage[i + 2]) { bufferD.style.backgroundImage = "url('../momentum/assets/images/" + arrImage[i + 1] + ".jpg')"; }
+    if (arrImage[i - 1]) { bufferD.style.backgroundImage = "url('../momentum/assets/images/" + arrImage[i + 1] + ".jpg')"; }
+    if (arrImage[i - 2]) { bufferD.style.backgroundImage = "url('../momentum/assets/images/" + arrImage[i + 1] + ".jpg')"; }
+
+
+
+    cl(i)
+
+
+}
+// console.log(m)
 
 function shuffle(array) {
     array.sort(() => Math.random() - 0.5);
@@ -113,23 +137,72 @@ function zero(num) {
 }
 
 
-function getName() {
-    if (localStorage.getItem('nameS') === null) {
-        nameD.textContent = '[Enter Name]';
+function isSpace(text) {
+    let regexp = /\s*$/g;
+    // alert( str.search(regexp) );
+    if (text.search(regexp) === 0) { return false }
+    return true
+}
+
+function getCity() {
+    cl("+++++GN")
+    if (localStorage.getItem('cityS') === null) {
+        cityD.textContent = '[Enter city]';
+        cl("aaaaaaaaaaaaaaaa")
     } else {
+        cityD.textContent = localStorage.getItem('cityS');
+        cl("bbbbbbbbbbbbbbbbbbbbbb")
+        weather(localStorage.getItem('cityS'))
+        cl("cccccccccccccccccccccc")
+    }
+}
+
+function setCity() {
+    cl("00000000000")
+    cityD.addEventListener('keyup', event => {
+        if (event.keyCode === 13) {
+            if (!isSpace(cityD.textContent)) {cityD.textContent = localStorage.getItem('cityS'); }
+            localStorage.setItem('cityS', cityD.innerText);
+            cityD.blur()
+            cl("1111111111111")
+            weather(localStorage.getItem('cityS'))
+            cl("1111111111111++++++")
+        }
+        // else {
+        //     localStorage.setItem('cityS', cityD.innerText);
+        //     cl("22222222222")
+        //     weather(localStorage.getItem('cityS'))
+        //     cl("3333333333")
+        // }
+    });
+}
+
+
+function getName() {
+    cl("+++++GN")
+    if (localStorage.getItem('nameS') === null) {        
+        nameD.textContent = '[Enter Name]';
+        cl("+++++GN+1")
+    }
+    else {
         nameD.textContent = localStorage.getItem('nameS');
+        cl("+++++GN+2")
     }
 }
 
 function setName() {
+    cl("+++++SN")
     nameD.addEventListener('keyup', event => {
         if (event.keyCode === 13) {
+            if (!isSpace(nameD.textContent)) {nameD.textContent = localStorage.getItem('nameS'); }
             localStorage.setItem('nameS', nameD.innerText);
             nameD.blur()
+            cl("+++++SN+1")
         }
-        else {
-            localStorage.setItem('nameS', nameD.innerText);
-        }
+        // else {
+        //     localStorage.setItem('nameS', nameD.innerText);
+        //     cl("+++++SN+2")
+        // }
     });
 }
 
@@ -148,16 +221,19 @@ function setFocus() {
 
     focusD.addEventListener('keyup', event => {
         if (event.keyCode === 13) {
+            if (!isSpace(focusD.textContent)) {focusD.textContent = localStorage.getItem('focusS'); }
             localStorage.setItem('focusS', focusD.innerText);
             focusD.blur()
         }
-        else {
-            localStorage.setItem('focusS', focusD.innerText);
-            console.log('+++++++++++++++' + localStorage.getItem('focusS'))
-        }
+        // else {
+        //     localStorage.setItem('focusS', focusD.innerText);
+        //     console.log('+++++++++++++++' + localStorage.getItem('focusS'))
+        // }
     });
 
 }
+
+
 
 function setFocusZero() {
     focusD.innerHTML = '&nbsp;'
@@ -165,6 +241,11 @@ function setFocusZero() {
 
 function setNameZero() {
     nameD.innerHTML = '&nbsp;'
+}
+
+
+function setCityZero() {
+    cityD.innerHTML = '&nbsp;'
 }
 
 
@@ -183,7 +264,7 @@ function quote() {
 }
 
 
-function weather(city = "minsk") {
+function weather(city = cityWeather) {
     // let XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
     let xhr = new XMLHttpRequest();
     xhr.open('GET', 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&lang=en&appid=4cc45adc1d4e95ce710a4c884b625ab0&units=metric', false);
@@ -200,8 +281,8 @@ function weather(city = "minsk") {
         console.log(weatJSon.wind.speed); //speed wind
 
         //
-        cityD.innerHTML = weatJSon.name;
-        // iconD.innerHTML = 'dfsfsd'
+
+        iconD.src = "http://openweathermap.org/img/wn/" + weatJSon.weather[0].icon + "@4x.png"
         temperatureD.innerHTML = weatJSon.main.temp + "&deg;"
         descriptionD.innerHTML = `${weatJSon.weather[0].description}  humidity:${weatJSon.main.humidity}%  wind speed:${weatJSon.wind.speed}ms`
         // humidityD.innerHTML = 'dfsfsd'
@@ -218,6 +299,7 @@ function weather(city = "minsk") {
 
 focusD.addEventListener("mouseup", setFocusZero);
 nameD.addEventListener("mouseup", setNameZero);
+cityD.addEventListener("mouseup", setCityZero);
 
 nextQuoteD.addEventListener("mouseup", quote);
 
@@ -228,22 +310,29 @@ buttonLeftD.addEventListener("mouseup", test1);
 
 
 
-nextImageHour(i,0,1);
+nextImageHour(i, 0, 1);
 showTime();
-weather()
+weather();
+
 getName();
 setName();
 
 getFocus();
 setFocus();
 
+
+getCity()
+setCity()
+
 quote();
+weather();
 
 
 
 
-localStorage.removeItem('nameS');
-localStorage.removeItem('focusS');
+// localStorage.removeItem('nameS');
+// localStorage.removeItem('focusS');
+// localStorage.removeItem('cityS');
 
 
 
@@ -255,5 +344,4 @@ localStorage.removeItem('focusS');
 // console.log( result.length ); // 1
 
 
-weather()
 

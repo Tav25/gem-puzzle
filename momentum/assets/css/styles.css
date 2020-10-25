@@ -3,6 +3,12 @@ html {
   font-size: 100%;
 }
 
+@media (max-width: 1279px) {
+  html {
+    font-size: 70%;
+  }
+}
+
 @media (max-width: 767px) {
   html {
     font-size: 50%;
