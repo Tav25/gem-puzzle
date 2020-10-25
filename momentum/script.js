@@ -7,7 +7,7 @@ const timeD = document.querySelector('.time'),
     focusD = document.querySelector('.focus'),
     quoteD = document.querySelector('.quote'),
     nextQuoteD = document.querySelector('.nextQuote'),
-    cityWeather = ""
+    cityWeather = localStorage.getItem('cityS');
 
 cityD = document.querySelector('.city'),
     descriptionD = document.querySelector('.description'),
@@ -26,6 +26,8 @@ let path = "../momentum/assets/images/"
 let i = new Date().getHours();
 
 const arrImage = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "01", "02", "03", "04"];
+
+
 shuffle(arrImage);
 
 for (x in arrImage) {
@@ -38,6 +40,12 @@ for (x in arrImage) {
 
 
 
+let htm = ""
+for (let imgh in arrImage) {
+    htm = `<img src="assets/images/${arrImage[imgh]}.jpg" style="width: 32px;">` + htm;
+    cl(htm)
+}
+bufferD.innerHTML = htm
 
 function showTime() {
     let today = new Date(),
@@ -58,12 +66,12 @@ function showTime() {
     setTimeout(showTime, 1000);
 }
 
-function test0() {
+function slideRight() {
     console.log("Test+" + i)
     nextImageHour2(1)
 }
 
-function test1() {
+function slideLeft() {
     console.log("Test-" + i)
     nextImageHour2(-1)
 }
@@ -148,25 +156,19 @@ function getCity() {
     cl("+++++GN")
     if (localStorage.getItem('cityS') === null) {
         cityD.textContent = '[Enter city]';
-        cl("aaaaaaaaaaaaaaaa")
     } else {
         cityD.textContent = localStorage.getItem('cityS');
-        cl("bbbbbbbbbbbbbbbbbbbbbb")
         weather(localStorage.getItem('cityS'))
-        cl("cccccccccccccccccccccc")
     }
 }
 
 function setCity() {
-    cl("00000000000")
     cityD.addEventListener('keyup', event => {
         if (event.keyCode === 13) {
-            if (!isSpace(cityD.textContent)) {cityD.textContent = localStorage.getItem('cityS'); }
+            if (!isSpace(cityD.textContent)) { cityD.textContent = localStorage.getItem('cityS'); }
             localStorage.setItem('cityS', cityD.innerText);
             cityD.blur()
-            cl("1111111111111")
             weather(localStorage.getItem('cityS'))
-            cl("1111111111111++++++")
         }
         // else {
         //     localStorage.setItem('cityS', cityD.innerText);
@@ -179,25 +181,20 @@ function setCity() {
 
 
 function getName() {
-    cl("+++++GN")
-    if (localStorage.getItem('nameS') === null) {        
+    if (localStorage.getItem('nameS') === null) {
         nameD.textContent = '[Enter Name]';
-        cl("+++++GN+1")
     }
     else {
         nameD.textContent = localStorage.getItem('nameS');
-        cl("+++++GN+2")
     }
 }
 
 function setName() {
-    cl("+++++SN")
     nameD.addEventListener('keyup', event => {
         if (event.keyCode === 13) {
-            if (!isSpace(nameD.textContent)) {nameD.textContent = localStorage.getItem('nameS'); }
+            if (!isSpace(nameD.textContent)) { nameD.textContent = localStorage.getItem('nameS'); }
             localStorage.setItem('nameS', nameD.innerText);
             nameD.blur()
-            cl("+++++SN+1")
         }
         // else {
         //     localStorage.setItem('nameS', nameD.innerText);
@@ -221,7 +218,7 @@ function setFocus() {
 
     focusD.addEventListener('keyup', event => {
         if (event.keyCode === 13) {
-            if (!isSpace(focusD.textContent)) {focusD.textContent = localStorage.getItem('focusS'); }
+            if (!isSpace(focusD.textContent)) { focusD.textContent = localStorage.getItem('focusS'); }
             localStorage.setItem('focusS', focusD.innerText);
             focusD.blur()
         }
@@ -246,6 +243,7 @@ function setNameZero() {
 
 function setCityZero() {
     cityD.innerHTML = '&nbsp;'
+    // block.addEventListener("mouseup", setFocusZero);
 }
 
 
@@ -271,6 +269,9 @@ function weather(city = cityWeather) {
     xhr.send();
     if (xhr.status != 200) {
         console.log(xhr.status + ': ' + xhr.statusText); // пример вывода: 404: Not Found
+        descriptionD.innerHTML = `Error. City not found.`
+        temperatureD.innerHTML = "";
+        iconD.src = "assets/images/zero.png";
     } else {
         let weatJSon = JSON.parse(xhr.responseText);
         console.log(weatJSon.name); //speed wind
@@ -303,8 +304,10 @@ cityD.addEventListener("mouseup", setCityZero);
 
 nextQuoteD.addEventListener("mouseup", quote);
 
-buttonRightD.addEventListener("mouseup", test0);
-buttonLeftD.addEventListener("mouseup", test1);
+buttonRightD.addEventListener("mouseup", slideRight);
+buttonLeftD.addEventListener("mouseup", slideLeft);
+
+
 
 
 
@@ -334,14 +337,6 @@ weather();
 // localStorage.removeItem('focusS');
 // localStorage.removeItem('cityS');
 
-
-
-// let str = "";
-
-// let result = str.match(/^\s*$/g);
-
-// // console.log( result[0] ); // JavaScript
-// console.log( result.length ); // 1
 
 
 
