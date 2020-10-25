@@ -1,0 +1,246 @@
+html {    
+    font-size: 100%; 
+    @media (max-width:767px) {
+        font-size: 50%; 
+    }
+
+} /* Браузерное умолчание, т.е. 16px  */  
+body {
+    // margin: 0px;
+    // height: 100%;
+    // width: 100%;
+    // background-size: cover;
+    // background-size: 100%;
+    background-position: top center;
+    /* background-image: url("https://raw.githubusercontent.com/irinainina/ready-projects/momentum/momentum/assets/images/night/17.jpg");   */
+    transition: background-image 0.3s ease-in-out;
+
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+
+
+    color: white;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+
+    // font-family: Righteous;
+    font-family: Questrial;
+    font-style: normal;
+    font-weight: normal;
+    // font-size: 144px;
+    // line-height: 130%;
+}
+
+.mainWrapper {
+    // width: 80%;
+    // height: 100%;
+    margin-top: 100px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: 	flex-start;
+    // background-color: hotpink;
+
+    &-content {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        align-items: center;
+        // height: 125%;
+
+        // background-color: indianred;
+        // width: 80%;
+        // height: 80%;
+        &-weather{
+            // background-color: fuchsia;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &-temperature{
+                font-size: 4rem;
+                margin-right: 10px;
+            }
+        }
+
+
+
+        &-weather-cityWrapper {
+            background-color: indigo;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
+
+.quoteWrapper {
+    // text-align: justify;
+    width: 50rem;
+    // height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    // background-color: lawngreen;
+}
+
+.quote {
+    font-size:  2.2rem;
+    margin-top: 15px;
+    // width: 100%;
+}
+
+.nextQuote {
+    position:relative;
+    top:10px;
+    left:10px;
+    padding: 5px 0px 5px 0px;
+    text-align: center;
+    width: 110px;
+    // height: 52px;
+    
+    /* color-primary */
+    color: rgba(19, 19, 19, 0.5);
+    
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
+}
+
+
+.nextQuote:hover {
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    background-color: rgba(255, 255, 255, 1);
+
+}
+
+.but{
+    margin-top: 20rem;
+    margin-left: 20px;
+    padding-top: 3px;
+    margin-right: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
+}
+
+
+.but:hover{
+    cursor: pointer;
+    margin-top: 20rem;
+    background-color: rgba(255, 255, 255, 1);
+    transition: background-color 0.2s ease-in-out;
+}
+
+
+.city{
+    font-size: 4rem;
+}
+
+
+#bg {
+    /* background-color: chocolate; */
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+
+
+#buffer {
+    // display: none;
+    height: 5px;
+    width: 5px;
+}
+
+.main {
+    margin: 0px;
+    width: 100%;
+    margin-top: 5%;
+}
+
+.time {
+    font-size: 10rem;
+
+
+}
+
+.date {
+    font-size: 3rem;
+
+}
+
+.weather {
+    font-size: 3rem;
+
+}
+
+.greeting {
+    margin-top: 30px;
+    font-size: 3.5rem;
+
+}
+
+.titleFocus {
+    margin-top: 10px;
+    font-size: 2rem;
+
+}
+
+
+
+
+
+.focus {
+    color: white;
+    font-size: 2rem;
+    transition: background-image 1s ease-in-out;
+    line-height: 1.5;
+}
+
+
+.inputText {
+    border: 0;
+    background: rgba(255, 255, 255, 0);
+    color: white;
+    /* outline: none; */
+    /* color: white; */
+    white-space: nowrap;
+    min-width: 20px;
+    /* overflow: hidden; */
+}
+
+.inputText br {
+    display: none;
+}
+
+.inputText * {
+    display: inline;
+    white-space: nowrap;
+}
+
+
+.greeting {
+    white-space: nowrap;
+}
+
+.nextQuote {
+    font-size: 1.2rem;
+}
+
+.nextQuote:hover {
+    cursor: pointer;
+
+}
+
+
+.iconWeather {
+    height: 85px;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 2.2rem;
+}
+
+.city {
+    line-height: 1.5;
+}

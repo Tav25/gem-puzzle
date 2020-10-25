@@ -13,10 +13,27 @@ const timeD = document.querySelector('.time'),
     iconD = document.querySelector('.iconWeather'),
     temperatureD = document.querySelector('.temperature'),
     humidityD = document.querySelector('.humidity'),
-    speedWindD = document.querySelector('.speedWind');
+    speedWindD = document.querySelector('.speedWind'),
+    block = document.getElementById('bg'),
+    buttonLeftD = document.getElementById('buttonleft'),
+    buttonRightD = document.getElementById('buttonright'),
+    timeofdayD = document.getElementById('timeofday'),
+    bufferD = document.getElementById('buffer');
 
 
+let path = "../momentum/assets/images/"
+let i = new Date().getHours();
 
+const arrImage = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "01", "02", "03", "04"];
+shuffle(arrImage);
+
+for (x in arrImage) {
+    if (x >= 0 & x < 6) { arrImage[x] = "night/" + arrImage[x] }
+    if (x >= 6 && x < 12) { arrImage[x] = "morning/" + arrImage[x] }
+    if (x >= 12 & x < 18) { arrImage[x] = "day/" + arrImage[x] }
+    if (x >= 18) { arrImage[x] = "evening/" + arrImage[x] }
+    // console.log( arrImage[x])
+}
 
 
 
@@ -27,8 +44,7 @@ function showTime() {
         min = today.getMinutes(),
         sec = today.getSeconds(),
         options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' },
-        dat = today.toLocaleDateString("en-US", options); // 30 января 2014
-
+        dat = today.toLocaleDateString("en-US", options);
 
 
 
@@ -37,8 +53,56 @@ function showTime() {
     timeD.innerHTML = `${zero(hour)}${hour}:${zero(min)}${min}:${zero(sec)}${sec}`;
     dateD.innerHTML = `${dat}`;
 
+    nextImageHour(hour, min + sec, 1);
     setTimeout(showTime, 1000);
 }
+
+function test0() {
+    console.log("Test")
+    nextImageHour(0, 0, 1)
+}
+
+function test1() {
+    console.log("Test")
+    nextImageHour(0, 0, -1)
+}
+
+
+
+function nextImageHour(h = 0, m = 0, x = 1) {
+
+    console.log("nextImageHour h: ")
+    
+    if (m === 0) {
+        // let h = 3;
+        let timeOfDay = ""
+        if (h >= 0 & h < 6) { timeOfDay = "night" }
+        if (h >= 6 && h < 12) { timeOfDay = "morning" }
+        if (h >= 12 & h < 18) { timeOfDay = "day" }
+        if (h >= 18) { timeOfDay = "evening" }
+
+        timeofdayD.innerHTML = `${timeOfDay}`;
+
+        console.log(`i:${i} td:${timeOfDay} img:${arrImage[i]}.jpg`)
+        block.style.backgroundImage = "url('../momentum/assets/images/" + arrImage[i] + ".jpg')";
+        if (arrImage[i + 1]) { bufferD.style.backgroundImage = "url('../momentum/assets/images/" + arrImage[i + 1] + ".jpg')"; }
+
+        i = i + x;
+        if (i === 24) { i = 0 }
+        if (i === -1) { i = 23 }
+
+
+    }
+    // console.log(m)
+}
+
+
+
+
+function shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
+}
+
 
 function zero(num) {
     if (num < 10) {
@@ -139,14 +203,15 @@ function weather(city = "minsk") {
         cityD.innerHTML = weatJSon.name;
         // iconD.innerHTML = 'dfsfsd'
         temperatureD.innerHTML = weatJSon.main.temp + "&deg;"
-        descriptionD.innerHTML = `${weatJSon.weather[0].description} h:${weatJSon.main.humidity}% ws:${weatJSon.wind.speed}`
-            // humidityD.innerHTML = 'dfsfsd'
-            // speedWindD.innerHTML = 'dfsfsd'
+        descriptionD.innerHTML = `${weatJSon.weather[0].description}  humidity:${weatJSon.main.humidity}%  wind speed:${weatJSon.wind.speed}ms`
+        // humidityD.innerHTML = 'dfsfsd'
+        // speedWindD.innerHTML = 'dfsfsd'
         // quoteD.innerHTML = `${person.name}`;
     }
 }
 
-weather()
+
+
 
 // nameD.addEventListener('keyup', setName);
 // nameD.addEventListener('blur', setName);
@@ -156,8 +221,16 @@ nameD.addEventListener("mouseup", setNameZero);
 
 nextQuoteD.addEventListener("mouseup", quote);
 
+buttonRightD.addEventListener("mouseup", test0);
+buttonLeftD.addEventListener("mouseup", test1);
 
+
+
+
+
+nextImageHour(i,0,1);
 showTime();
+weather()
 getName();
 setName();
 
