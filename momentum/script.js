@@ -59,13 +59,13 @@ function showTime() {
 }
 
 function test0() {
-    console.log("Test")
-    nextImageHour(0, 0, 1)
+    console.log("Test+" + i)
+    nextImageHour2(1)
 }
 
 function test1() {
-    console.log("Test")
-    nextImageHour(0, 0, -1)
+    console.log("Test-" + i)
+    nextImageHour2(-1)
 }
 
 function cl(v) {
@@ -103,6 +103,25 @@ function nextImageHour(h = 0, m = 0, x = 1) {
 
 
 
+function nextImageHour2(x) {
+    i = i + x;
+    cl("pered: "+arrImage[i]+ ".jpg")
+    if (i === 24) { i = 0 }
+    if (i === -1) { i = 23 }
+    
+    block.style.backgroundImage = "url('../momentum/assets/images/" + arrImage[i] + ".jpg')";
+    if (arrImage[i + 1]) { bufferD.style.backgroundImage = "url('../momentum/assets/images/" + arrImage[i + 1] + ".jpg')"; }
+    if (arrImage[i + 2]) { bufferD.style.backgroundImage = "url('../momentum/assets/images/" + arrImage[i + 1] + ".jpg')"; }
+    if (arrImage[i - 1]) { bufferD.style.backgroundImage = "url('../momentum/assets/images/" + arrImage[i + 1] + ".jpg')"; }
+    if (arrImage[i - 2]) { bufferD.style.backgroundImage = "url('../momentum/assets/images/" + arrImage[i + 1] + ".jpg')"; }
+    
+    
+
+    cl(i)
+
+
+}
+// console.log(m)
 
 function shuffle(array) {
     array.sort(() => Math.random() - 0.5);
@@ -121,10 +140,12 @@ function getCity() {
     cl("+++++GN")
     if (localStorage.getItem('cityS') === null) {
         cityD.textContent = '[Enter city]';
-        cl("+++++GN+1")
+        cl("aaaaaaaaaaaaaaaa")
     } else {
         cityD.textContent = localStorage.getItem('cityS');
-        cl("+++++GN+2")
+        cl("bbbbbbbbbbbbbbbbbbbbbb")
+        weather(localStorage.getItem('cityS'))
+        cl("cccccccccccccccccccccc")
     }
 }
 
@@ -135,13 +156,15 @@ function setCity() {
             localStorage.setItem('cityS', cityD.innerText);
             cityD.blur()
             cl("1111111111111")
-        }
-        else {
-            localStorage.setItem('cityS', cityD.innerText);
-            cl("22222222222")
             weather(localStorage.getItem('cityS'))
-            cl("3333333333")
+            cl("1111111111111++++++")
         }
+        // else {
+        //     localStorage.setItem('cityS', cityD.innerText);
+        //     cl("22222222222")
+        //     weather(localStorage.getItem('cityS'))
+        //     cl("3333333333")
+        // }
     });
 }
 
@@ -151,10 +174,11 @@ function getName() {
     if (localStorage.getItem('nameS') === null) {
         nameD.textContent = '[Enter Name]';
         cl("+++++GN+1")
-    } else {
-        nameD.textContent = localStorage.getItem('nameS');
-        cl("+++++GN+2")
     }
+    // else {
+    //     nameD.textContent = localStorage.getItem('nameS');
+    //     cl("+++++GN+2")
+    // }
 }
 
 function setName() {
@@ -165,10 +189,10 @@ function setName() {
             nameD.blur()
             cl("+++++SN+1")
         }
-        else {
-            localStorage.setItem('nameS', nameD.innerText);
-            cl("+++++SN+2")
-        }
+        // else {
+        //     localStorage.setItem('nameS', nameD.innerText);
+        //     cl("+++++SN+2")
+        // }
     });
 }
 
@@ -246,8 +270,8 @@ function weather(city = cityWeather) {
         console.log(weatJSon.wind.speed); //speed wind
 
         //
-        
-        iconD.src= "http://openweathermap.org/img/wn/" +weatJSon.weather[0].icon +"@4x.png"
+
+        iconD.src = "http://openweathermap.org/img/wn/" + weatJSon.weather[0].icon + "@4x.png"
         temperatureD.innerHTML = weatJSon.main.temp + "&deg;"
         descriptionD.innerHTML = `${weatJSon.weather[0].description}  humidity:${weatJSon.main.humidity}%  wind speed:${weatJSon.wind.speed}ms`
         // humidityD.innerHTML = 'dfsfsd'
@@ -290,14 +314,14 @@ getCity()
 setCity()
 
 quote();
-weather()
+weather();
 
 
 
 
-localStorage.removeItem('nameS');
-localStorage.removeItem('focusS');
-localStorage.removeItem('cityS');
+// localStorage.removeItem('nameS');
+// localStorage.removeItem('focusS');
+// localStorage.removeItem('cityS');
 
 
 
