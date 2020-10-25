@@ -1,0 +1,210 @@
+body {
+    margin: 0px;
+    // height: 100%;
+    // width: 100%;
+    // background-size: cover;
+    // background-size: 100%;
+    background-position: top center;
+    /* background-image: url("https://raw.githubusercontent.com/irinainina/ready-projects/momentum/momentum/assets/images/night/17.jpg");   */
+    transition: background-image 1s ease-in-out;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+    color: white;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    // font-family: Righteous;
+    font-family: Questrial;
+    font-style: normal;
+    font-weight: normal;
+    // font-size: 144px;
+    // line-height: 130%;
+}
+
+.mainWrapper {
+    width: 80%;
+    // height: 100%;
+    margin-top: 100px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: 	flex-start;
+    // background-color: hotpink;
+
+    &-content {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        align-items: center;
+        height: 125%;
+
+        // background-color: indianred;
+        // width: 80%;
+        // height: 80%;
+        &-weather{
+            // background-color: fuchsia;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &-temperature{
+                font-size: 50px;
+                margin-right: 10px;
+            }
+        }
+
+
+
+        &-weather-cityWrapper {
+            background-color: indigo;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
+
+.quoteWrapper {
+    text-align: justify;
+    width: 70%;
+    // height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: lawngreen;
+}
+
+.quote {
+    font-size: 18px;
+}
+
+.nextQuote {
+    position:relative;
+    top:10px;
+    left:10px;
+    color: black;
+    width: 150px;
+    height: 20px;
+
+    background-color: red;
+    border-radius: 3px;
+}
+
+.but{
+    margin-top: 160px;
+}
+
+
+.city{
+    font-size: 50px;
+}
+
+
+#bg {
+    /* background-color: chocolate; */
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+
+
+#buffer {
+    // display: none;
+    height: 5px;
+    width: 5px;
+}
+
+.main {
+    margin: 0px;
+    width: 100%;
+    margin-top: 5%;
+}
+
+.time {
+    font-size: 111px;
+
+
+}
+
+.date {
+    font-size: 40px;
+
+}
+
+.weather {
+    font-size: 40px;
+
+}
+
+.greeting {
+    font-size: 50px;
+
+}
+
+.titleFocus {
+    font-size: 25px;
+
+}
+
+
+
+
+
+.focus {
+    color: white;
+    font-size: 24px;
+    transition: background-image 1s ease-in-out;
+    line-height: 1.5;
+}
+
+
+.inputText {
+    border: 0;
+    background: rgba(255, 255, 255, 0);
+    color: white;
+    /* outline: none; */
+    /* color: white; */
+    white-space: nowrap;
+    min-width: 20px;
+    /* overflow: hidden; */
+}
+
+.inputText br {
+    display: none;
+}
+
+.inputText * {
+    display: inline;
+    white-space: nowrap;
+}
+
+
+.greeting {
+    white-space: nowrap;
+}
+
+.nextQuote {
+    font-size: 14px;
+}
+
+.nextQuote:hover {
+    cursor: pointer;
+
+}
+
+
+.iconWeather {
+    height: 85px;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 20px;
+}
+
+.city {
+    line-height: 1.5;
+}
