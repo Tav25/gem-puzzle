@@ -1,19 +1,20 @@
+@charset "UTF-8";
+html {
+  font-size: 100%;
+}
+
+@media (max-width: 767px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+/* Браузерное умолчание, т.е. 16px  */
 body {
-  margin: 0px;
   background-position: top center;
   /* background-image: url("https://raw.githubusercontent.com/irinainina/ready-projects/momentum/momentum/assets/images/night/17.jpg");   */
   -webkit-transition: background-image 1s ease-in-out;
   transition: background-image 1s ease-in-out;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   color: white;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: Questrial;
@@ -22,7 +23,6 @@ body {
 }
 
 .mainWrapper {
-  width: 80%;
   margin-top: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -49,7 +49,6 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 125%;
 }
 
 .mainWrapper-content-weather {
@@ -65,7 +64,7 @@ body {
 }
 
 .mainWrapper-content-weather-temperature {
-  font-size: 50px;
+  font-size: 4rem;
   margin-right: 10px;
 }
 
@@ -80,8 +79,7 @@ body {
 }
 
 .quoteWrapper {
-  text-align: justify;
-  width: 70%;
+  width: 50rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -92,30 +90,52 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background-color: lawngreen;
 }
 
 .quote {
-  font-size: 18px;
+  font-size: 1.5rem;
+  margin-top: 15px;
 }
 
 .nextQuote {
   position: relative;
   top: 10px;
   left: 10px;
-  color: black;
-  width: 150px;
-  height: 20px;
-  background-color: red;
-  border-radius: 3px;
+  padding: 5px 0px 5px 0px;
+  text-align: center;
+  width: 110px;
+  /* color-primary */
+  color: rgba(19, 19, 19, 0.5);
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
+}
+
+.nextQuote:hover {
+  cursor: pointer;
+  -webkit-transition: background-color 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
+  background-color: white;
 }
 
 .but {
-  margin-top: 160px;
+  margin-top: 20rem;
+  margin-left: 20px;
+  padding-top: 3px;
+  margin-right: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
+}
+
+.but:hover {
+  cursor: pointer;
+  margin-top: 20rem;
+  background-color: white;
+  -webkit-transition: background-color 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
 }
 
 .city {
-  font-size: 50px;
+  font-size: 4rem;
 }
 
 #bg {
@@ -137,23 +157,25 @@ body {
 }
 
 .time {
-  font-size: 111px;
+  font-size: 10rem;
 }
 
 .date {
-  font-size: 40px;
+  font-size: 3rem;
 }
 
 .weather {
-  font-size: 40px;
+  font-size: 3rem;
 }
 
 .greeting {
-  font-size: 50px;
+  margin-top: 30px;
+  font-size: 3.5rem;
 }
 
 .titleFocus {
-  font-size: 25px;
+  margin-top: 10px;
+  font-size: 2rem;
 }
 
 .focus {
@@ -189,7 +211,7 @@ body {
 }
 
 .nextQuote {
-  font-size: 14px;
+  font-size: 1.2rem;
 }
 
 .nextQuote:hover {
@@ -202,7 +224,7 @@ body {
 }
 
 .description {
-  font-size: 20px;
+  font-size: 1.5rem;
 }
 
 .city {

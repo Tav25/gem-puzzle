@@ -1,5 +1,12 @@
+html {    
+    font-size: 100%; 
+    @media (max-width:767px) {
+        font-size: 50%; 
+    }
+
+} /* Браузерное умолчание, т.е. 16px  */  
 body {
-    margin: 0px;
+    // margin: 0px;
     // height: 100%;
     // width: 100%;
     // background-size: cover;
@@ -8,9 +15,9 @@ body {
     /* background-image: url("https://raw.githubusercontent.com/irinainina/ready-projects/momentum/momentum/assets/images/night/17.jpg");   */
     transition: background-image 1s ease-in-out;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
 
 
     color: white;
@@ -25,7 +32,7 @@ body {
 }
 
 .mainWrapper {
-    width: 80%;
+    // width: 80%;
     // height: 100%;
     margin-top: 100px;
 
@@ -39,7 +46,7 @@ body {
         flex-flow: column nowrap;
         justify-content: space-between;
         align-items: center;
-        height: 125%;
+        // height: 125%;
 
         // background-color: indianred;
         // width: 80%;
@@ -51,7 +58,7 @@ body {
             align-items: center;
 
             &-temperature{
-                font-size: 50px;
+                font-size: 4rem;
                 margin-right: 10px;
             }
         }
@@ -68,38 +75,65 @@ body {
 
 
 .quoteWrapper {
-    text-align: justify;
-    width: 70%;
+    // text-align: justify;
+    width: 50rem;
     // height: 20%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: lawngreen;
+    // background-color: lawngreen;
 }
 
 .quote {
-    font-size: 18px;
+    font-size: 1.5rem;
+    margin-top: 15px;
+    // width: 100%;
 }
 
 .nextQuote {
     position:relative;
     top:10px;
     left:10px;
-    color: black;
-    width: 150px;
-    height: 20px;
+    padding: 5px 0px 5px 0px;
+    text-align: center;
+    width: 110px;
+    // height: 52px;
+    
+    /* color-primary */
+    color: rgba(19, 19, 19, 0.5);
+    
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
+}
 
-    background-color: red;
-    border-radius: 3px;
+
+.nextQuote:hover {
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out;
+    background-color: rgba(255, 255, 255, 1);
+
 }
 
 .but{
-    margin-top: 160px;
+    margin-top: 20rem;
+    margin-left: 20px;
+    padding-top: 3px;
+    margin-right: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
+}
+
+
+.but:hover{
+    cursor: pointer;
+    margin-top: 20rem;
+    background-color: rgba(255, 255, 255, 1);
+    transition: background-color 0.5s ease-in-out;
 }
 
 
 .city{
-    font-size: 50px;
+    font-size: 4rem;
 }
 
 
@@ -124,28 +158,30 @@ body {
 }
 
 .time {
-    font-size: 111px;
+    font-size: 10rem;
 
 
 }
 
 .date {
-    font-size: 40px;
+    font-size: 3rem;
 
 }
 
 .weather {
-    font-size: 40px;
+    font-size: 3rem;
 
 }
 
 .greeting {
-    font-size: 50px;
+    margin-top: 30px;
+    font-size: 3.5rem;
 
 }
 
 .titleFocus {
-    font-size: 25px;
+    margin-top: 10px;
+    font-size: 2rem;
 
 }
 
@@ -187,7 +223,7 @@ body {
 }
 
 .nextQuote {
-    font-size: 14px;
+    font-size: 1.2rem;
 }
 
 .nextQuote:hover {
@@ -202,7 +238,7 @@ body {
 }
 
 .description {
-    font-size: 20px;
+    font-size: 1.5rem;
 }
 
 .city {
