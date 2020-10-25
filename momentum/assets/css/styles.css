@@ -13,10 +13,10 @@ html {
 body {
   background-position: top center;
   /* background-image: url("https://raw.githubusercontent.com/irinainina/ready-projects/momentum/momentum/assets/images/night/17.jpg");   */
-  -webkit-transition: background-image 1s ease-in-out;
-  transition: background-image 1s ease-in-out;
+  -webkit-transition: background-image 0.3s ease-in-out;
+  transition: background-image 0.3s ease-in-out;
   color: white;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
   font-family: Questrial;
   font-style: normal;
   font-weight: normal;
@@ -93,7 +93,7 @@ body {
 }
 
 .quote {
-  font-size: 1.5rem;
+  font-size: 2.2rem;
   margin-top: 15px;
 }
 
@@ -112,8 +112,8 @@ body {
 
 .nextQuote:hover {
   cursor: pointer;
-  -webkit-transition: background-color 0.5s ease-in-out;
-  transition: background-color 0.5s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
   background-color: white;
 }
 
@@ -130,8 +130,8 @@ body {
   cursor: pointer;
   margin-top: 20rem;
   background-color: white;
-  -webkit-transition: background-color 0.5s ease-in-out;
-  transition: background-color 0.5s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .city {
@@ -180,7 +180,7 @@ body {
 
 .focus {
   color: white;
-  font-size: 24px;
+  font-size: 2rem;
   -webkit-transition: background-image 1s ease-in-out;
   transition: background-image 1s ease-in-out;
   line-height: 1.5;
@@ -224,7 +224,7 @@ body {
 }
 
 .description {
-  font-size: 1.5rem;
+  font-size: 2.2rem;
 }
 
 .city {

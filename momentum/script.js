@@ -71,7 +71,8 @@ function test1() {
 
 function nextImageHour(h = 0, m = 0, x = 1) {
 
-    // if (m % 5 === 0) {
+    console.log("nextImageHour h: ")
+    
     if (m === 0) {
         // let h = 3;
         let timeOfDay = ""
@@ -84,7 +85,7 @@ function nextImageHour(h = 0, m = 0, x = 1) {
 
         console.log(`i:${i} td:${timeOfDay} img:${arrImage[i]}.jpg`)
         block.style.backgroundImage = "url('../momentum/assets/images/" + arrImage[i] + ".jpg')";
-         if (arrImage[i+1]){bufferD.style.backgroundImage = "url('../momentum/assets/images/" + arrImage[i+1] + ".jpg')";}
+        if (arrImage[i + 1]) { bufferD.style.backgroundImage = "url('../momentum/assets/images/" + arrImage[i + 1] + ".jpg')"; }
 
         i = i + x;
         if (i === 24) { i = 0 }
@@ -227,8 +228,8 @@ buttonLeftD.addEventListener("mouseup", test1);
 
 
 
+nextImageHour(i,0,1);
 showTime();
-nextImageHour();
 weather()
 getName();
 setName();
