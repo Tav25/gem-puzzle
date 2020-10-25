@@ -7,7 +7,7 @@ const timeD = document.querySelector('.time'),
     focusD = document.querySelector('.focus'),
     quoteD = document.querySelector('.quote'),
     nextQuoteD = document.querySelector('.nextQuote'),
-    cityWeather = "gfgfhgf"
+    cityWeather = ""
 
 cityD = document.querySelector('.city'),
     descriptionD = document.querySelector('.description'),
@@ -105,17 +105,17 @@ function nextImageHour(h = 0, m = 0, x = 1) {
 
 function nextImageHour2(x) {
     i = i + x;
-    cl("pered: "+arrImage[i]+ ".jpg")
+    cl("pered: " + arrImage[i] + ".jpg")
     if (i === 24) { i = 0 }
     if (i === -1) { i = 23 }
-    
+
     block.style.backgroundImage = "url('../momentum/assets/images/" + arrImage[i] + ".jpg')";
     if (arrImage[i + 1]) { bufferD.style.backgroundImage = "url('../momentum/assets/images/" + arrImage[i + 1] + ".jpg')"; }
     if (arrImage[i + 2]) { bufferD.style.backgroundImage = "url('../momentum/assets/images/" + arrImage[i + 1] + ".jpg')"; }
     if (arrImage[i - 1]) { bufferD.style.backgroundImage = "url('../momentum/assets/images/" + arrImage[i + 1] + ".jpg')"; }
     if (arrImage[i - 2]) { bufferD.style.backgroundImage = "url('../momentum/assets/images/" + arrImage[i + 1] + ".jpg')"; }
-    
-    
+
+
 
     cl(i)
 
@@ -136,6 +136,14 @@ function zero(num) {
 
 }
 
+
+function isSpace(text) {
+    let regexp = /\s*$/g;
+    // alert( str.search(regexp) );
+    if (text.search(regexp) === 0) { return false }
+    return true
+}
+
 function getCity() {
     cl("+++++GN")
     if (localStorage.getItem('cityS') === null) {
@@ -153,6 +161,7 @@ function setCity() {
     cl("00000000000")
     cityD.addEventListener('keyup', event => {
         if (event.keyCode === 13) {
+            if (!isSpace(cityD.textContent)) {cityD.textContent = localStorage.getItem('cityS'); }
             localStorage.setItem('cityS', cityD.innerText);
             cityD.blur()
             cl("1111111111111")
@@ -171,20 +180,21 @@ function setCity() {
 
 function getName() {
     cl("+++++GN")
-    if (localStorage.getItem('nameS') === null) {
+    if (localStorage.getItem('nameS') === null) {        
         nameD.textContent = '[Enter Name]';
         cl("+++++GN+1")
     }
-    // else {
-    //     nameD.textContent = localStorage.getItem('nameS');
-    //     cl("+++++GN+2")
-    // }
+    else {
+        nameD.textContent = localStorage.getItem('nameS');
+        cl("+++++GN+2")
+    }
 }
 
 function setName() {
     cl("+++++SN")
     nameD.addEventListener('keyup', event => {
         if (event.keyCode === 13) {
+            if (!isSpace(nameD.textContent)) {nameD.textContent = localStorage.getItem('nameS'); }
             localStorage.setItem('nameS', nameD.innerText);
             nameD.blur()
             cl("+++++SN+1")
@@ -211,13 +221,14 @@ function setFocus() {
 
     focusD.addEventListener('keyup', event => {
         if (event.keyCode === 13) {
+            if (!isSpace(focusD.textContent)) {focusD.textContent = localStorage.getItem('focusS'); }
             localStorage.setItem('focusS', focusD.innerText);
             focusD.blur()
         }
-        else {
-            localStorage.setItem('focusS', focusD.innerText);
-            console.log('+++++++++++++++' + localStorage.getItem('focusS'))
-        }
+        // else {
+        //     localStorage.setItem('focusS', focusD.innerText);
+        //     console.log('+++++++++++++++' + localStorage.getItem('focusS'))
+        // }
     });
 
 }
