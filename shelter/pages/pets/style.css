@@ -397,6 +397,18 @@ html {
   cursor: pointer;
 }
 
+@media (max-width: 1279px) {
+  .section-ourFriends-wrapper-cards_container-card:nth-child(7), .section-ourFriends-wrapper-cards_container-card:nth-child(8) {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-ourFriends-wrapper-cards_container-card:nth-child(4), .section-ourFriends-wrapper-cards_container-card:nth-child(5), .section-ourFriends-wrapper-cards_container-card:nth-child(6) {
+    display: none;
+  }
+}
+
 .section-ourFriends-wrapper-navigation {
   width: 340px;
   height: 52px;
@@ -428,9 +440,8 @@ html {
 }
 
 .section-ourFriends-wrapper-navigation-button_paginator-navBut {
-  width: 52px;
-  height: 52px;
-  border: 2px solid #F1CDB3;
+  width: 50px;
+  height: 50px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 100px;
@@ -458,7 +469,22 @@ html {
   margin-left: 17px;
 }
 
-.section-ourFriends-wrapper-navigation-button_paginator-navBut:hover {
+.section-ourFriends-wrapper-navigation-button_paginator:nth-child(1), .section-ourFriends-wrapper-navigation-button_paginator:nth-child(2) {
+  border: 2px solid #CDCDCD;
+  border-radius: 100px;
+  color: #CDCDCD;
+}
+
+.section-ourFriends-wrapper-navigation-button_paginator:nth-child(4), .section-ourFriends-wrapper-navigation-button_paginator:nth-child(5) {
+  border: 2px solid #F1CDB3;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.section-ourFriends-wrapper-navigation-button_paginator:nth-child(3) {
+  background-color: #F1CDB3;
+  border: 2px solid #F1CDB3;
+  border-radius: 100px;
   cursor: pointer;
 }
 
