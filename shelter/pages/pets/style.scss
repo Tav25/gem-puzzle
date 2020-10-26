@@ -43,14 +43,16 @@ html {
 
 
 .section-header {
-    position: absolute;
+    // position: absolute;
+    position: sticky;
     left: calc(50% - 1200px/2);
-    height: 60px;
-    top: 30px;
+    height: 120px;
+    top: 0px;
+    background: #FFFFFF;
 
     @media (max-width: 1279px) {
         left: calc(50% - 768px/2);
-        top: 30px;
+        top: 0px;
 
     }
 
@@ -61,10 +63,12 @@ html {
     }
 
     &-wrapper {
+        
         z-index: 10;
         // margin-top: 60px;
         width: 1200px;
         height: 60px;
+        padding-top: 30px;
 
         display: flex;
         justify-content: space-between;
@@ -72,7 +76,7 @@ html {
 
         @media (max-width: 1279px) {
 
-            margin-left: 30px;
+            margin-left: 0px;
             width: 708px;
             // margin-top: 0px;
 
@@ -81,10 +85,10 @@ html {
 
         @media (max-width: 767px) {
             width: 200px;
-            margin-left: 10px;
+            margin-left: 0px;
 
             // margin-top: 0px;
-            
+
 
         }
 
@@ -144,9 +148,9 @@ html {
             @media (min-width: 767px) {
                 display: none;
 
-                
+
             }
-            
+
             margin-left: 43px;
             margin-top: 3px;
 
@@ -196,39 +200,17 @@ html {
 
 }
 
+
+
+
+
 //////////////////////////////////////////////@while condition {
-
-
-.section-notOnly {
-
-    height: 120px;
-    
-    /* color-light-xl */
-    
-    background: #FFFFFF;
-
-
-    display: flex;
-    align-items: flex-end;
-    align-content: flex-start;
-
-    @media (max-width: 1279px) {
-        // height: 1165px;
-    }
-
-    @media (max-width: 767px) {
-        // height: 823px;
-    }
-
-    
-
-}
-
 
 
 .section-ourFriends {
     height: 1342px;
     background-color: $main-bg-color-gray;
+
 
 
     @media (max-width: 1279px) {
@@ -238,7 +220,128 @@ html {
     @media (max-width: 767px) {
         height: 1649px;
     }
-    
+
+    &-wrapper {
+        width: 1200px;
+        height: 1162px;
+        background-color: greenyellow;
+        padding-top: 80px;
+
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        align-content: flex-start;
+
+
+        @media (max-width: 1279px) {
+            width: 708px;
+            height: 1603px;
+        }
+
+        @media (max-width: 767px) {
+            width: 300px;
+            height: 1565px;
+            padding-top: 42px;
+        }
+
+        &-heading {
+            background-color: indianred;
+            width: 400px;
+            height: 90px;
+            left: calc(50% - 400px/2);
+
+            /* h3 */
+
+            font-family: Georgia;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 35px;
+            line-height: 130%;
+            /* or 45px */
+            letter-spacing: 0.06em;
+            /* color-dark-l */
+            color: #545454;
+
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            @media (max-width: 767px) {
+                font-size: 25px;
+                width: 287px;
+                height: 64px;
+            }
+        }
+
+        &-cards_container {
+            width: 1200px;
+            height: 930px;
+            background-color: hotpink;
+            margin-top: 45px;
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            align-content: space-around;
+
+
+            @media (max-width: 1279px) {
+                width: 580px;
+                height: 1365px;
+                margin-top: 35px;
+                align-content: flex-start;
+            }
+
+            @media (max-width: 767px) {
+                width: 270px;
+                height: 1365px;
+            }
+
+            &-card {
+                background: #FAFAFA;
+                border-radius: 9px;
+                width: 270px;
+                height: 435px;
+
+                @media (max-width: 1279px) {
+                    margin-bottom: 28px;
+                }
+
+            }
+        }
+
+        &-navigation {
+            width: 340px;
+            height: 52px;
+            background-color: indianred;
+            margin-top: 45px;
+
+            display: flex;
+            justify-content: space-between;
+
+            @media (max-width: 1279px) {
+                margin-top: 35px;
+            }
+
+
+            @media (max-width: 767px) {
+                margin-top: 50px;
+                width: 300px;
+            }
+
+
+            &-button_paginator {
+                width: 52px;
+                height: 52px;
+                background-color: lightseagreen;
+            }
+        }
+    }
+
+
+
+
 
 }
 
