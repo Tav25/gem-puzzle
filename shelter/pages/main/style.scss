@@ -184,6 +184,23 @@ html {
                 /* Inside Auto Layout */
 
                 margin: 10px 0px;
+
+                a{
+                    color: #CDCDCD;
+                }
+
+                a:active{
+                    color: #FAFAFA;
+                    border-bottom: 3px solid #F1CDB3;
+                }
+                
+                a:hover{
+                    color: #FAFAFA;
+
+                }
+                
+
+                
             }
 
             @media (max-width: 767px) {
@@ -338,6 +355,13 @@ html {
                         letter-spacing: 0.06em;
                         color: #292929;
                         border: 0;
+                        outline: none;
+                    }
+
+
+                    button:hover {
+                        background: #FDDCC4;
+                        cursor: pointer;      
                     }
 
                     @media (max-width: 1279px) {
@@ -631,6 +655,16 @@ html {
                     margin-top: 21px;
                     margin-left: 17px;
                 }
+
+
+                
+            }
+
+
+            &-navLeft:hover{
+                background: #FDDCC4;
+                border: 2px solid  #FDDCC4;
+                cursor: pointer;
             }
 
             &-navRight {
@@ -654,6 +688,12 @@ html {
                     margin-left: 17px;
                 }
 
+            }
+
+            &-navRight:hover{
+                background: #FDDCC4;
+                border: 2px solid  #FDDCC4;
+                cursor: pointer;
             }
 
             &-cardWrapper {
@@ -746,10 +786,6 @@ html {
                             border-radius: 100px;
                             margin: 0px 0px;
                             background-color: #FAFAFA;
-
-
-
-
                             font-family: Georgia;
                             font-style: normal;
                             font-weight: normal;
@@ -766,10 +802,25 @@ html {
                             /* Inside Auto Layout */
 
                             margin: 0px 10px;
+                            outline: none;
 
+                        }
+
+                        button:hover {
+                            border: 2px solid  #FDDCC4;
+                            background: #FDDCC4;
+                            cursor: pointer;
+                            
                         }
                     }
                 }
+
+                &-card:hover {
+                    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+                    cursor: pointer;
+                }
+
+
 
             }
 
@@ -799,6 +850,12 @@ html {
 
                 color: #292929;
                 border: 0;
+                outline: none;
+            }
+
+            button:hover {
+                background: #FDDCC4;
+                cursor: pointer;      
             }
         }
     }
@@ -1304,8 +1361,13 @@ html {
 
                     /* color-dark-l */
 
-                    color: #545454;
+                    
+
+                    a{
+                        color: #545454;
+                    }
                 }
+
 
                 @media (max-width: 767px) {
 
@@ -1509,6 +1571,11 @@ html {
                     margin-top: 38px;
                 }
             }
+
+            a {
+                color: #F1CDB3;
+            }
+
 
             img {
                 margin-right: 20px;

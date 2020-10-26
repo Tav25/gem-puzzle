@@ -63,7 +63,7 @@ html {
     }
 
     &-wrapper {
-        
+
         z-index: 10;
         // margin-top: 60px;
         width: 1200px;
@@ -188,6 +188,21 @@ html {
                 /* Inside Auto Layout */
 
                 margin: 10px 0px;
+
+                a {
+                    color: #545454;
+                }
+
+                a:active {
+                    color: #545454;
+                    border-bottom: 3px solid #F1CDB3;
+                    ;
+                }
+
+                a:hover {
+                    color: #292929;
+
+                }
             }
 
             @media (max-width: 767px) {
@@ -224,7 +239,7 @@ html {
     &-wrapper {
         width: 1200px;
         height: 1162px;
-        background-color: greenyellow;
+        // background-color: greenyellow;
         padding-top: 80px;
 
         display: flex;
@@ -245,7 +260,7 @@ html {
         }
 
         &-heading {
-            background-color: indianred;
+            // background-color: indianred;
             width: 400px;
             height: 90px;
             left: calc(50% - 400px/2);
@@ -276,7 +291,7 @@ html {
         &-cards_container {
             width: 1200px;
             height: 930px;
-            background-color: hotpink;
+            // background-color: hotpink;
             margin-top: 45px;
 
             display: flex;
@@ -298,23 +313,102 @@ html {
                 height: 1365px;
             }
 
+
+
             &-card {
+                height: 435px;
+                width: 270px;
                 background: #FAFAFA;
                 border-radius: 9px;
-                width: 270px;
-                height: 435px;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
 
                 @media (max-width: 1279px) {
                     margin-bottom: 28px;
+
                 }
 
+                &-image {
+                    width: 270px;
+                    height: 270px;
+                    // margin-top: 30px;
+                }
+
+                &-name {
+                    /* pets-card-title */
+
+                    font-family: Georgia;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 20px;
+                    line-height: 23px;
+                    /* identical to box height */
+
+
+                    text-align: center;
+                    letter-spacing: 0.06em;
+
+                    /* pets-card-title */
+
+                    color: #545454;
+
+                    margin-top: 30px;
+
+                }
+
+                &-button {
+                    margin-top: 30px;
+
+                    button {
+                        width: 187px;
+                        height: 52px;
+                        border: 2px solid #F1CDB3;
+                        box-sizing: border-box;
+                        border-radius: 100px;
+                        margin: 0px 0px;
+                        background-color: #FAFAFA;
+                        font-family: Georgia;
+                        font-style: normal;
+                        font-weight: normal;
+                        font-size: 17px;
+                        line-height: 130%;
+                        /* identical to box height, or 22px */
+
+                        letter-spacing: 0.06em;
+
+                        /* color-dark-xl */
+
+                        color: #292929;
+
+                        /* Inside Auto Layout */
+
+                        margin: 0px 10px;
+
+                    }
+
+                    button:hover {
+                        border: 2px solid #FDDCC4;
+                        background: #FDDCC4;
+                        cursor: pointer;
+
+                    }
+                }
+
+
+            }
+
+            &-card:hover {
+                box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+                cursor: pointer;
             }
         }
 
         &-navigation {
             width: 340px;
             height: 52px;
-            background-color: indianred;
+            // background-color: indianred;
             margin-top: 45px;
 
             display: flex;
@@ -334,7 +428,46 @@ html {
             &-button_paginator {
                 width: 52px;
                 height: 52px;
-                background-color: lightseagreen;
+                // background-color: lightseagreen;
+
+                &-navBut {
+                    width: 52px;
+                    height: 52px;
+                    border: 2px solid #F1CDB3;
+                    box-sizing: border-box;
+                    border-radius: 100px;
+
+                    padding-top: 10px;
+                    align-items: center;
+                    text-align: center;
+                    font-family: Georgia;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 20px;
+                    line-height: 115%;
+                    letter-spacing: 0.06em;
+
+                    @media (max-width: 767px) {
+                        margin-right: 43px;
+
+                    }
+
+                    img {
+                        // background-color: tomato;
+                        margin-top: 21px;
+                        margin-left: 17px;
+                    }
+
+
+                }
+
+                &-navBut:hover {
+                    cursor: pointer;
+
+                }
+
+
+
             }
         }
     }
@@ -492,7 +625,12 @@ html {
                 @media (max-width: 767px) {
                     margin-top: 38px;
                 }
+
+                
             }
+            a {
+                    color: #F1CDB3;
+                }
 
             img {
                 margin-right: 20px;

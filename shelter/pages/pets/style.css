@@ -180,6 +180,19 @@ html {
   margin: 10px 0px;
 }
 
+.section-header-wrapper-navigate-menu a {
+  color: #545454;
+}
+
+.section-header-wrapper-navigate-menu a:active {
+  color: #545454;
+  border-bottom: 3px solid #F1CDB3;
+}
+
+.section-header-wrapper-navigate-menu a:hover {
+  color: #292929;
+}
+
 @media (max-width: 767px) {
   .section-header-wrapper-navigate {
     display: none;
@@ -206,7 +219,6 @@ html {
 .section-ourFriends-wrapper {
   width: 1200px;
   height: 1162px;
-  background-color: greenyellow;
   padding-top: 80px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -238,7 +250,6 @@ html {
 }
 
 .section-ourFriends-wrapper-heading {
-  background-color: indianred;
   width: 400px;
   height: 90px;
   left: calc(50% - 400px/2);
@@ -272,7 +283,6 @@ html {
 .section-ourFriends-wrapper-cards_container {
   width: 1200px;
   height: 930px;
-  background-color: hotpink;
   margin-top: 45px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -307,10 +317,20 @@ html {
 }
 
 .section-ourFriends-wrapper-cards_container-card {
+  height: 435px;
+  width: 270px;
   background: #FAFAFA;
   border-radius: 9px;
-  width: 270px;
-  height: 435px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media (max-width: 1279px) {
@@ -319,10 +339,67 @@ html {
   }
 }
 
+.section-ourFriends-wrapper-cards_container-card-image {
+  width: 270px;
+  height: 270px;
+}
+
+.section-ourFriends-wrapper-cards_container-card-name {
+  /* pets-card-title */
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 23px;
+  /* identical to box height */
+  text-align: center;
+  letter-spacing: 0.06em;
+  /* pets-card-title */
+  color: #545454;
+  margin-top: 30px;
+}
+
+.section-ourFriends-wrapper-cards_container-card-button {
+  margin-top: 30px;
+}
+
+.section-ourFriends-wrapper-cards_container-card-button button {
+  width: 187px;
+  height: 52px;
+  border: 2px solid #F1CDB3;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 100px;
+  margin: 0px 0px;
+  background-color: #FAFAFA;
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 130%;
+  /* identical to box height, or 22px */
+  letter-spacing: 0.06em;
+  /* color-dark-xl */
+  color: #292929;
+  /* Inside Auto Layout */
+  margin: 0px 10px;
+}
+
+.section-ourFriends-wrapper-cards_container-card-button button:hover {
+  border: 2px solid #FDDCC4;
+  background: #FDDCC4;
+  cursor: pointer;
+}
+
+.section-ourFriends-wrapper-cards_container-card:hover {
+  -webkit-box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+          box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+  cursor: pointer;
+}
+
 .section-ourFriends-wrapper-navigation {
   width: 340px;
   height: 52px;
-  background-color: indianred;
   margin-top: 45px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -348,7 +425,41 @@ html {
 .section-ourFriends-wrapper-navigation-button_paginator {
   width: 52px;
   height: 52px;
-  background-color: lightseagreen;
+}
+
+.section-ourFriends-wrapper-navigation-button_paginator-navBut {
+  width: 52px;
+  height: 52px;
+  border: 2px solid #F1CDB3;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 100px;
+  padding-top: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 767px) {
+  .section-ourFriends-wrapper-navigation-button_paginator-navBut {
+    margin-right: 43px;
+  }
+}
+
+.section-ourFriends-wrapper-navigation-button_paginator-navBut img {
+  margin-top: 21px;
+  margin-left: 17px;
+}
+
+.section-ourFriends-wrapper-navigation-button_paginator-navBut:hover {
+  cursor: pointer;
 }
 
 .section-footer {
@@ -521,6 +632,10 @@ html {
   .section-footer-wrapper-box1-phone {
     margin-top: 38px;
   }
+}
+
+.section-footer-wrapper-box1 a {
+  color: #F1CDB3;
 }
 
 .section-footer-wrapper-box1 img {
