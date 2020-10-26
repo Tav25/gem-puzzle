@@ -8,12 +8,198 @@ $main-bg-color-gray:#F6F6F6;
 }
 
 html {
-    overflow: overlay
+    overflow: overlay;
+}
+
+
+#burgerMenu,
+.overflow-hidden {
+
+    display: none;
+    position: fixed;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+
+    background: rgba(41, 41, 41, 0.6);
+    z-index: 15;
+}
+
+#small{
+    transition: 5s;
+    right: 0px;
+}
+
+// #small:hover{
+//     right: 1000px;
+//     opacity: 1;
+//   }
+
+.menuSmall {
+    position: absolute;
+    width: 320px;
+    height: 823px;
+    
+    top: 0px;
+
+    /* color-dark-3xl */
+
+    background: #292929;
+    // background-color: red;
+
+    &-wrapper {
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &-logo {
+            width: 257px;
+            height: 60px;
+
+            position: absolute;
+            left: 3.12%;
+            right: 16.56%;
+            top: 3.65%;
+            bottom: 89.06%;
+            // background-color: royalblue;
+
+            &-main {
+                // width: 184px;
+                height: 35px;
+
+                /* logo_title */
+
+                font-family: Georgia;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 32px;
+                line-height: 110%;
+                /* or 35px */
+
+                display: flex;
+                align-items: center;
+                letter-spacing: 0.06em;
+
+                /* color-primary */
+
+                color: #F1CDB3;
+            }
+
+            &-text {
+                margin-top: 10px;
+                margin-left: 5px;
+                // width: 184px;
+                height: 15px;
+
+                /* logo_subtitle */
+
+                font-family: Arial;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 13px;
+                line-height: 15px;
+                /* identical to box height */
+
+                display: flex;
+                align-items: center;
+                letter-spacing: 0.1em;
+
+                /* color-light-xl */
+
+                color: #FFFFFF;
+            }
+        }
+
+        &-burger {
+            @media (min-width: 767px) {
+                display: none;
+
+
+            }
+
+            margin-left: 43px;
+            margin-top: 3px;
+
+            // background-color: greenyellow;
+        }
+
+        &-navigate {
+            width: 443px;
+            height: 27px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &-menu {
+                left: 0%;
+                right: 0%;
+
+                /* paragraph-l */
+
+                font-family: Arial;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 15px;
+                line-height: 160%;
+                /* identical to box height, or 24px */
+
+                display: flex;
+                align-items: center;
+
+                /* color-light-l */
+
+                color: #CDCDCD;
+
+                /* Inside Auto Layout */
+
+                margin: 10px 0px;
+
+                a {
+                    color: #CDCDCD;
+                }
+
+                a:active {
+                    color: #FAFAFA;
+                    border-bottom: 3px solid #F1CDB3;
+                }
+
+                a:hover {
+                    color: #FAFAFA;
+
+                }
+
+
+
+            }
+
+            @media (max-width: 767px) {
+                display: none;
+            }
+        }
+
+
+    }
+
+    &-burger{
+        position: absolute;
+        top:45px;
+        right: 70px;
+        width: 30px;
+        height: 30px;
+        // background-color: sandybrown;
+        transform: rotate(90deg); 
+
+    }
+
 }
 
 .outer {
     width: 100%;
-    /* margin-left: calc(50% - 1600px/2); */
+    /* margin-left: calc(49% - 1600px/2); */
     // background-color: aquamarine;
 
 
@@ -44,18 +230,18 @@ html {
 
 .section-header {
     position: absolute;
-    left: calc(50% - 1200px/2);
+    left: calc(49% - 1200px/2);
     height: 60px;
     top: 60px;
 
     @media (max-width: 1279px) {
-        left: calc(50% - 768px/2);
+        left: calc(49% - 768px/2);
         top: 30px;
 
     }
 
     @media (max-width: 767px) {
-        left: calc(50% - 320px/2);
+        left: calc(49% - 320px/2);
         // top: 30px;
 
     }
@@ -185,22 +371,22 @@ html {
 
                 margin: 10px 0px;
 
-                a{
+                a {
                     color: #CDCDCD;
                 }
 
-                a:active{
+                a:active {
                     color: #FAFAFA;
                     border-bottom: 3px solid #F1CDB3;
                 }
-                
-                a:hover{
+
+                a:hover {
                     color: #FAFAFA;
 
                 }
-                
 
-                
+
+
             }
 
             @media (max-width: 767px) {
@@ -361,7 +547,7 @@ html {
 
                     button:hover {
                         background: #FDDCC4;
-                        cursor: pointer;      
+                        cursor: pointer;
                     }
 
                     @media (max-width: 1279px) {
@@ -657,13 +843,13 @@ html {
                 }
 
 
-                
+
             }
 
 
-            &-navLeft:hover{
+            &-navLeft:hover {
                 background: #FDDCC4;
-                border: 2px solid  #FDDCC4;
+                border: 2px solid #FDDCC4;
                 cursor: pointer;
             }
 
@@ -690,9 +876,9 @@ html {
 
             }
 
-            &-navRight:hover{
+            &-navRight:hover {
                 background: #FDDCC4;
-                border: 2px solid  #FDDCC4;
+                border: 2px solid #FDDCC4;
                 cursor: pointer;
             }
 
@@ -807,10 +993,10 @@ html {
                         }
 
                         button:hover {
-                            border: 2px solid  #FDDCC4;
+                            border: 2px solid #FDDCC4;
                             background: #FDDCC4;
                             cursor: pointer;
-                            
+
                         }
                     }
                 }
@@ -855,7 +1041,7 @@ html {
 
             button:hover {
                 background: #FDDCC4;
-                cursor: pointer;      
+                cursor: pointer;
             }
         }
     }
@@ -1361,9 +1547,9 @@ html {
 
                     /* color-dark-l */
 
-                    
 
-                    a{
+
+                    a {
                         color: #545454;
                     }
                 }
@@ -1408,7 +1594,7 @@ html {
                     font-weight: normal;
                     font-size: 12px;
                     line-height: 18px;
-                    /* or 150% */
+                    /* or 149% */
 
                     // line-height: 0;
                     margin-left: 10px;
@@ -1432,7 +1618,7 @@ html {
 
     height: 350px;
     background: url(../../assets/images/noise_lines_transparent@2X.png),
-        radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+        radial-gradient(110.67% 538.64% at 5.73% 49%, #513D2F 0%, #1A1A1C 100%), #211F20;
 
     display: flex;
     justify-content: center;
