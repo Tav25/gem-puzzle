@@ -151,8 +151,13 @@ html {
 }
 
 .main-keyboard-keys-row .medium {
+  font-size: 0.8rem;
   width: 6.9rem;
   height: 3.5rem;
   background-image: url(assets/images/button_m.png);
+}
+
+.main-keyboard-keys-row .tech {
+  font-size: 0.8rem;
 }
 /*# sourceMappingURL=style.css.map */
