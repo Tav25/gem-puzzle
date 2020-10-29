@@ -177,6 +177,10 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0.1rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   font-family: Roboto;
   font-style: normal;
   font-weight: 300;
