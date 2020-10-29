@@ -25,9 +25,9 @@ function getKeyToArray(array) {
 
 function playSoundKey() {
     if (lang === "ru") { 
-        audioPath = "/Virtual Keyboard/assets/sound/mechanical-Keyboard-single-buttonRu.mp3" }
+        audioPath = "assets/sound/mechanical-Keyboard-single-buttonRu.mp3" }
     else {
-        audioPath = "/Virtual Keyboard/assets/sound/mechanical-Keyboard-single-buttonEn.mp3"
+        audioPath = "assets/sound/mechanical-Keyboard-single-buttonEn.mp3"
     }
     const audio = new Audio(audioPath);
     audio.play();
