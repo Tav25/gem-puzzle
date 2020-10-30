@@ -9,19 +9,23 @@ let keyCaharCodeRuUp = [1025, 33, 34, 8470, 59, 37, 58, 63, 42, 40, 41, 95, 43, 
 let keyCodeArray = ["Backquote", "Digit1", "Digit2", "Digit3", "Digit4", "Digit5", "Digit6", "Digit7", "Digit8",
     "Digit9", "Digit0", "Minus", "Equal", "KeyQ", "KeyW", "KeyE", "KeyR", "KeyT", "KeyY", "KeyU", "KeyI", "KeyO",
     "KeyP", "BracketLeft", "BracketRight", "Backslash", "KeyA", "KeyS", "KeyD", "KeyF", "KeyG", "KeyH", "KeyJ", "KeyK",
-    "KeyL", "Semicolon", "Quote", "KeyZ", "KeyX", "KeyC", "KeyV", "KeyB", "KeyN", "KeyM", "Comma","Period", "Slash", "Space", 
-    "CapsLock", "ShiftLeft", "ShiftRight", "Enter", "Backspace", "ArrowLeft", "ArrowRight"]
+    "KeyL", "Semicolon", "Quote", "KeyZ", "KeyX", "KeyC", "KeyV", "KeyB", "KeyN", "KeyM", "Comma", "Period", "Slash", "Space"]
 let keyArray = []
 let textArea = []
 
 let lang = "ru"
 let shift = false
+let capsLk = false
+let keyShifButtubDown = false
 
 let outText = "hello world"
 
+
+xPosition = 0
+
 function ledCapsLk() {
-    if (shift === true) { return " <span>on</span>" }
-    return " <span>off</span>"
+    if (capsLk === true) { return " <span style = 'color : #66ff33' class='material-icons'>lens</span>" }
+    return " <span class='material-icons'>lens</span>"
 }
 
 
@@ -52,17 +56,17 @@ function makeKey(array) {
         if (array[i] == 32) { dopClass = "space" }
 
 
-        if (i == 37) { outKey += "<div class='button medium tech shift' id = 'ShiftLeft' onclick='setShift()'>shift</div>" }
-        if (i == 26) { outKey += "<div class='button medium tech capsLk' id = 'CapsLock' onclick='setCapLk()'>capsLk" + ledCapsLk() + "</div>" }
+        if (i == 37) { outKey += "<div class='button medium tech shift' data = 'ShiftLeft' onclick='setShift()'>shift</div>" }
+        if (i == 26) { outKey += "<div class='button medium tech capsLk' data = 'CapsLock' onclick='setCapLk()'>capsLk" + ledCapsLk() + "</div>" }
         if (i == 47) { outKey += "<div class='button tech lang' onclick='setLanguage()'>" + lang + "</div>" }
 
         outKey += "<div class='button alf " + dopClass + "' ' data = '" + keyCodeArray[i] + "' onclick='keyFlashSound(\"" + keyCodeArray[i] + "\")'>" + String.fromCharCode(array[i]) + "</div>"
 
-        if (i == 12) { outKey += "<div class='button medium tech ' id = 'Backspace' onclick=''>backspace</div>" }
-        if (i == 36) { outKey += "<div class='button medium tech ' id = 'Enter' onclick=''>enter</div>" }
-        if (i == 46) { outKey += "<div class='button medium tech shift' id = 'ShiftRight' onclick='setShift()'>shift</div>" }
-        if (i == 47) { outKey += "<div class='button tech' id = 'ArrowLeft' onclick=''>←</div>" }
-        if (i == 47) { outKey += "<div class='button tech' id = 'ArrowRight' onclick=''>→</div>" }
+        if (i == 12) { outKey += "<div class='button medium tech ' data = 'Backspace' onclick=''>backspace</div>" }
+        if (i == 36) { outKey += "<div class='button medium tech ' data = 'Enter' onclick=''>enter</div>" }
+        if (i == 46) { outKey += "<div class='button medium tech shift' data = 'ShiftRight' onclick='setShift()'>shift</div>" }
+        if (i == 47) { outKey += "<div class='button tech' data = 'ArrowLeft' onclick=''>←</div>" }
+        if (i == 47) { outKey += "<div class='button tech' data = 'ArrowRight' onclick=''>→</div>" }
 
         if (i == 12 || i == 25 || i == 36 || i == 46) { outKey += "<div class='clearfix'></div>" }
     }
@@ -72,30 +76,20 @@ function makeKey(array) {
 }
 
 
-// function keyFlashSound(keyCode) {
-//     document.onkeydown = function (event) {
-//         keysTech(event.code)
-//         document.querySelector("body > div.main > div.main-keyboard > div.button.alf[data = '" + event.code + "']").classList.add("flash")
-//         if (event.code) { makeText(event.code) }
-//         playSoundKey()
-//     }
-//     document.onkeyup = function (event) {
+function keyFlashSound(keyCode) {
+    document.onclick = function (event) {
+        cl(event.target.attributes['data'])
+        if (event.target.attributes['data']) {
+            cl("dddddddddddddddddddddd")
+            makeText(xPosition, event.target.attributes['data'].value)
+            playSoundKey()
+        }
+    }
+}
 
-//         document.querySelector("body > div.main > div.main-keyboard > div.button.alf[data = '" + event.code + "']").classList.remove("flash")
-//     }
-
-//     document.onclick = function (event) {
-//         cl(event.target.attributes['data'])
-//         if (event.target.attributes['data']) {
-//             makeText(event.target.attributes['data'].value)
-//             playSoundKey()
-//         }
-//     }
-
-// }
 
 function setLanguage() {
-    if (shift === false) {
+    if (capsLk === false) {
         if (lang === "ru") {
             lang = "en";
             keyArray = keyCaharCodeEn
@@ -119,40 +113,46 @@ function setLanguage() {
 }
 
 function setCapLk() {
-    if (shift === false) {
-        shift = true
+    if (capsLk === false) {
+        capsLk = true
         if (lang === "ru") { keyArray = keyCaharCodeRuUp } else { keyArray = keyCaharCodeEnUp }
     } else {
-        shift = false
+        capsLk = false
         if (lang === "ru") { keyArray = keyCaharCodeRu } else { keyArray = keyCaharCodeEn }
     }
     makeKey(keyArray)
-    playSoundKey()
+}
+
+function setShift() {
+
+    setCapLk()
+    // makeKey(keyArray)
 
 }
 
 
-// function makeText(text = "") {
+// const str = 'Mozilla';
+// let x=str.length - 5
+// let text = "W"
+// console.log(str.substr(0, x) + text +str.substr(x));
 
-//     cl("text")
-//     text = String.fromCharCode(keyArray[keyCodeArray.indexOf(text)]);
+function makeText(x, text = "") {
 
-//     // outText = outText + text
-//     // // document.querySelector("body > div.main > div.main-inputText").innerHTML = '<pre>'+ outText + '<span class="blink">|</span>' + '</pre>'
-//     // document.querySelector("body > div.main > div.main-inputText").innerHTML = outText + '<span class="blink">|</span>'
-//     textArea.push(text)
-//     document.querySelector("body > div.main > div.main-inputText").innerHTML = textArea + '<span class="blink">|</span>'
-// }
+    cl(`  -${text}- ${keyArray[keyCodeArray.indexOf(text)]}  ${textArea}`)
+    if (keyCodeArray.indexOf(text) > -1) {
+        text = String.fromCharCode(keyArray[keyCodeArray.indexOf(text)]);
+        textArea.splice(textArea.length - x, 1, text)
+    }
+
+    outText = textArea
+    index()
 
 
-// function keysTech() {
-//     // if (code === 'CapsLock') { setCapLk() }
-//     // if (code === 'Enter') { textArea.push("<br>") }
-//     // if (code === 'Backspace') { textArea.pop() }
-//     document.querySelector("#CapsLock").onkeydown = function (event) { cl("ass") }
+}
 
-// }
-
+function index() {
+    document.querySelector("body > div.main > div.main-inputText").innerHTML = outText + '<span class="blink">|</span>'
+}
 
 
 // getKeyToArray(keyCodeArray)
@@ -168,3 +168,60 @@ makeKey(keyCaharCodeRu)
 // mouseAndKeyTextEvent()
 
 // keysTech()
+
+
+
+document.addEventListener('keydown', (event) => {
+    playSoundKey()
+
+    cl(event.code)
+    makeText(xPosition, event.code)
+
+    document.querySelector("body > div.main > div.main-keyboard > div.button[data = '" + event.code + "']").classList.add("flash")
+    if (event.code === "ShiftLeft" || event.code === "ShiftRight") { cl("-ShiftLeftD"); setShift() }
+
+    // "CapsLock", "ShiftLeft", "ShiftRight", "Enter", "Backspace", "ArrowLeft", "ArrowRight"]
+
+    if (event.code === "CapsLock") { cl("-CapsLock"); setCapLk() }
+
+    if (event.code === "Enter") {
+        cl("-Enter")
+        textArea.splice(textArea.length - xPosition, 1, "<br>")
+        index()
+    }
+
+    if (event.code === "Backspace") {
+        cl("-Backspace")
+        textArea.splice(textArea.length - 1 - xPosition, 1)
+        index()
+    }
+
+    if (event.code === "ArrowLeft") { 
+        cl("-ArrowLeft")
+        xPosition++
+    
+    }
+
+    if (event.code === "ArrowRight") { cl("-ArrowRight") }
+
+    // text = String.fromCharCode(keyArray[keyCodeArray.indexOf(event.code)]);
+    // outText +=text
+    // document.querySelector("body > div.main > div.main-inputText").innerHTML = outText + '<span class="blink">|</span>'
+
+
+})
+
+document.addEventListener('keyup', (event) => {
+    document.querySelector("body > div.main > div.main-keyboard > div.button[data = '" + event.code + "']").classList.remove("flash")
+    if (event.code === "ShiftLeft" || event.code === "ShiftRight") { cl("-ShiftLeftU"); setShift() }
+
+
+})
+
+
+// document.querySelector("body > div.main > div.main-keyboard > div.button").addEventListener('mouseup', (event) => {
+//     playSoundKey()
+
+//     cl(event)
+
+// })

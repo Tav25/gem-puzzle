@@ -20,6 +20,22 @@ html {
   }
 }
 
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 0.7rem;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
 .main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -50,6 +66,7 @@ html {
   font-style: normal;
   font-weight: 300;
   white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 
 .main-keyboard {
@@ -199,7 +216,7 @@ html {
 
 .button:active,
 .flash {
-  background-color: #252525;
+  background-color: #9900ff;
   border-radius: 8px;
 }
 
