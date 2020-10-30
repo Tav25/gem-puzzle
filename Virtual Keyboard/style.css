@@ -49,6 +49,7 @@ html {
   font-family: Roboto;
   font-style: normal;
   font-weight: 300;
+  white-space: pre-wrap;
 }
 
 .main-keyboard {
@@ -196,7 +197,8 @@ html {
   border-radius: 8px;
 }
 
-.button:active, .flash {
+.button:active,
+.flash {
   background-color: #252525;
   border-radius: 8px;
 }
@@ -222,6 +224,34 @@ html {
 .clearfix {
   clear: both;
   width: 100%;
-  background-color: red;
+}
+
+.blink {
+  -webkit-animation: blink 1s linear infinite;
+  animation: blink 1s linear infinite;
+}
+
+@-webkit-keyframes blink {
+  50% {
+    color: #222222;
+  }
+  51% {
+    color: rgba(34, 34, 34, 0);
+  }
+  100% {
+    color: rgba(34, 34, 34, 0);
+  }
+}
+
+@keyframes blink {
+  50% {
+    color: #222222;
+  }
+  51% {
+    color: rgba(34, 34, 34, 0);
+  }
+  100% {
+    color: rgba(34, 34, 34, 0);
+  }
 }
 /*# sourceMappingURL=style.css.map */
