@@ -14,18 +14,19 @@ let keyArray = []
 let textArea = []
 
 let lang = "ru"
+let sound = true
 let shift = false
 let capsLk = false
 let keyShifButtubDown = false
 
-let outText = "hello world"
+let outText = ""
+let keyShow = false
 
-
-xPosition = 0
+let xPosition = 0
 
 function ledCapsLk() {
-    if (capsLk === true) { return " <span style = 'color : #66ff33' class='material-icons'>lens</span>" }
-    return " <span class='material-icons'>lens</span>"
+    if (capsLk === true) { return " <span class='material-icons flash'>keyboard_capslock</span>" }
+    return " <span class='material-icons'>keyboard_capslock</span>"
 }
 
 
@@ -36,15 +37,30 @@ function getKeyToArray(array) {
     }
 }
 
+function soundFun(){
+    if (sound){
+        sound = false
+        document.querySelector("#soundKey > span").innerHTML = "volume_off"
+    }else{
+        sound = true
+        document.querySelector("#soundKey > span").innerHTML = "volume_up"
+
+    }
+}
+
+
+
 function playSoundKey() {
-    if (lang === "ru") {
-        audioPath = "assets/sound/mechanical-Keyboard-single-buttonRu.mp3"
+    if (sound) {
+        if (lang === "ru") {
+            audioPath = "assets/sound/mechanical-Keyboard-single-buttonRu.mp3"
+        }
+        else {
+            audioPath = "assets/sound/mechanical-Keyboard-single-buttonEn.mp3"
+        }
+        const audio = new Audio(audioPath);
+        audio.play();
     }
-    else {
-        audioPath = "assets/sound/mechanical-Keyboard-single-buttonEn.mp3"
-    }
-    const audio = new Audio(audioPath);
-    audio.play();
 }
 
 
@@ -56,22 +72,26 @@ function makeKey(array) {
         if (array[i] == 32) { dopClass = "space" }
 
 
+        if (i == 26) { outKey += "<div class='button medium tech capsLk' data = 'CapsLock' onclick='setCapLk()'>" + ledCapsLk() + "</div>" }
         if (i == 37) { outKey += "<div class='button medium tech shift' data = 'ShiftLeft' onclick='setShift()'>shift</div>" }
-        if (i == 26) { outKey += "<div class='button medium tech capsLk' data = 'CapsLock' onclick='setCapLk()'>capsLk" + ledCapsLk() + "</div>" }
         if (i == 47) { outKey += "<div class='button tech lang' onclick='setLanguage()'>" + lang + "</div>" }
+        if (i == 47) { outKey += "<div id = 'soundKey' class='button tech lang' onclick='soundFun()'><span class='material-icons'>volume_up</span></div>" }
+        if (i == 47) { outKey += "<div id = 'keyboardHide' class='button tech lang' onclick='test()'><span class='material-icons'>keyboard_hide</span></div>" }
 
         outKey += "<div class='button alf " + dopClass + "' ' data = '" + keyCodeArray[i] + "' onclick='keyFlashSound(\"" + keyCodeArray[i] + "\")'>" + String.fromCharCode(array[i]) + "</div>"
 
-        if (i == 12) { outKey += "<div class='button medium tech ' data = 'Backspace' onclick=''>backspace</div>" }
-        if (i == 36) { outKey += "<div class='button medium tech ' data = 'Enter' onclick=''>enter</div>" }
+        if (i == 12) { outKey += "<div class='button medium tech ' data = 'Backspace' onclick='backspaceKey()'><span class='material-icons'>keyboard_backspace</span></div>" }
+        if (i == 36) { outKey += "<div class='button medium tech ' data = 'Enter' onclick='enterKey()'><span class='material-icons'>keyboard_return</span></div>" }
         if (i == 46) { outKey += "<div class='button medium tech shift' data = 'ShiftRight' onclick='setShift()'>shift</div>" }
-        if (i == 47) { outKey += "<div class='button tech' data = 'ArrowLeft' onclick=''>←</div>" }
-        if (i == 47) { outKey += "<div class='button tech' data = 'ArrowRight' onclick=''>→</div>" }
+        if (i == 47) { outKey += "<div class='button tech' data = 'ArrowLeft' onclick='arrowLeftKey()'><span class='material-icons'>keyboard_arrow_left</span></div>" }
+        if (i == 47) { outKey += "<div class='button tech' data = 'ArrowRight' onclick='arrowRightKey()'><span class='material-icons'>keyboard_arrow_right</span></div>" }
 
         if (i == 12 || i == 25 || i == 36 || i == 46) { outKey += "<div class='clearfix'></div>" }
     }
     document.querySelector("body > div.main > div.main-keyboard").innerHTML = outKey
     keyArray = array
+
+    // test()
 
 }
 
@@ -124,12 +144,32 @@ function setCapLk() {
 }
 
 function setShift() {
-
     setCapLk()
-    // makeKey(keyArray)
-
 }
 
+function enterKey() {
+    cl("-Enter")
+    outText = (outText.substr(0, x) + "\n" + outText.substr(x));
+    index()
+}
+
+function backspaceKey() {
+    cl("-Backspace")
+    outText = (outText.substr(0, x - 1) + outText.substr(x));
+    index()
+}
+
+function arrowLeftKey() {
+    cl("-ArrowLeft")
+    if (xPosition < outText.length) { xPosition++ }
+    index()
+}
+
+function arrowRightKey() {
+    cl("-ArrowRight")
+    if (xPosition > 0) { xPosition-- }
+    index()
+}
 
 // const str = 'Mozilla';
 // let x=str.length - 5
@@ -141,17 +181,18 @@ function makeText(x, text = "") {
     cl(`  -${text}- ${keyArray[keyCodeArray.indexOf(text)]}  ${textArea}`)
     if (keyCodeArray.indexOf(text) > -1) {
         text = String.fromCharCode(keyArray[keyCodeArray.indexOf(text)]);
-        textArea.splice(textArea.length - x, 1, text)
-    }
+        x = outText.length - xPosition
+        outText = (outText.substr(0, x) + text + outText.substr(x));
 
-    outText = textArea
-    index()
+        index()
+    }
 
 
 }
 
 function index() {
-    document.querySelector("body > div.main > div.main-inputText").innerHTML = outText + '<span class="blink">|</span>'
+    x = outText.length - xPosition
+    document.querySelector("body > div.main > div.main-inputText").innerHTML = (outText.substr(0, x) + '<span class="blink">|</span>' + outText.substr(x))
 }
 
 
@@ -172,6 +213,7 @@ makeKey(keyCaharCodeRu)
 
 
 document.addEventListener('keydown', (event) => {
+    if (keyShow){
     playSoundKey()
 
     cl(event.code)
@@ -184,30 +226,18 @@ document.addEventListener('keydown', (event) => {
 
     if (event.code === "CapsLock") { cl("-CapsLock"); setCapLk() }
 
-    if (event.code === "Enter") {
-        cl("-Enter")
-        textArea.splice(textArea.length - xPosition, 1, "<br>")
-        index()
-    }
+    if (event.code === "Enter") { enterKey() }
 
-    if (event.code === "Backspace") {
-        cl("-Backspace")
-        textArea.splice(textArea.length - 1 - xPosition, 1)
-        index()
-    }
+    if (event.code === "Backspace") { backspaceKey() }
 
-    if (event.code === "ArrowLeft") { 
-        cl("-ArrowLeft")
-        xPosition++
-    
-    }
+    if (event.code === "ArrowLeft") { arrowLeftKey() }
 
-    if (event.code === "ArrowRight") { cl("-ArrowRight") }
+    if (event.code === "ArrowRight") { arrowRightKey() }
 
     // text = String.fromCharCode(keyArray[keyCodeArray.indexOf(event.code)]);
     // outText +=text
     // document.querySelector("body > div.main > div.main-inputText").innerHTML = outText + '<span class="blink">|</span>'
-
+    }
 
 })
 
@@ -225,3 +255,19 @@ document.addEventListener('keyup', (event) => {
 //     cl(event)
 
 // })
+
+
+function test(){
+
+    document.querySelector("#main-keyboardId").classList.remove("keyboard--show")
+    keyShow = false
+    document.querySelector("body > div.main > div.main-inputText > span").remove("blink")
+  
+}
+
+document.querySelector("body > div.main > div.main-inputText").onclick = function() {
+
+    keyShow = true
+    document.querySelector("#main-keyboardId").classList.add("keyboard--show")
+    index()
+}
