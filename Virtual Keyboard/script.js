@@ -37,11 +37,11 @@ function getKeyToArray(array) {
     }
 }
 
-function soundFun(){
-    if (sound){
+function soundFun() {
+    if (sound) {
         sound = false
         document.querySelector("#soundKey > span").innerHTML = "volume_off"
-    }else{
+    } else {
         sound = true
         document.querySelector("#soundKey > span").innerHTML = "volume_up"
 
@@ -58,6 +58,14 @@ function playSoundKey() {
         else {
             audioPath = "assets/sound/mechanical-Keyboard-single-buttonEn.mp3"
         }
+        const audio = new Audio(audioPath);
+        audio.play();
+    }
+}
+
+function playSoundTechKey() {
+    if (sound) {
+        const audioPath = "assets/sound/mechanical-Keyboard-single-buttonEn.mp3";
         const audio = new Audio(audioPath);
         audio.play();
     }
@@ -102,7 +110,7 @@ function keyFlashSound(keyCode) {
         if (event.target.attributes['data']) {
             cl("dddddddddddddddddddddd")
             makeText(xPosition, event.target.attributes['data'].value)
-            playSoundKey()
+            // playSoundKey()
         }
     }
 }
@@ -128,7 +136,7 @@ function setLanguage() {
     }
     makeKey(keyArray)
     document.querySelector("body > div.main > div.main-keyboard > div.button.lang").innerHTML = lang
-    playSoundKey()
+    playSoundTechKey()
 
 }
 
@@ -141,34 +149,43 @@ function setCapLk() {
         if (lang === "ru") { keyArray = keyCaharCodeRu } else { keyArray = keyCaharCodeEn }
     }
     makeKey(keyArray)
+    playSoundTechKey()
 }
 
+let shiftKeyDown = 0
 function setShift() {
-    setCapLk()
+    // setCapLk()
+    shiftKeyDown++
+    cl(`shKD:${shiftKeyDown}`)
+    playSoundTechKey()
 }
 
 function enterKey() {
     cl("-Enter")
     outText = (outText.substr(0, x) + "\n" + outText.substr(x));
     index()
+    playSoundTechKey()
 }
 
 function backspaceKey() {
     cl("-Backspace")
     outText = (outText.substr(0, x - 1) + outText.substr(x));
     index()
+    playSoundTechKey()
 }
 
 function arrowLeftKey() {
     cl("-ArrowLeft")
     if (xPosition < outText.length) { xPosition++ }
     index()
+    playSoundTechKey()
 }
 
 function arrowRightKey() {
     cl("-ArrowRight")
     if (xPosition > 0) { xPosition-- }
     index()
+    playSoundTechKey()
 }
 
 // const str = 'Mozilla';
@@ -178,8 +195,9 @@ function arrowRightKey() {
 
 function makeText(x, text = "") {
 
-    cl(`  -${text}- ${keyArray[keyCodeArray.indexOf(text)]}  ${textArea}`)
+    cl(`  text-${text}- ${keyArray[keyCodeArray.indexOf(text)]}  ${textArea}`)
     if (keyCodeArray.indexOf(text) > -1) {
+        playSoundKey()
         text = String.fromCharCode(keyArray[keyCodeArray.indexOf(text)]);
         x = outText.length - xPosition
         outText = (outText.substr(0, x) + text + outText.substr(x));
@@ -196,47 +214,40 @@ function index() {
 }
 
 
-// getKeyToArray(keyCodeArray)
-// playSoundKey()
-
-// makeKey(keyCaharCodeEnUp)
-// makeKey(keyCaharCodeEn)
-// makeKey(keyCaharCodeRuUp)
-
-// keyFlashSound()
 makeKey(keyCaharCodeRu)
-// makeText()
-// mouseAndKeyTextEvent()
-
-// keysTech()
 
 
+// https://developer.mozilla.org/ru/docs/Web/API/MouseEvent/shiftKey
 
 document.addEventListener('keydown', (event) => {
-    if (keyShow){
-    playSoundKey()
+    if (keyShow) {
+        // playSoundKey()
 
-    cl(event.code)
-    makeText(xPosition, event.code)
+        cl(`if in:${keyCodeArray.includes(event.code)}`);
+        if (keyCodeArray.includes(event.code)) {
+            makeText(xPosition, event.code)
 
-    document.querySelector("body > div.main > div.main-keyboard > div.button[data = '" + event.code + "']").classList.add("flash")
-    if (event.code === "ShiftLeft" || event.code === "ShiftRight") { cl("-ShiftLeftD"); setShift() }
+            document.querySelector("body > div.main > div.main-keyboard > div.button[data = '" + event.code + "']").classList.add("flash")
+            cl('event code=' + event.code)
+        }
 
-    // "CapsLock", "ShiftLeft", "ShiftRight", "Enter", "Backspace", "ArrowLeft", "ArrowRight"]
+        if (event.code === "ShiftLeft" || event.code === "ShiftRight") { cl("-ShiftLeftD"); setShift() }
 
-    if (event.code === "CapsLock") { cl("-CapsLock"); setCapLk() }
+        // "CapsLock", "ShiftLeft", "ShiftRight", "Enter", "Backspace", "ArrowLeft", "ArrowRight"]
 
-    if (event.code === "Enter") { enterKey() }
+        if (event.code === "CapsLock") { cl("-CapsLock"); setCapLk() }
 
-    if (event.code === "Backspace") { backspaceKey() }
+        if (event.code === "Enter") { enterKey() }
 
-    if (event.code === "ArrowLeft") { arrowLeftKey() }
+        if (event.code === "Backspace") { backspaceKey() }
 
-    if (event.code === "ArrowRight") { arrowRightKey() }
+        if (event.code === "ArrowLeft") { arrowLeftKey() }
 
-    // text = String.fromCharCode(keyArray[keyCodeArray.indexOf(event.code)]);
-    // outText +=text
-    // document.querySelector("body > div.main > div.main-inputText").innerHTML = outText + '<span class="blink">|</span>'
+        if (event.code === "ArrowRight") { arrowRightKey() }
+
+        // text = String.fromCharCode(keyArray[keyCodeArray.indexOf(event.code)]);
+        // outText +=text
+        // document.querySelector("body > div.main > div.main-inputText").innerHTML = outText + '<span class="blink">|</span>'
     }
 
 })
@@ -257,15 +268,15 @@ document.addEventListener('keyup', (event) => {
 // })
 
 
-function test(){
+function test() {
 
     document.querySelector("#main-keyboardId").classList.remove("keyboard--show")
     keyShow = false
     document.querySelector("body > div.main > div.main-inputText > span").remove("blink")
-  
+
 }
 
-document.querySelector("body > div.main > div.main-inputText").onclick = function() {
+document.querySelector("body > div.main > div.main-inputText").onclick = function () {
 
     keyShow = true
     document.querySelector("#main-keyboardId").classList.add("keyboard--show")
