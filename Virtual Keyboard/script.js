@@ -38,6 +38,7 @@ function getKeyToArray(array) {
 }
 
 function soundFun() {
+    cl("soundDDDDDDDDDDDDDDDDDDDDDddd")
     if (sound) {
         sound = false
         document.querySelector("#soundKey > span").innerHTML = "volume_off"
@@ -45,10 +46,14 @@ function soundFun() {
         sound = true
         document.querySelector("#soundKey > span").innerHTML = "volume_up"
 
+
     }
 }
 
-
+function ledSound() {
+    if (sound === true) { return " <span class='material-icons'>volume_up</span>" }
+    return " <span class='material-icons'>volume_off</span>"
+}
 
 function playSoundKey() {
     if (sound) {
@@ -83,7 +88,7 @@ function makeKey(array) {
         if (i == 26) { outKey += "<div id='techCapsLock' class='button medium tech capsLk' data = 'CapsLock' onclick='setCapLk()'>" + ledCapsLk() + "</div>" }
         if (i == 37) { outKey += "<div id='techShiftLeft' class='button medium tech shift' data = 'ShiftLeft' onclick='setShift()'>shift</div>" }
         if (i == 47) { outKey += "<div class='button tech lang' onclick='setLanguage()'>" + lang + "</div>" }
-        if (i == 47) { outKey += "<div id = 'soundKey' class='button tech lang' onclick='soundFun()'><span class='material-icons'>volume_up</span></div>" }
+        if (i == 47) { outKey += "<div id = 'soundKey' class='button tech lang' onclick='soundFun()'>" + ledSound() + "</div>" }
         if (i == 47) { outKey += "<div id = 'keyboardHide' class='button tech lang' onclick='test()'><span class='material-icons'>keyboard_hide</span></div>" }
 
         outKey += "<div class='button alf " + dopClass + "' ' data = '" + keyCodeArray[i] + "' onclick='keyFlashSound(\"" + keyCodeArray[i] + "\")'>" + String.fromCharCode(array[i]) + "</div>"
@@ -108,7 +113,7 @@ function keyFlashSound(keyCode) {
     document.onclick = function (event) {
         cl(event.target.attributes['data'])
         if (event.target.attributes['data']) {
-            cl("dddddddddddddddddddddd")
+            cl("5")
             makeText(xPosition, event.target.attributes['data'].value)
             // playSoundKey()
         }
@@ -224,7 +229,7 @@ document.addEventListener('keydown', (event) => {
         cl('event:.shiftKey------' + event.shiftKey)
 
         cl('+++++++++++++++++++++++++event code=' + event.code)
-        
+
 
         if (keyCodeArray.includes(event.code)) {
             document.querySelector("body > div.main > div.main-keyboard > div.button[data = '" + event.code + "']").classList.add("flash")
@@ -232,9 +237,9 @@ document.addEventListener('keydown', (event) => {
 
         }
 
-        if (event.code === "ShiftLeft" || event.code === "ShiftRight") {cl("-ShiftLeftD"); setShift(); document.querySelector('#tech' + event.code ).classList.add("flashTech") }
+        if (event.code === "ShiftLeft" || event.code === "ShiftRight") { cl("-ShiftLeftD"); setShift(); document.querySelector('#tech' + event.code).classList.add("flashTech") }
 
-        if (event.code === "CapsLock") { cl("-CapsLock"); setCapLk();document.querySelector('#techCapsLock').classList.add("flashTech") }
+        if (event.code === "CapsLock") { cl("-CapsLock"); setCapLk(); document.querySelector('#techCapsLock').classList.add("flashTech") }
 
         if (event.code === "Enter") { enterKey(); document.querySelector('#techEnter').classList.add("flashTech") }
 
