@@ -65,7 +65,7 @@ function playSoundKey() {
 
 function playSoundTechKey() {
     if (sound) {
-        const audioPath = "assets/sound/mechanical-Keyboard-single-buttonEn.mp3";
+        const audioPath = "assets/sound/mechanical-Keyboard-single-buttonEnTech2.mp3";
         const audio = new Audio(audioPath);
         audio.play();
     }
@@ -80,19 +80,19 @@ function makeKey(array) {
         if (array[i] == 32) { dopClass = "space" }
 
 
-        if (i == 26) { outKey += "<div class='button medium tech capsLk' data = 'CapsLock' onclick='setCapLk()'>" + ledCapsLk() + "</div>" }
-        if (i == 37) { outKey += "<div class='button medium tech shift' data = 'ShiftLeft' onclick='setShift()'>shift</div>" }
+        if (i == 26) { outKey += "<div id='techCapsLock' class='button medium tech capsLk' data = 'CapsLock' onclick='setCapLk()'>" + ledCapsLk() + "</div>" }
+        if (i == 37) { outKey += "<div id='techShiftLeft' class='button medium tech shift' data = 'ShiftLeft' onclick='setShift()'>shift</div>" }
         if (i == 47) { outKey += "<div class='button tech lang' onclick='setLanguage()'>" + lang + "</div>" }
         if (i == 47) { outKey += "<div id = 'soundKey' class='button tech lang' onclick='soundFun()'><span class='material-icons'>volume_up</span></div>" }
         if (i == 47) { outKey += "<div id = 'keyboardHide' class='button tech lang' onclick='test()'><span class='material-icons'>keyboard_hide</span></div>" }
 
         outKey += "<div class='button alf " + dopClass + "' ' data = '" + keyCodeArray[i] + "' onclick='keyFlashSound(\"" + keyCodeArray[i] + "\")'>" + String.fromCharCode(array[i]) + "</div>"
 
-        if (i == 12) { outKey += "<div class='button medium tech ' data = 'Backspace' onclick='backspaceKey()'><span class='material-icons'>keyboard_backspace</span></div>" }
-        if (i == 36) { outKey += "<div class='button medium tech ' data = 'Enter' onclick='enterKey()'><span class='material-icons'>keyboard_return</span></div>" }
-        if (i == 46) { outKey += "<div class='button medium tech shift' data = 'ShiftRight' onclick='setShift()'>shift</div>" }
-        if (i == 47) { outKey += "<div class='button tech' data = 'ArrowLeft' onclick='arrowLeftKey()'><span class='material-icons'>keyboard_arrow_left</span></div>" }
-        if (i == 47) { outKey += "<div class='button tech' data = 'ArrowRight' onclick='arrowRightKey()'><span class='material-icons'>keyboard_arrow_right</span></div>" }
+        if (i == 12) { outKey += "<div id='techBackspace' class='button medium tech ' data = 'Backspace' onclick='backspaceKey()'><span class='material-icons'>keyboard_backspace</span></div>" }
+        if (i == 36) { outKey += "<div id='techEnter' class='button medium tech ' data = 'Enter' onclick='enterKey()'><span class='material-icons'>keyboard_return</span></div>" }
+        if (i == 46) { outKey += "<div id='techShiftRight' class='button medium tech shift' data = 'ShiftRight' onclick='setShift()'>shift</div>" }
+        if (i == 47) { outKey += "<div id='techArrowLeft' class='button tech' data = 'ArrowLeft' onclick='arrowLeftKey()'><span class='material-icons'>keyboard_arrow_left</span></div>" }
+        if (i == 47) { outKey += "<div id='techArrowRight' class='button tech' data = 'ArrowRight' onclick='arrowRightKey()'><span class='material-icons'>keyboard_arrow_right</span></div>" }
 
         if (i == 12 || i == 25 || i == 36 || i == 46) { outKey += "<div class='clearfix'></div>" }
     }
@@ -154,10 +154,7 @@ function setCapLk() {
 
 let shiftKeyDown = 0
 function setShift() {
-    // setCapLk()
-    shiftKeyDown++
-    cl(`shKD:${shiftKeyDown}`)
-    playSoundTechKey()
+    setCapLk()
 }
 
 function enterKey() {
@@ -224,26 +221,28 @@ document.addEventListener('keydown', (event) => {
         // playSoundKey()
 
         cl(`if in:${keyCodeArray.includes(event.code)}`);
+        cl('event:.shiftKey------' + event.shiftKey)
+
+        cl('+++++++++++++++++++++++++event code=' + event.code)
+        
+
         if (keyCodeArray.includes(event.code)) {
+            document.querySelector("body > div.main > div.main-keyboard > div.button[data = '" + event.code + "']").classList.add("flash")
             makeText(xPosition, event.code)
 
-            document.querySelector("body > div.main > div.main-keyboard > div.button[data = '" + event.code + "']").classList.add("flash")
-            cl('event code=' + event.code)
         }
 
-        if (event.code === "ShiftLeft" || event.code === "ShiftRight") { cl("-ShiftLeftD"); setShift() }
+        if (event.code === "ShiftLeft" || event.code === "ShiftRight") {cl("-ShiftLeftD"); setShift(); document.querySelector('#tech' + event.code ).classList.add("flashTech") }
 
-        // "CapsLock", "ShiftLeft", "ShiftRight", "Enter", "Backspace", "ArrowLeft", "ArrowRight"]
+        if (event.code === "CapsLock") { cl("-CapsLock"); setCapLk();document.querySelector('#techCapsLock').classList.add("flashTech") }
 
-        if (event.code === "CapsLock") { cl("-CapsLock"); setCapLk() }
+        if (event.code === "Enter") { enterKey(); document.querySelector('#techEnter').classList.add("flashTech") }
 
-        if (event.code === "Enter") { enterKey() }
+        if (event.code === "Backspace") { backspaceKey(); document.querySelector('#techBackspace').classList.add("flashTech") }
 
-        if (event.code === "Backspace") { backspaceKey() }
+        if (event.code === "ArrowLeft") { arrowLeftKey(); document.querySelector('#techArrowLeft').classList.add("flashTech") }
 
-        if (event.code === "ArrowLeft") { arrowLeftKey() }
-
-        if (event.code === "ArrowRight") { arrowRightKey() }
+        if (event.code === "ArrowRight") { arrowRightKey(); document.querySelector('#techArrowRight').classList.add("flashTech") }
 
         // text = String.fromCharCode(keyArray[keyCodeArray.indexOf(event.code)]);
         // outText +=text
@@ -253,7 +252,11 @@ document.addEventListener('keydown', (event) => {
 })
 
 document.addEventListener('keyup', (event) => {
-    document.querySelector("body > div.main > div.main-keyboard > div.button[data = '" + event.code + "']").classList.remove("flash")
+    // document.querySelector("body > div.main > div.main-keyboard > div.button[data = '" + event.code + "']").classList.remove("flash")
+    document.querySelectorAll(".button").forEach(function (elemen) {
+        elemen.classList.remove("flash")
+        elemen.classList.remove("flashTech")
+    })
     if (event.code === "ShiftLeft" || event.code === "ShiftRight") { cl("-ShiftLeftU"); setShift() }
 
 

@@ -34,6 +34,21 @@ $color-5-hex: #0D0D0D;
 // $color-4-hex: #BF7B3F;
 // $color-5-hex: #8C2F1B;
 
+// /* Color Theme Swatches in Hex */
+// $color-1-hex: #99D0F2;
+// $color-2-hex: #F2C641;
+// $color-3-hex: #F2B84B;
+// $color-4-hex: #F2E0D0;
+// $color-5-hex: #D92B2B;
+
+// /* Color Theme Swatches in Hex */
+// $color-1-hex: #26191E;
+// $color-2-hex: #F2AE2E;
+// $color-3-hex: #733702;
+// $color-4-hex: #BF9A78;
+// $color-5-hex: #F25116;
+
+
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -107,7 +122,7 @@ $color-5-hex: #0D0D0D;
     position: fixed;
     bottom: -100%;
     // background-color: red;
-  }  
+  }
 }
 
 .keyboard--show {
@@ -120,7 +135,7 @@ $color-5-hex: #0D0D0D;
   width: 3.5rem;
   height: 3.5rem;
   // background-image: url(assets/images/button.png);
-  background-color:$color-1-hex;
+  background-color: $color-1-hex;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -149,7 +164,7 @@ $color-5-hex: #0D0D0D;
 
 .button:active,
 .flash {
-  background-color:$color-4-hex;
+  background-color: $color-4-hex;
   color: $color-1-hex;
   border-radius: 10px;
   // font-size: 1.8rem;
@@ -176,6 +191,19 @@ $color-5-hex: #0D0D0D;
 .tech {
   font-size: 0.9rem;
   color: $color-5-hex;
+  // width: 6.9rem;
+  // height: 3.5rem;
+  // background-image: url(assets/images/button_m.png);
+}
+
+
+.flashTech,
+.tech:active,
+  {
+    background-color: $color-4-hex;
+  font-size: 0.9rem;
+  color: $color-2-hex;
+  // color: red;
   // width: 6.9rem;
   // height: 3.5rem;
   // background-image: url(assets/images/button_m.png);
