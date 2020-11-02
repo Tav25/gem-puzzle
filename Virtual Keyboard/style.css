@@ -20,8 +20,6 @@ html {
   }
 }
 
-/* Color Theme Swatches in Hex */
-/* Color Theme Swatches in Hex */
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -159,6 +157,15 @@ html {
   background-color: #262626;
   font-size: 0.9rem;
   color: #A6A6A6;
+}
+
+.micactive {
+  background-color: #262626;
+  font-size: 0.9rem;
+  color: #A6A6A6;
+  color: red;
+  -webkit-animation: blink 1s linear infinite;
+  animation: blink 1s linear infinite;
 }
 
 .clearfix {
