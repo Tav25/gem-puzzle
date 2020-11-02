@@ -106,6 +106,7 @@ function makeKey(array) {
     keyArray = array
 
     // hideKeyBord()
+    spechRec()
 
 }
 
@@ -303,29 +304,26 @@ document.querySelector("body > div.main > div.main-inputText").onclick = functio
 
 
 
-
-
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-let recognition = new SpeechRecognition();
 
-
-
-
-document.querySelector("#tecrecord").addEventListener('mousedown', (event) => {
-    playSoundTechKey()    
-    recognition.lang = lang;
+function spechRec(){
+    
+    document.querySelector("#tecrecord").addEventListener('mousedown', (event) => {
+        cl(lang)  
+        recognition = new SpeechRecognition();
+        playSoundTechKey()
+        recognition.lang = lang;
+    cl(recognition)  
     recognition.start()
     recognition.onresult = function (event) {
         cl(event.results[0][0].transcript) 
         makeTextRec( xPosition, event.results[0][0].transcript)
     }
-
+    
 })
 
 document.querySelector("#tecrecord").addEventListener('mouseup', (event) => {
-
     playSoundTechKey()
-    cl(event)
     recognition.stop()
-
 })
+}
