@@ -13,7 +13,7 @@ let keyCodeArray = ["Backquote", "Digit1", "Digit2", "Digit3", "Digit4", "Digit5
 let keyArray = []
 let textArea = []
 
-let lang = "ru"
+let lang = 'ru-RU'
 let sound = true
 let shift = false
 let capsLk = false
@@ -38,7 +38,7 @@ function getKeyToArray(array) {
 }
 
 function soundFun() {
-    cl("soundDDDDDDDDDDDDDDDDDDDDDddd")
+    cl("sound")
     if (sound) {
         sound = false
         document.querySelector("#soundKey > span").innerHTML = "volume_off"
@@ -57,7 +57,7 @@ function ledSound() {
 
 function playSoundKey() {
     if (sound) {
-        if (lang === "ru") {
+        if (lang === 'ru-RU') {
             audioPath = "assets/sound/mechanical-Keyboard-single-buttonRu.mp3"
         }
         else {
@@ -89,13 +89,14 @@ function makeKey(array) {
         if (i == 37) { outKey += "<div id='techShiftLeft' class='button medium tech shift' data = 'ShiftLeft' onclick='setShift()'>shift</div>" }
         if (i == 47) { outKey += "<div class='button tech lang' onclick='setLanguage()'>" + lang + "</div>" }
         if (i == 47) { outKey += "<div id = 'soundKey' class='button tech lang' onclick='soundFun()'>" + ledSound() + "</div>" }
-        if (i == 47) { outKey += "<div id = 'keyboardHide' class='button tech lang' onclick='test()'><span class='material-icons'>keyboard_hide</span></div>" }
+        if (i == 47) { outKey += "<div id = 'keyboardHide' class='button tech lang' onclick='hideKeyBord()'><span class='material-icons'>keyboard_hide</span></div>" }
 
         outKey += "<div class='button alf " + dopClass + "' ' data = '" + keyCodeArray[i] + "' onclick='keyFlashSound(\"" + keyCodeArray[i] + "\")'>" + String.fromCharCode(array[i]) + "</div>"
 
         if (i == 12) { outKey += "<div id='techBackspace' class='button medium tech ' data = 'Backspace' onclick='backspaceKey()'><span class='material-icons'>keyboard_backspace</span></div>" }
         if (i == 36) { outKey += "<div id='techEnter' class='button medium tech ' data = 'Enter' onclick='enterKey()'><span class='material-icons'>keyboard_return</span></div>" }
         if (i == 46) { outKey += "<div id='techShiftRight' class='button medium tech shift' data = 'ShiftRight' onclick='setShift()'>shift</div>" }
+        if (i == 47) { outKey += "<div id='tecrecord' class='button tech' data = 'record' ><span class='material-icons mic'>mic</span></div>" }
         if (i == 47) { outKey += "<div id='techArrowLeft' class='button tech' data = 'ArrowLeft' onclick='arrowLeftKey()'><span class='material-icons'>keyboard_arrow_left</span></div>" }
         if (i == 47) { outKey += "<div id='techArrowRight' class='button tech' data = 'ArrowRight' onclick='arrowRightKey()'><span class='material-icons'>keyboard_arrow_right</span></div>" }
 
@@ -104,7 +105,7 @@ function makeKey(array) {
     document.querySelector("body > div.main > div.main-keyboard").innerHTML = outKey
     keyArray = array
 
-    // test()
+    // hideKeyBord()
 
 }
 
@@ -123,19 +124,19 @@ function keyFlashSound(keyCode) {
 
 function setLanguage() {
     if (capsLk === false) {
-        if (lang === "ru") {
-            lang = "en";
+        if (lang === 'ru-RU') {
+            lang = 'en-US';
             keyArray = keyCaharCodeEn
         } else {
-            lang = "ru";
+            lang = 'ru-RU';
             keyArray = keyCaharCodeRu
         }
     } else {
-        if (lang === "en") {
-            lang = "ru";
+        if (lang === 'en-US') {
+            lang = 'ru-RU';
             keyArray = keyCaharCodeRuUp
         } else {
-            lang = "en";
+            lang = 'en-US';
             keyArray = keyCaharCodeEnUp
         }
     }
@@ -148,10 +149,10 @@ function setLanguage() {
 function setCapLk() {
     if (capsLk === false) {
         capsLk = true
-        if (lang === "ru") { keyArray = keyCaharCodeRuUp } else { keyArray = keyCaharCodeEnUp }
+        if (lang === 'ru-RU') { keyArray = keyCaharCodeRuUp } else { keyArray = keyCaharCodeEnUp }
     } else {
         capsLk = false
-        if (lang === "ru") { keyArray = keyCaharCodeRu } else { keyArray = keyCaharCodeEn }
+        if (lang === 'ru-RU') { keyArray = keyCaharCodeRu } else { keyArray = keyCaharCodeEn }
     }
     makeKey(keyArray)
     playSoundTechKey()
@@ -203,12 +204,17 @@ function makeText(x, text = "") {
         text = String.fromCharCode(keyArray[keyCodeArray.indexOf(text)]);
         x = outText.length - xPosition
         outText = (outText.substr(0, x) + text + outText.substr(x));
-
         index()
     }
-
-
 }
+
+function makeTextRec(x, text = "") {
+        x = outText.length - xPosition
+        outText = (outText.substr(0, x) + text + outText.substr(x));
+        index()
+    
+}
+
 
 function index() {
     x = outText.length - xPosition
@@ -228,7 +234,7 @@ document.addEventListener('keydown', (event) => {
         cl(`if in:${keyCodeArray.includes(event.code)}`);
         cl('event:.shiftKey------' + event.shiftKey)
 
-        cl('+++++++++++++++++++++++++event code=' + event.code)
+        cl('event code=' + event.code)
 
 
         if (keyCodeArray.includes(event.code)) {
@@ -276,7 +282,7 @@ document.addEventListener('keyup', (event) => {
 // })
 
 
-function test() {
+function hideKeyBord() {
 
     document.querySelector("#main-keyboardId").classList.remove("keyboard--show")
     keyShow = false
@@ -290,3 +296,36 @@ document.querySelector("body > div.main > div.main-inputText").onclick = functio
     document.querySelector("#main-keyboardId").classList.add("keyboard--show")
     index()
 }
+
+
+
+
+
+
+
+
+
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+let recognition = new SpeechRecognition();
+
+
+
+
+document.querySelector("#tecrecord").addEventListener('mousedown', (event) => {
+    playSoundTechKey()    
+    recognition.lang = lang;
+    recognition.start()
+    recognition.onresult = function (event) {
+        cl(event.results[0][0].transcript) 
+        makeTextRec( xPosition, event.results[0][0].transcript)
+    }
+
+})
+
+document.querySelector("#tecrecord").addEventListener('mouseup', (event) => {
+
+    playSoundTechKey()
+    cl(event)
+    recognition.stop()
+
+})
