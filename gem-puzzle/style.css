@@ -1,0 +1,144 @@
+/* Color Theme Swatches in Hex */
+@import url("https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap");
+body {
+  background: #F2357B;
+  font-family: 'Rammetto One', cursive;
+}
+
+.wrapper {
+  margin-left: 0 auto;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrapper-text {
+  width: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform: rotate(-1deg);
+          transform: rotate(-1deg);
+  -webkit-text-stroke: 3px #40011E;
+  font-family: Rammetto One;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 54px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.wrapper-text-time {
+  color: #F2E96B;
+  -webkit-transform: rotate(-3deg);
+          transform: rotate(-3deg);
+}
+
+.wrapper-text-menu {
+  color: #F2E96B;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+.wrapper-text-move {
+  color: #F2E96B;
+  -webkit-transform: rotate(-3deg);
+          transform: rotate(-3deg);
+}
+
+.wrapper-text-move span {
+  color: #05F2C7;
+}
+
+.wrapper-gamebox {
+  position: relative;
+  width: 640px;
+  height: 640px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #A150F2;
+  /* 3 */
+  border: 7px solid #40011E;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 32px;
+  -webkit-transform: rotate(-1deg);
+          transform: rotate(-1deg);
+}
+
+.wrapper-gamebox-cell {
+  width: 131px;
+  height: 124px;
+  border: 1px dotted black;
+  /* 3 */
+}
+
+.wrapper-gamebox-cell-number {
+  background: #F2E96B;
+  border: 7px solid #40011E;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 16px;
+  padding-left: 10px;
+  -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  -webkit-transform: rotate(-1deg);
+          transform: rotate(-1deg);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.wrapper-gamebox-cell span {
+  font-family: Rammetto One;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 60px;
+  line-height: 101px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-text-stroke: 3px #40011E;
+  color: #05F2C7;
+  -webkit-transform: rotate(-6deg);
+          transform: rotate(-6deg);
+}
+/*# sourceMappingURL=style.css.map */
