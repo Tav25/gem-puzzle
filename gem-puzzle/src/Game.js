@@ -1,24 +1,23 @@
 export default class Game {}
 
-function cl(x) { console.log(x) }
+function cl(x) { console.log(x); }
 
-let game = {
-    move: 0,
-    col: 4,
-    gamePole:
+const game = {
+  move: 0,
+  col: 4,
+  gamePole:
         [1, 2, 3, 4,
-        5, 6, 7, 8,
-        9, 10, 11, 12,
-        13, 14, 15, 0],
+          5, 6, 7, 8,
+          9, 10, 11, 12,
+          13, 14, 15, 0],
 
+  movePoint() {
+    document.querySelector('#movesJS').innerHTML = this.move;
+  },
 
-    movePoint() {
-        document.querySelector("#movesJS").innerHTML = this.move
-    },
-
-    initBox() {
-        cl("init")
-        document.querySelector('body').innerHTML = `
+  initBox() {
+    cl('init');
+    document.querySelector('body').innerHTML = `
         <div class="wrapper">
         <div class="wrapper-text">
             <div class="wrapper-text-time"> <span>00:00</span> </div>
@@ -45,27 +44,26 @@ let game = {
         </div>
         
     </div>
-        `
-    },
+        `;
+  },
 
-    initNumbers() {
-        console.log("cl")
-        for (let i in this.gamePole) {
-            cl(this.gamePole[i])
-            if (this.gamePole[i] !== 0)
-                document.querySelector("#cellId" + i).innerHTML = `<div id = 'number${this.gamePole[i]}' class="wrapper-gamebox-cell-number"><span>${this.gamePole[i]}</span></div>`
-                else{
-                    cl("добавляем свойства к ячейкам " + i)
-                }
-        }
+  initNumbers() {
+    console.log('cl');
+    for (const i in this.gamePole) {
+      cl(this.gamePole[i]);
+      if (this.gamePole[i] !== 0) { document.querySelector(`#cellId${i}`).innerHTML = `<div id = 'number${this.gamePole[i]}' class="wrapper-gamebox-cell-number"><span>${this.gamePole[i]}</span></div>`; } else {
+        cl(`добавляем свойства к ячейкам ${i}`);
+      }
     }
+  },
 
+};
 
-}
+game.initBox();
+game.initNumbers();
 
-game.initBox()
-game.initNumbers()
+// <div class="wrapper-gamebox-cell-number"><span>1</span></div>
 
-//<div class="wrapper-gamebox-cell-number"><span>1</span></div>
+console.log('Game');
 
-console.log("Game")
+const ghhjgsdjfgds = 'kjlkfjsldjkf';
