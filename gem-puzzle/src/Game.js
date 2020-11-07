@@ -1,3 +1,5 @@
+export default class Game {}
+
 function cl(x) { console.log(x) }
 
 let game = {
@@ -47,7 +49,8 @@ let game = {
     },
 
     initNumbers() {
-        for (i in this.gamePole) {
+        console.log("cl")
+        for (let i in this.gamePole) {
             cl(this.gamePole[i])
             if (this.gamePole[i] !== 0)
                 document.querySelector("#cellId" + i).innerHTML = `<div id = 'number${this.gamePole[i]}' class="wrapper-gamebox-cell-number"><span>${this.gamePole[i]}</span></div>`
@@ -64,3 +67,5 @@ game.initBox()
 game.initNumbers()
 
 //<div class="wrapper-gamebox-cell-number"><span>1</span></div>
+
+console.log("Game")
