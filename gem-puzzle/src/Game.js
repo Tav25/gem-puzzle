@@ -1,15 +1,15 @@
-export default class Game {}
+export { g, gameX }
+let g = 10
 
 function cl(x) { console.log(x); }
 
-const game = {
+const gameX = {
   move: 0,
   col: 4,
-  gamePole:
-        [1, 2, 3, 4,
-          5, 6, 7, 8,
-          9, 10, 11, 12,
-          13, 14, 15, 0],
+
+
+
+  get gamePole(){ return  [1, 2, 3, 4,5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0]},
 
   movePoint() {
     document.querySelector('#movesJS').innerHTML = this.move;
@@ -24,27 +24,22 @@ const game = {
             <div class="wrapper-text-menu">menu</div>
             <div class="wrapper-text-move">moves: <span id="movesJS">0</span></div>
         </div>
-        <div class="wrapper-gamebox">
-            <div id="cellId0" class="wrapper-gamebox-cell"></div>
-            <div id="cellId1" class="wrapper-gamebox-cell"></div>
-            <div id="cellId2" class="wrapper-gamebox-cell"></div>
-            <div id="cellId3" class="wrapper-gamebox-cell"></div>
-            <div id="cellId4" class="wrapper-gamebox-cell"></div>
-            <div id="cellId5" class="wrapper-gamebox-cell"></div>
-            <div id="cellId6" class="wrapper-gamebox-cell"></div>
-            <div id="cellId7" class="wrapper-gamebox-cell"></div>
-            <div id="cellId8" class="wrapper-gamebox-cell"></div>
-            <div id="cellId9" class="wrapper-gamebox-cell"></div>
-            <div id="cellId10" class="wrapper-gamebox-cell"></div>
-            <div id="cellId11" class="wrapper-gamebox-cell"></div>
-            <div id="cellId12" class="wrapper-gamebox-cell"></div>
-            <div id="cellId13" class="wrapper-gamebox-cell"></div>
-            <div id="cellId14" class="wrapper-gamebox-cell"></div>
-            <div id="cellId15" class="wrapper-gamebox-cell"></div>
-        </div>
-        
+        <div class="wrapper-gamebox">            
+        </div>        
     </div>
         `;
+  },
+
+  initGameCell() {
+    console.log('initGameCell()')
+    let g = `<div class="wrapper-gamebox-cell"></div>`
+    let f = ''
+    for (let i = 0; i < this.col * this.col; i++) {
+      console.log('dsdksjdks4')// ... тело цикла ...
+      f = f + `<div id= "cellId${i}" class="wrapper-gamebox-cell"></div>`
+    }
+    document.querySelector("body > div.wrapper > div.wrapper-gamebox").innerHTML = f
+
   },
 
   initNumbers() {
@@ -59,11 +54,3 @@ const game = {
 
 };
 
-game.initBox();
-game.initNumbers();
-
-// <div class="wrapper-gamebox-cell-number"><span>1</span></div>
-
-console.log('Game');
-
-const ghhjgsdjfgds = 'kjlkfjsldjkf';

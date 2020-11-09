@@ -1,5 +1,8 @@
 import css from './style.css';
-import Game from './Game';
-// import logo from './assetc/d3dae4189855b3a72ff9.png'
+import * as game from './Game';
 
-console.log('index6');
+console.log('index8' + game.g);
+
+game.gameX.initBox()
+game.gameX.initGameCell()
+game.gameX.initNumbers();

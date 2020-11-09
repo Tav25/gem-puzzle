@@ -8,8 +8,8 @@
     "dev": "npx webpack --mode development",
     "build": "npx webpack --mode production",
     "watch": "npx webpack --mode development --watch",
-    "lint":"eslint ./src",
-    "lint:fix":"eslint ./src --fix"
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix"
   },
   "author": "@tav25 turbin28@gmail.com",
   "license": "ISC",
