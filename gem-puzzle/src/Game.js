@@ -6,10 +6,24 @@ function cl(x) { console.log(x); }
 const gameX = {
   move: 0,
   col: 4,
+  gamePole: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 0,14, 15],
 
-  get gamePole() { return [1, 2, 3, 4, 5, 6, 0, 7, 8, 9, 10, 11, 12, 13, 14, 15]; },
+  // get gamePole() { return [1, 2, 3, 4, 5, 6, 0, 7, 8, 9, 10, 11, 12, 13, 14, 15]; },
 
   get zeroPosition() { return this.gamePole.indexOf(0); },
+
+  gamePoleZeroMove(y=0) {
+    const arr_ = this.gamePole;
+    const oldPlace = this.gamePole.indexOf(y)
+    const newPlace = this.gamePole.indexOf(0);
+
+    const t = arr_.splice(oldPlace, 1);
+    // после того как удалите элемент из массива, у него изменится длина
+    arr_.splice(newPlace, 0, t[0]);
+    console.log(arr_);
+
+    return arr_;
+  },
 
   movePoint() {
     document.querySelector('#movesJS').innerHTML = this.move;
@@ -62,11 +76,13 @@ const gameX = {
 };
 
 class NumberBut {
-  moveUp(){cl('up')}
-  moveDown(){cl('Down')}
-  moveLeft(){cl('Left')}
-  moveRight(){cl('Right')}
+  moveUp() { cl('up'); }
+
+  moveDown() { cl('Down'); }
+
+  moveLeft() { cl('Left'); }
+
+  moveRight() { cl('Right'); }
 }
 
-
-let test = new NumberBut
+let test = new NumberBut();

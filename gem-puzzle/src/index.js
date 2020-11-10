@@ -4,9 +4,17 @@ import * as game from './Game';
 console.log(`index8${game.g}`);
 
 game.gameX.initBox();
+
 game.gameX.initGameCell();
 game.gameX.initNumbers();
 game.gameX.initZeroPoint();
-game.test.moveDown();
+game.gameX.gamePoleZeroMove(13);
+game.gameX.initGameCell();
+game.gameX.initNumbers();
+game.gameX.gamePoleZeroMove(10);
+game.gameX.initGameCell();
+game.gameX.initNumbers();
 
-console.log(game)
+game.test.moveDown();
+console.log(game.gameX.zeroPosition);
+console.log(game);
