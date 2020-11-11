@@ -141,4 +141,19 @@ body {
   -webkit-transform: rotate(-6deg);
           transform: rotate(-6deg);
 }
+
+.mystyle {
+  background-color: #9cf26b;
+  color: #F2E96B;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.mystyle:hover {
+  -webkit-transform: translate(5px, 5px);
+          transform: translate(5px, 5px);
+  color: #A150F2;
+}
 /*# sourceMappingURL=style.css.map */

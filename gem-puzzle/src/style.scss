@@ -4,6 +4,7 @@ $color-2-hex: #40011E;
 $color-3-hex: #A150F2;
 $color-4-hex: #05F2C7;
 $color-5-hex: #F2E96B;
+$color-6-hex: #9cf26b;
 
 
 
@@ -61,7 +62,9 @@ body {
             color: #F2E96B;
             transform: rotate(-3deg);
 
-            span { color: $color-4-hex; }
+            span {
+                color: $color-4-hex;
+            }
         }
     }
 
@@ -93,10 +96,10 @@ body {
 
 
             /* 3 */
-            
-            
-            
-            
+
+
+
+
             &-number {
                 background: $color-5-hex;
                 border: 7px solid $color-2-hex;
@@ -110,6 +113,12 @@ body {
 
                 cursor: pointer;
                 user-select: none;
+                // transition: transform 1s;
+
+            }
+
+            &-number:hover {
+                // transform: translate(2px, 2px);
             }
 
             span {
@@ -131,3 +140,18 @@ body {
         }
     }
 }
+
+.mystyle {
+    background-color: $color-6-hex;
+    color: $color-5-hex;
+    transition: transform 0.5s;
+}
+
+.mystyle:hover {
+    transform: translate(5px, 5px);
+    color: $color-3-hex;
+    // background-color: $color-5-hex;
+}
+
+
+
