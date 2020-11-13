@@ -143,7 +143,6 @@ body {
 }
 
 .mystyle {
-  background-color: #9cf26b;
   color: #F2E96B;
   -webkit-transition: -webkit-transform 0.5s;
   transition: -webkit-transform 0.5s;
@@ -155,5 +154,6 @@ body {
   -webkit-transform: translate(5px, 5px);
           transform: translate(5px, 5px);
   color: #A150F2;
+  background-color: #F2E96B;
 }
 /*# sourceMappingURL=style.css.map */

@@ -142,7 +142,7 @@ body {
 }
 
 .mystyle {
-    background-color: $color-6-hex;
+    // background-color: $color-2-hex;
     color: $color-5-hex;
     transition: transform 0.5s;
 }
@@ -150,7 +150,7 @@ body {
 .mystyle:hover {
     transform: translate(5px, 5px);
     color: $color-3-hex;
-    // background-color: $color-5-hex;
+    background-color: $color-5-hex;
 }
 
 

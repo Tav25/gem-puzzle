@@ -1,4 +1,6 @@
-export { g, gameX, test };
+export {
+  g, gameX, test, dragAndDrop,
+};
 let g = 10;
 
 function cl(x) { console.log(x); }
@@ -26,7 +28,6 @@ const gameX = {
   },
 
   initBox() {
-    cl('init');
     document.querySelector('body').innerHTML = `
         <div class="wrapper">
         <div class="wrapper-text">
@@ -41,7 +42,6 @@ const gameX = {
   },
 
   initGameCell() {
-    console.log('initGameCell()');
     const g = '<div class="wrapper-gamebox-cell"></div>';
     let f = '';
     for (let i = 0; i < this.col * this.col; i++) {
@@ -53,9 +53,9 @@ const gameX = {
   initNumbers() {
     console.log('cl');
     for (const i in this.gamePole) {
-      // cl(this.gamePole[i]);
-      if (this.gamePole[i] !== 0) { document.querySelector(`#cellId${i}`).innerHTML = `<div id = 'number${this.gamePole[i]}' class="wrapper-gamebox-cell-number" " ><span>${this.gamePole[i]}</span></div>`; } else {
+      if (this.gamePole[i] !== 0) { document.querySelector(`#cellId${i}`).innerHTML = `<div id = 'number${this.gamePole[i]}' class="wrapper-gamebox-cell-number" draggable="true" ><span>${this.gamePole[i]}</span></div>`; } else {
         cl(`добавляем свойства к ячейкам ${i}`);
+        document.querySelector(`#cellId${i}`).classList.add('mystyle_cell');
       }
     }
   },
@@ -63,46 +63,73 @@ const gameX = {
   initZeroPoint() {
     const zeroPositionCell = (this.gamePole.indexOf(0));
     cl(`cell:${zeroPositionCell}`);
+
     if (zeroPositionCell - 4 >= 0) {
-      cl(`y0 ${zeroPositionCell - 4}`);
-      document.querySelector(`#cellId${zeroPositionCell - 4} > .wrapper-gamebox-cell-number`).classList.add('mystyle');
-      document.querySelector(`#cellId${zeroPositionCell - 4} > .wrapper-gamebox-cell-number`).addEventListener('mouseup', (e) => {
-        this.gamePoleZeroMove(this.gamePole[zeroPositionCell - 4]);
-        this.initGameCell();
-        this.initNumbers();
-        this.initZeroPoint();
+      const dg = (zeroPositionCell - 4);
+      document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).classList.add('mystyle');
+      document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).addEventListener('mouseup', (e) => {
+        this.update(dg);
+      });
+      document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).addEventListener('mousedown', (e) => {
+        this.dragAndDrop(document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`), dg);
       });
     }
     if ((zeroPositionCell + 1) % 4 !== 0) {
-      cl(`y1 ${zeroPositionCell + 0}`);
-      document.querySelector(`#cellId${zeroPositionCell + 1} > .wrapper-gamebox-cell-number`).classList.add('mystyle');
-      document.querySelector(`#cellId${zeroPositionCell + 1} > .wrapper-gamebox-cell-number`).addEventListener('mouseup', (e) => {
-        this.gamePoleZeroMove(this.gamePole[zeroPositionCell + 1]);
-        this.initGameCell();
-        this.initNumbers();
-        this.initZeroPoint();
+      const dg = (zeroPositionCell + 1);
+      document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).classList.add('mystyle');
+      document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).addEventListener('mouseup', (e) => {
+        this.update(dg);
+      });
+      document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).addEventListener('mousedown', (e) => {
+        this.dragAndDrop(document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`), dg);
       });
     }
     if (zeroPositionCell + 4 < 16) {
-      cl(`y2 ${zeroPositionCell + 4}`);
-      document.querySelector(`#cellId${zeroPositionCell + 4} > .wrapper-gamebox-cell-number`).classList.add('mystyle');
-      document.querySelector(`#cellId${zeroPositionCell + 4} > .wrapper-gamebox-cell-number`).addEventListener('mouseup', (e) => {
-        this.gamePoleZeroMove(this.gamePole[zeroPositionCell + 4]);
-        this.initGameCell();
-        this.initNumbers();
-        this.initZeroPoint();
+      const dg = (zeroPositionCell + 4);
+      document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).classList.add('mystyle');
+      document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).addEventListener('mouseup', (e) => {
+        this.update(dg);
+      });
+      document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).addEventListener('mousedown', (e) => {
+        this.dragAndDrop(document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`), dg);
       });
     }
     if ((zeroPositionCell + 1) % 4 !== 1) {
-      cl(`P y3 ${zeroPositionCell - 1}`);
-      document.querySelector(`#cellId${zeroPositionCell - 1} > .wrapper-gamebox-cell-number`).classList.add('mystyle');
-      document.querySelector(`#cellId${zeroPositionCell - 1} > .wrapper-gamebox-cell-number`).addEventListener('mouseup', (e) => {
-        this.gamePoleZeroMove(this.gamePole[zeroPositionCell - 1]);
-        this.initGameCell();
-        this.initNumbers();
-        this.initZeroPoint();
+      const dg = (zeroPositionCell - 1);
+      document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).classList.add('mystyle');
+      document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).addEventListener('mouseup', async (e) => {
+        await sleepNow(2000);
+        await this.update(dg);
+      });
+      document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).addEventListener('mousedown', (e) => {
+        this.dragAndDrop(document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`), dg);
       });
     }
+  },
+
+  update(x) {
+    this.gamePoleZeroMove(this.gamePole[x]);
+    this.initGameCell();
+    this.initNumbers();
+    this.initZeroPoint();
+  },
+
+  dragAndDrop(card, x) {
+    console.log('const dragAndDrop = () => {');
+    // const card = document.querySelector('.mystyle');
+    const cells = document.querySelectorAll('.mystyle_cell');
+    const dragStart = function () { setTimeout(() => { this.classList.add('hide'); }, 0); };
+    const dragEnd = function () { this.classList.remove('hide'); };
+    const dragOver = function (evt) { evt.preventDefault(); };
+    const dragEnter = function (evt) { evt.preventDefault(); };
+    const dragDrop = function () { this.append(card); gameX.update(x); };
+    cells.forEach((cell) => {
+      cell.addEventListener('dragover', dragOver);
+      cell.addEventListener('dragenter', dragEnter);
+      cell.addEventListener('drop', dragDrop);
+    });
+    card.addEventListener('dragstart', dragStart);
+    card.addEventListener('dragend', dragEnd);
   },
 
 };
@@ -121,3 +148,24 @@ let test = new NumberBut();
 
 // document.querySelector(`#cellId${zeroPositionCell - 1}`).classList.add('animated');
 // document.querySelector(`#cellId${zeroPositionCell - 1} > .wrapper-gamebox-cell-number`).style.marginTop = '100px';
+console.log('test.js');
+
+const dragAndDrop = () => {
+  const card = document.querySelector('.mystyle');
+  const cells = document.querySelectorAll('.mystyle_cell');
+  const dragStart = function () { setTimeout(() => { this.classList.add('hide'); }, 0); };
+  const dragEnd = function () { this.classList.remove('hide'); };
+  const dragOver = function (evt) { evt.preventDefault(); };
+  const dragEnter = function (evt) { evt.preventDefault(); };
+  const dragDrop = function () { this.append(card); };
+  cells.forEach((cell) => {
+    cell.addEventListener('dragover', dragOver);
+    cell.addEventListener('dragenter', dragEnter);
+    cell.addEventListener('drop', dragDrop);
+  });
+
+  card.addEventListener('dragstart', dragStart);
+  card.addEventListener('dragend', dragEnd);
+};
+
+const sleepNow = (delay) => new Promise((resolve) => setTimeout(resolve, delay));

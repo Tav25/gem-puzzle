@@ -14,26 +14,27 @@ function ad(a) {
   game.gameX.initGameCell();
   game.gameX.initNumbers();
   game.gameX.initZeroPoint();
+  // game.dragAndDrop();
 }
 
 const sleepNow = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
-
+const msPaus = 300;
 async function show() {
-  await sleepNow(1000);
+  await sleepNow(msPaus);
   ad(12, 0);
-  await sleepNow(1000);
+  await sleepNow(msPaus);
   ad(11, 0);
-  await sleepNow(1000);
+  await sleepNow(msPaus);
   ad(10, 0);
-  await sleepNow(1000);
-  ad(9, 0);
-  await sleepNow(1000);
-  ad(5, 0);
-  await sleepNow(1000);
-  ad(6, 0);
-//   await sleepNow(1000);
+  // await sleepNow(msPaus);
+  // ad(9, 0);
+  // await sleepNow(msPaus);
+  // ad(5, 0);
+//   await sleepNow(msPaus);
+//   ad(6, 0);
+//   await sleepNow(msPaus);
 //   ad(2, 0);
-//   await sleepNow(1000);
+//   await sleepNow(msPaus);
 //   ad(1, 0);
 }
 
