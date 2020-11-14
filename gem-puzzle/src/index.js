@@ -1,5 +1,6 @@
 import css from './style.css';
 import * as game from './Game';
+import * as timer from './Timer';
 
 console.log(`index8${game.g}`);
 
@@ -40,11 +41,6 @@ async function show() {
 
 show();
 
-// async function repeatedGreetingsLoop() {
-//   for (let i = 1; i <= 5; i++) {
-//     await sleepNow(1000)
-//     console.log(`Hello #${i}`)
-//   }
-// }
-
-// repeatedGreetingsLoop()
+timer.gameTime.initTime();
+timer.gameTime.timer();
+// timer.gameTime.pauseStart()

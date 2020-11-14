@@ -1,6 +1,7 @@
 export {
   g, gameX, test, dragAndDrop,
 };
+
 let g = 10;
 
 function cl(x) { console.log(x); }
@@ -31,7 +32,7 @@ const gameX = {
     document.querySelector('body').innerHTML = `
         <div class="wrapper">
         <div class="wrapper-text">
-            <div class="wrapper-text-time"> <span>00:00</span> </div>
+            <div class="wrapper-text-time"></div>
             <div class="wrapper-text-menu"> <span>1</span> <span>2</span> <span>3</span> </div>
             <div class="wrapper-text-move">moves: <span id="movesJS">0</span></div> 
         </div>
@@ -98,7 +99,7 @@ const gameX = {
       const dg = (zeroPositionCell - 1);
       document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).classList.add('mystyle');
       document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).addEventListener('mouseup', async (e) => {
-        await sleepNow(2000);
+        // await sleepNow(2000);// animation
         await this.update(dg);
       });
       document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).addEventListener('mousedown', (e) => {
