@@ -44,22 +44,48 @@ async function show() {
 show();
 
 let showMenu = false;
+let showPause = false;
+
 document.querySelector('.menu').addEventListener('mouseup', (e) => {
-  if (!showMenu) {
-    timer.gameTime.pauseStart();
-    console.log('#top menu');
-    menu.menuGame.initMenu();
-    menu.menuGame.menuListener();
-    document.querySelector('.menu').innerHTML = 'back';
-    showMenu = true;
-  } else {
-    timer.gameTime.pauseStop();
-    game.gameX.initGameCell();
-    game.gameX.initNumbers();
-    game.gameX.initZeroPoint();
-    document.querySelector('.menu').innerHTML = 'Menu';
-    showMenu = false;
+  if (!showPause) {
+    if (!showMenu) {
+      timer.gameTime.pauseStart();
+      console.log('#top menu');
+      menu.menuGame.initMenu();
+      menu.menuGame.menuListener();
+      document.querySelector('.menu').innerHTML = 'back';
+      showMenu = true;
+    } else {
+      timer.gameTime.pauseStop();
+      game.gameX.initGameCell();
+      game.gameX.initNumbers();
+      game.gameX.initZeroPoint();
+      document.querySelector('.menu').innerHTML = 'Menu';
+      showMenu = false;
+    }
   }
 });
+
+
+document.querySelector("body > div.wrapper > div.wrapper-pause").addEventListener('mouseup', (e) => {
+  if (!showMenu) {
+    if (!showPause) {
+      timer.gameTime.pauseStart();
+      console.log('#top menu');
+      menu.menuGame.initPause();
+      document.querySelector("body > div.wrapper > div.wrapper-pause").innerHTML = 'continue';
+      showPause = true;
+    } else {
+      timer.gameTime.pauseStop();
+      game.gameX.initGameCell();
+      game.gameX.initNumbers();
+      game.gameX.initZeroPoint();
+      document.querySelector("body > div.wrapper > div.wrapper-pause").innerHTML = 'pause';
+      showPause = false;
+    }
+  }
+});
+
+
 
 // timer.gameTime.pauseStart()

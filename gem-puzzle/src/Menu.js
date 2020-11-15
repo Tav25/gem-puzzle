@@ -18,8 +18,22 @@ const menuGame = {
     <div class='wrapper-gamebox-menu-box2-bestGames' id='bestGames'>best game</div>
     <div class='wrapper-gamebox-menu-box2-bestGamesRez' id='bestGamesRez'>dsnf,sdnffdsfndsfnds,mfnds,nf,dsnf,</div>
     </div>
-</div>
-              `;
+</div> `;
+    console.log('menu');
+  },
+
+
+  initPause() {
+    document.querySelector('body > div.wrapper > div.wrapper-gamebox').innerHTML = `
+    <div class='wrapper-gamebox-menu'>
+    <div class='wrapper-gamebox-menu-box1'>
+        <div class='wrapper-gamebox-menu-box1-pause' id='pause'>Pause</div>
+    </div>
+    <div class='wrapper-gamebox-menu-box2'>
+    <div class='wrapper-gamebox-menu-box2-bestGames' id='bestGames'>best game</div>
+    <div class='wrapper-gamebox-menu-box2-bestGamesRez' id='bestGamesRez'>dsnf,sdnffdsfndsfnds,mfnds,nf,dsnf,</div>
+    </div>
+</div> `;
     console.log('menu');
   },
 

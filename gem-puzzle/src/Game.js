@@ -48,7 +48,8 @@ const gameX = {
     <div class="wrapper-text-move">moves: <span id="movesJS">00</span></div> 
     </div>
     <div class="wrapper-gamebox">            
-    </div>        
+    </div>
+    <div class="wrapper-pause">pause</div>        
     </div>
     `;
   },
