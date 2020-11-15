@@ -13,6 +13,7 @@ $color-6-hex: #9cf26b;
 body {
     background: $color-1-hex;
     font-family: 'Rammetto One', cursive;
+    user-select: none;
 }
 
 
@@ -69,7 +70,7 @@ body {
     }
 
     &-pause {
-        color:$color-5-hex;
+        color: $color-5-hex;
         width: 600px;
         transform: rotate(-1deg);
 
@@ -104,8 +105,8 @@ body {
 
         &-cell {
             // position: absolute;
-            width: 131px;
-            height: 124px;
+            // width: 33%;
+            // height: 33%;
 
             border: 1px dotted black;
 
@@ -116,6 +117,8 @@ body {
 
 
             &-number {
+                width: 90%;
+                height: 90%;
                 background: $color-5-hex;
                 border: 7px solid $color-2-hex;
                 box-sizing: border-box;
@@ -140,8 +143,8 @@ body {
                 font-family: Rammetto One;
                 font-style: normal;
                 font-weight: normal;
-                font-size: 60px;
-                line-height: 101px;
+                // font-size: 1rem;
+                // line-height: 101px;
                 display: flex;
                 align-items: center;
                 text-align: center;
@@ -192,7 +195,7 @@ body {
                     color: $color-5-hex;
                 }
 
-                &-bestGamesRez{
+                &-bestGamesRez {
                     -webkit-text-stroke: 2px $color-2-hex;
                     color: $color-5-hex;
 
@@ -203,7 +206,7 @@ body {
 }
 
 .mystyle {
-    // background-color: $color-2-hex;
+    background-color: $color-6-hex;
     color: $color-5-hex;
     transition: transform 0.5s;
 }
@@ -215,18 +218,22 @@ body {
 }
 
 
-.color1{
+.color1 {
     color: $color-1-hex;
 }
-.color2{
+
+.color2 {
     color: $color-2-hex;
 }
-.color3{
+
+.color3 {
     color: $color-3-hex;
 }
-.color4{
+
+.color4 {
     color: $color-4-hex;
 }
+
 .color5 {
     color: $color-5-hex;
 }

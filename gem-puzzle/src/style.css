@@ -3,6 +3,10 @@
 body {
   background: #F2357B;
   font-family: 'Rammetto One', cursive;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .wrapper {
@@ -109,13 +113,13 @@ body {
 }
 
 .wrapper-gamebox-cell {
-  width: 131px;
-  height: 124px;
   border: 1px dotted black;
   /* 3 */
 }
 
 .wrapper-gamebox-cell-number {
+  width: 90%;
+  height: 90%;
   background: #F2E96B;
   border: 7px solid #40011E;
   -webkit-box-sizing: border-box;
@@ -140,8 +144,6 @@ body {
   font-family: Rammetto One;
   font-style: normal;
   font-weight: normal;
-  font-size: 60px;
-  line-height: 101px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -206,6 +208,7 @@ body {
 }
 
 .mystyle {
+  background-color: #9cf26b;
   color: #F2E96B;
   -webkit-transition: -webkit-transform 0.5s;
   transition: -webkit-transform 0.5s;

@@ -8,6 +8,11 @@ console.log(`index8${game.g}`);
 game.gameX.initBox();
 game.gameX.newGame();
 
+// game.gameX.gamePoleZeroMove(a);
+game.gameX.initGameCell();
+game.gameX.initNumbers();
+game.gameX.initZeroPoint();
+
 function ad(a) {
   game.gameX.gamePoleZeroMove(a);
   game.gameX.initGameCell();
@@ -21,22 +26,22 @@ const sleepNow = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 const msPaus = 300;
 
 async function show() {
-  await sleepNow(msPaus);
-  ad(12, 0);
-  await sleepNow(msPaus);
-  ad(11, 0);
-  await sleepNow(msPaus);
-  ad(10, 0);
-  await sleepNow(msPaus);
-  ad(9, 0);
-  await sleepNow(msPaus);
-  ad(5, 0);
-  await sleepNow(msPaus);
-  ad(6, 0);
-  await sleepNow(msPaus);
-  ad(2, 0);
-  await sleepNow(msPaus);
-  ad(1, 0);
+  // await sleepNow(msPaus);
+  // ad(12, 0);
+  // await sleepNow(msPaus);
+  // ad(11, 0);
+  // await sleepNow(msPaus);
+  // ad(10, 0);
+  // await sleepNow(msPaus);
+  // ad(9, 0);
+  // await sleepNow(msPaus);
+  // ad(5, 0);
+  // await sleepNow(msPaus);
+  // ad(6, 0);
+  // await sleepNow(msPaus);
+  // ad(2, 0);
+  // await sleepNow(msPaus);
+  // ad(1, 0);
   timer.gameTime.initTime();
   timer.gameTime.timer();
 }
@@ -66,26 +71,25 @@ document.querySelector('.menu').addEventListener('mouseup', (e) => {
   }
 });
 
-
-document.querySelector("body > div.wrapper > div.wrapper-pause").addEventListener('mouseup', (e) => {
+document.querySelector('body > div.wrapper > div.wrapper-pause').addEventListener('mouseup', (e) => {
   if (!showMenu) {
     if (!showPause) {
       timer.gameTime.pauseStart();
       console.log('#top menu');
       menu.menuGame.initPause();
-      document.querySelector("body > div.wrapper > div.wrapper-pause").innerHTML = 'continue';
+      document.querySelector('body > div.wrapper > div.wrapper-pause').innerHTML = 'continue';
       showPause = true;
     } else {
       timer.gameTime.pauseStop();
       game.gameX.initGameCell();
       game.gameX.initNumbers();
       game.gameX.initZeroPoint();
-      document.querySelector("body > div.wrapper > div.wrapper-pause").innerHTML = 'pause';
+      document.querySelector('body > div.wrapper > div.wrapper-pause').innerHTML = 'pause';
       showPause = false;
     }
   }
 });
 
-
-
 // timer.gameTime.pauseStart()
+
+game.gameX.randomize();

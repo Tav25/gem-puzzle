@@ -11,7 +11,7 @@ const menuGame = {
     <div class='wrapper-gamebox-menu'>
     <div class='wrapper-gamebox-menu-box1'>
         <div class='wrapper-gamebox-menu-box1-newGame' id='newGame'>new game</div>
-        <div class='wrapper-gamebox-menu-box1-boxSize' id='boxSize'><span class = 'color5' id = 'sizeDown'><</span> 4<span class = 'color5'>x</span>4 <span class = 'color5' id = 'sizeUp'>></span></div>
+        <div class='wrapper-gamebox-menu-box1-boxSize' id='boxSize'><span class = 'color5' id = 'sizeDown'><</span> <span id="sizShow"> ${game.gameX.col}<span class = 'color5'>x</span>${game.gameX.col}</span><span class = 'color5' id = 'sizeUp'> ></span></div>
         <div class='wrapper-gamebox-menu-box1-sound' id='sound'>sound <span class = 'color1 soundOn'>${gameSound.playSoundGame.soundOn}</span></div>
     </div>
     <div class='wrapper-gamebox-menu-box2'>
@@ -21,7 +21,6 @@ const menuGame = {
 </div> `;
     console.log('menu');
   },
-
 
   initPause() {
     document.querySelector('body > div.wrapper > div.wrapper-gamebox').innerHTML = `
@@ -42,8 +41,17 @@ const menuGame = {
       console.log('#newGame');
       game.gameX.newGame();
     });
-    document.querySelector('#sizeDown').addEventListener('mouseup', (e) => { console.log('down'); });
-    document.querySelector('#sizeUp').addEventListener('mouseup', (e) => { console.log('up'); });
+    document.querySelector('#sizeDown').addEventListener('mouseup', (e) => {
+      console.log('down');
+      game.gameX.downGameCol();
+      document.querySelector('#sizShow').innerHTML = ` ${game.gameX.col}<span class = 'color5'>x</span>${game.gameX.col}`;
+    });
+    document.querySelector('#sizeUp').addEventListener('mouseup', (e) => {
+      console.log('up');
+      game.gameX.upGameCol();
+      document.querySelector('#sizShow').innerHTML = `${game.gameX.col}<span class = 'color5'>x</span>${game.gameX.col}`;
+    });
+
     document.querySelector('#sound').addEventListener('mouseup', (e) => {
       console.log('sound');
       gameSound.playSoundGame.soundOffOn();
