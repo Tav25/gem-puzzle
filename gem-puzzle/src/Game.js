@@ -10,7 +10,7 @@ const gameX = {
   move: 0,
   col: 4,
   colBuffer: 4,
-  mixingQuantity: 20,
+  mixingQuantity: 5,
   endGame: false,
   gamePole: [],
   gamePoleEtalon: [],
@@ -209,16 +209,16 @@ const gameX = {
   },
 
   update(x) {
-    if (!this.endGame){
-    cl('UPDATE');
-    this.gamePoleZeroMove(this.gamePole[x]);
-    this.initGameCell();
-    this.initNumbers();
-    this.initZeroPoint();
-    this.movePoint();
-    timer.gameTime.oneSecond = 1;
-    gameSound.playSoundGame.playSound();
-    this.endTest();
+    if (!this.endGame) {
+      cl('UPDATE');
+      this.gamePoleZeroMove(this.gamePole[x]);
+      this.initGameCell();
+      this.initNumbers();
+      this.initZeroPoint();
+      this.movePoint();
+      timer.gameTime.oneSecond = 1;
+      gameSound.playSoundGame.playSound();
+      this.endTest();
     }
   },
 
@@ -232,14 +232,12 @@ const gameX = {
       }
     }
     console.log(numberMatches, this.gamePole.length);
-    if (numberMatches === this.gamePole.length){ 
+    if (numberMatches === this.gamePole.length) {
       console.log('win!');
       this.endGame = true;
       timer.gameTime.oneSecond = 0;
     }
   },
-
-  
 
   dragAndDrop(card, x) {
     // console.log('const dragAndDrop = () => {');

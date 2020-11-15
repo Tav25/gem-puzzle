@@ -1,0 +1,42 @@
+@function text-stroke($size: 2, $color: #fff, $correction: 0) {
+	$radius: $size - $correction;
+	$stroke: ();
+
+	@for $i from -$size through $size {
+		@for $k from -$size through $size {
+
+			$x: $k;
+			$y: $i;
+
+			@if $k > 0 {
+				$x: $k - 0.5;
+			} @else if $k < 0 {
+				$x: $k + 0.5;
+			}
+
+			@if $i > 0 {
+				$y: $i - 0.5;
+			} @else if $i < 0 {
+				$y: $i + 0.5;
+			}
+
+			@if ($x*$x + $y*$y <= $radius*$radius) {
+				$stroke: append($stroke, $i*1px $k*1px 0 $color, comma);
+			}
+		}
+	}
+
+	@return $stroke;
+}
+
+@mixin text-stroke($size: 2, $color: #fff, $correction: 0) {
+	text-shadow: text-stroke($size, $color, $correction);
+}
+
+
+$color-1-hex: #F2357B;
+$color-2-hex: #40011E;
+$color-3-hex: #A150F2;
+$color-4-hex: #05F2C7;
+$color-5-hex: #F2E96B;
+$color-6-hex: #9cf26b;
