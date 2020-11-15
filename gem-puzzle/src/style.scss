@@ -84,6 +84,21 @@ body {
 
     }
 
+    &-newGame {
+        color: $color-5-hex;
+        width: 600px;
+        transform: rotate(-1deg);
+
+        -webkit-text-stroke: 3px $color-2-hex;
+
+        font-family: Rammetto One;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 32px;
+        line-height: 54px;
+
+    }
+
     &-gamebox {
         position: relative;
         width: 640px;

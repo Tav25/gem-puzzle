@@ -1,5 +1,6 @@
 import * as timer from './Timer';
 import * as gameSound from './gameSound';
+import * as menu from './Menu';
 
 export { g, gameX };
 
@@ -8,44 +9,56 @@ const zero = (x) => { if (x < 10) { return x = `0${x}`; } return x; };
 const gameX = {
   move: 0,
   col: 4,
+  colBuffer: 4,
+  mixingQuantity: 20,
+  endGame: false,
   gamePole: [],
+  gamePoleEtalon: [],
   movedNumber: [],
   get col2() { return this.col * this.col; },
   get cellHeightWidth() { return 90 / this.col; },
   get numberFontSize() { const size = [8, 4, 2.5, 2, 1.5, 1.3]; return size[this.col - 3]; },
 
   upGameCol() {
-    if (this.col < 8) {
-      this.col += 1;
-      this.newGame();
+    if (this.colBuffer < 8) {
+      this.colBuffer += 1;
+      // this.newGame();
     }
   },
 
   downGameCol() {
-    if (this.col > 3) {
-      this.col -= 1;
-      this.newGame();
+    if (this.colBuffer > 3) {
+      this.colBuffer -= 1;
+      // this.newGame();
     }
   },
 
   gamePoleIndex() {
+    console.log('gamePoleIndex()');
     this.gamePole = [];
     const cv = this.col2;
     let w = Array.from(Array(cv).keys());
     w = w.slice(1, cv);
     w.push(0);
+    this.gamePoleEtalon = w.slice();
+    // console.log(this.gamePoleEtalon);
     return w;
   },
 
   newGame() {
+    console.log('#newGame_GAME>JS');
+    this.col = this.colBuffer;
+    this.randomize();
     this.gamePole = this.gamePoleIndex();
     timer.gameTime.second = 0;
     this.move = 0;
+    this.endGame = false;
     this.movePoint(0);
-    // this.initBox();
-    // this.initGameCell();
-    // this.initNumbers();
-    // this.initZeroPoint();
+    this.initBox();
+    this.initGameCell();
+    this.initNumbers();
+    this.initZeroPoint();
+    menu.menuGame.initTopMenu();
   },
 
   get zeroPosition() { return this.gamePole.indexOf(0); },
@@ -73,7 +86,8 @@ const gameX = {
     </div>
     <div class="wrapper-gamebox">            
     </div>
-    <div class="wrapper-pause">pause</div>        
+    <div class="wrapper-pause">pause</div> 
+    <div class="wrapper-newGame">new Game</div>       
     </div>
     `;
   },
@@ -88,7 +102,7 @@ const gameX = {
   },
 
   async randomize() {
-    for (let i = 1000; i > 0; i--) {
+    for (let i = this.mixingQuantity; i > 0; i--) {
       const randomElement = this.movedNumber[Math.floor(Math.random() * this.movedNumber.length)];
       // await sleepNow(1)
       await this.gamePoleZeroMove(randomElement);
@@ -195,15 +209,37 @@ const gameX = {
   },
 
   update(x) {
-    // cl('UPDATE');
+    if (!this.endGame){
+    cl('UPDATE');
     this.gamePoleZeroMove(this.gamePole[x]);
     this.initGameCell();
     this.initNumbers();
     this.initZeroPoint();
     this.movePoint();
-    // timer.gameTime.oneSecond = 1;
+    timer.gameTime.oneSecond = 1;
     gameSound.playSoundGame.playSound();
+    this.endTest();
+    }
   },
+
+  endTest() {
+    let numberMatches = 0;
+    for (const a in this.gamePoleEtalon) {
+      // console.log(this.gamePoleEtalon[a]);
+      // console.log(this.gamePole[a]);
+      if ((this.gamePoleEtalon[a] - this.gamePole[a]) === 0) {
+        numberMatches++;
+      }
+    }
+    console.log(numberMatches, this.gamePole.length);
+    if (numberMatches === this.gamePole.length){ 
+      console.log('win!');
+      this.endGame = true;
+      timer.gameTime.oneSecond = 0;
+    }
+  },
+
+  
 
   dragAndDrop(card, x) {
     // console.log('const dragAndDrop = () => {');

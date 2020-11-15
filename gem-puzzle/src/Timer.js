@@ -5,7 +5,7 @@ export {
 const gameTime = {
 
   second: 0,
-  oneSecond: 1,
+  oneSecond: 0,
 
   pauseStart() { this.oneSecond = 0; },
   pauseStop() { this.oneSecond = 1; },
