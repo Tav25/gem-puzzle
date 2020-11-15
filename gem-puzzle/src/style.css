@@ -142,6 +142,56 @@ body {
           transform: rotate(-6deg);
 }
 
+.wrapper-gamebox-menu {
+  width: 95%;
+  height: 95%;
+  font-family: Rammetto One;
+  font-style: normal;
+  font-weight: normal;
+  -webkit-text-stroke: 3px #40011E;
+}
+
+.wrapper-gamebox-menu-box1 {
+  font-size: 60px;
+  line-height: 101px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* 4 */
+  color: #05F2C7;
+}
+
+.wrapper-gamebox-menu-box2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrapper-gamebox-menu-box2-bestGames {
+  font-size: 48px;
+  line-height: 81px;
+  color: #F2E96B;
+}
+
+.wrapper-gamebox-menu-box2-bestGamesRez {
+  -webkit-text-stroke: 2px #40011E;
+  color: #F2E96B;
+}
+
 .mystyle {
   color: #F2E96B;
   -webkit-transition: -webkit-transform 0.5s;
@@ -155,5 +205,25 @@ body {
           transform: translate(5px, 5px);
   color: #A150F2;
   background-color: #F2E96B;
+}
+
+.color1 {
+  color: #F2357B;
+}
+
+.color2 {
+  color: #40011E;
+}
+
+.color3 {
+  color: #A150F2;
+}
+
+.color4 {
+  color: #05F2C7;
+}
+
+.color5 {
+  color: #F2E96B;
 }
 /*# sourceMappingURL=style.css.map */

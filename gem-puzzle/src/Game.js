@@ -1,10 +1,9 @@
-export {
-  g, gameX, test, dragAndDrop,
-};
+import * as timer from './Timer';
+import * as gameSound from './gameSound';
 
-let g = 10;
+export { g, gameX };
 
-function cl(x) { console.log(x); }
+const zero = (x) => { if (x < 10) { return x = `0${x}`; } return x; };
 
 const gameX = {
   move: 0,
@@ -13,6 +12,17 @@ const gameX = {
   movedNumber: [],
 
   // get gamePole() { return [1, 2, 3, 4, 5, 6, 0, 7, 8, 9, 10, 11, 12, 13, 14, 15]; },
+
+  newGame() {
+    this.gamePole = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0]; // random
+    timer.gameTime.second = 0;
+    this.move = 0;
+    this.movePoint(0)
+    // this.initBox();
+    // this.initGameCell();
+    // this.initNumbers();
+    // this.initZeroPoint();
+  },
 
   get zeroPosition() { return this.gamePole.indexOf(0); },
 
@@ -24,22 +34,23 @@ const gameX = {
     console.log(arr);
   },
 
-  movePoint() {
-    document.querySelector('#movesJS').innerHTML = this.move;
+  movePoint(x=1) {
+    this.move += x;
+    document.querySelector('#movesJS').innerHTML = zero(this.move);
   },
 
   initBox() {
     document.querySelector('body').innerHTML = `
-        <div class="wrapper">
-        <div class="wrapper-text">
-            <div class="wrapper-text-time"></div>
-            <div class="wrapper-text-menu"> <span>1</span> <span>2</span> <span>3</span> </div>
-            <div class="wrapper-text-move">moves: <span id="movesJS">0</span></div> 
-        </div>
-        <div class="wrapper-gamebox">            
-        </div>        
+    <div class="wrapper">
+    <div class="wrapper-text">
+    <div class="wrapper-text-time">00:00</div>
+    <div class="wrapper-text-menu menu">Meny</div>
+    <div class="wrapper-text-move">moves: <span id="movesJS">00</span></div> 
     </div>
-        `;
+    <div class="wrapper-gamebox">            
+    </div>        
+    </div>
+    `;
   },
 
   initGameCell() {
@@ -55,7 +66,7 @@ const gameX = {
     console.log('cl');
     for (const i in this.gamePole) {
       if (this.gamePole[i] !== 0) { document.querySelector(`#cellId${i}`).innerHTML = `<div id = 'number${this.gamePole[i]}' class="wrapper-gamebox-cell-number" draggable="true" ><span>${this.gamePole[i]}</span></div>`; } else {
-        cl(`добавляем свойства к ячейкам ${i}`);
+        // cl(`добавляем свойства к ячейкам ${i}`);
         document.querySelector(`#cellId${i}`).classList.add('mystyle_cell');
       }
     }
@@ -109,10 +120,13 @@ const gameX = {
   },
 
   update(x) {
+    cl('UPDATE');
     this.gamePoleZeroMove(this.gamePole[x]);
     this.initGameCell();
     this.initNumbers();
     this.initZeroPoint();
+    this.movePoint();
+    gameSound.playSoundGame.playSound();
   },
 
   dragAndDrop(card, x) {
@@ -135,38 +149,8 @@ const gameX = {
 
 };
 
-class NumberBut {
-  moveUp() { cl('up'); }
-
-  moveDown() { cl('Down'); }
-
-  moveLeft() { cl('Left'); }
-
-  moveRight() { cl('Right'); }
-}
-
-let test = new NumberBut();
-
-// document.querySelector(`#cellId${zeroPositionCell - 1}`).classList.add('animated');
-// document.querySelector(`#cellId${zeroPositionCell - 1} > .wrapper-gamebox-cell-number`).style.marginTop = '100px';
-console.log('test.js');
-
-const dragAndDrop = () => {
-  const card = document.querySelector('.mystyle');
-  const cells = document.querySelectorAll('.mystyle_cell');
-  const dragStart = function () { setTimeout(() => { this.classList.add('hide'); }, 0); };
-  const dragEnd = function () { this.classList.remove('hide'); };
-  const dragOver = function (evt) { evt.preventDefault(); };
-  const dragEnter = function (evt) { evt.preventDefault(); };
-  const dragDrop = function () { this.append(card); };
-  cells.forEach((cell) => {
-    cell.addEventListener('dragover', dragOver);
-    cell.addEventListener('dragenter', dragEnter);
-    cell.addEventListener('drop', dragDrop);
-  });
-
-  card.addEventListener('dragstart', dragStart);
-  card.addEventListener('dragend', dragEnd);
-};
-
 const sleepNow = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
+
+/// //////////////////////////////////////////////////////////////////////////////////////////////////////
+let g = 10;
+function cl(x) { console.log(x); }

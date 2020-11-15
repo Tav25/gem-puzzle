@@ -138,6 +138,52 @@ body {
                 // background-color: blue;
             }
         }
+
+        &-menu {
+            width: 95%;
+            height: 95%;
+            // background-color: violet;
+
+            font-family: Rammetto One;
+            font-style: normal;
+            font-weight: normal;
+
+            -webkit-text-stroke: 3px $color-2-hex;
+
+            &-box1 {
+                // background-color: yellow;
+                font-size: 60px;
+                line-height: 101px;
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: center;
+
+                /* 4 */
+
+                color: $color-4-hex;
+                // border: 5px solid #000000;
+                // transform: rotate(-1.22deg);
+            }
+
+            &-box2 {
+                // background-color: red;
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: center;
+
+                &-bestGames {
+                    font-size: 48px;
+                    line-height: 81px;
+                    color: $color-5-hex;
+                }
+
+                &-bestGamesRez{
+                    -webkit-text-stroke: 2px $color-2-hex;
+                    color: $color-5-hex;
+
+                }
+            }
+        }
     }
 }
 
@@ -154,4 +200,18 @@ body {
 }
 
 
-
+.color1{
+    color: $color-1-hex;
+}
+.color2{
+    color: $color-2-hex;
+}
+.color3{
+    color: $color-3-hex;
+}
+.color4{
+    color: $color-4-hex;
+}
+.color5 {
+    color: $color-5-hex;
+}
