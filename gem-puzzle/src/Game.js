@@ -163,8 +163,7 @@ const gameX = {
       this.movedNumber.push(this.gamePole[dg]);
       document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).classList.add('mystyle');
       document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).addEventListener('mouseup', async (e) => {
-
-        document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).classList.add('an1')
+        document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).classList.add('an1');
         await sleepNow(450);// animation
         await this.update(dg);
       });
@@ -177,8 +176,7 @@ const gameX = {
       this.movedNumber.push(this.gamePole[dg]);
       document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).classList.add('mystyle');
       document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).addEventListener('mouseup', async (e) => {
-
-        document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).classList.add('an2')
+        document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).classList.add('an2');
         await sleepNow(450);// animation
         await this.update(dg);
       });
@@ -191,8 +189,7 @@ const gameX = {
       this.movedNumber.push(this.gamePole[dg]);
       document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).classList.add('mystyle');
       document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).addEventListener('mouseup', async (e) => {
-
-        document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).classList.add('an3')
+        document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).classList.add('an3');
         await sleepNow(450);// animation
         await this.update(dg);
       });
@@ -205,8 +202,7 @@ const gameX = {
       this.movedNumber.push(this.gamePole[dg]);
       document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).classList.add('mystyle');
       document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).addEventListener('mouseup', async (e) => {
-
-        document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).classList.add('an4')
+        document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).classList.add('an4');
         await sleepNow(450);// animation
         await this.update(dg);
       });
