@@ -192,7 +192,7 @@ body {
 
                 cursor: pointer;
 
-                // transition: transform 1s;
+                // transition: transform 0.5s;
 
             }
 
@@ -283,6 +283,7 @@ body {
     // background-color: $color-6-hex;
     color: $color-5-hex;
     transition: transform 0.5s;
+
 }
 
 .mystyle:hover {
@@ -294,6 +295,73 @@ body {
 
 }
 
+.an4 {
+    position: relative;
+    animation: myfirst4 0.5s 1 alternate;
+}
+
+@keyframes myfirst4 {
+    0% {
+        left: 0rem;
+        top: 0rem;
+    }
+
+    100% {
+        left: 10rem;
+        top: 0rem;
+    }
+}
+
+.an3 {
+    position: relative;
+    animation: myfirst3 0.5s 1 alternate;
+}
+
+@keyframes myfirst3 {
+    0% {
+        left: 0rem;
+        top: 0rem;
+    }
+
+    100% {
+        left: 0rem;
+        top: -10rem;
+    }
+}
+
+.an2 {
+    position: relative;
+    animation: myfirst2 0.5s 1 alternate;
+}
+
+@keyframes myfirst2 {
+    0% {
+        left: 0rem;
+        top: 0rem;
+    }
+
+    100% {
+        left: -10rem;
+        top: 0rem;
+    }
+}
+
+.an1 {
+    position: relative;
+    animation: myfirst1 0.5s 1 alternate;
+}
+
+@keyframes myfirst1 {
+    0% {
+        left: 0rem;
+        top: 0rem;
+    }
+
+    100% {
+        left: 0rem;
+        top: 10rem;
+    }
+}
 
 .color1 {
     color: $color-1-hex;

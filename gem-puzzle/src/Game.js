@@ -162,8 +162,11 @@ const gameX = {
       const dg = (zeroPositionCell - this.col);
       this.movedNumber.push(this.gamePole[dg]);
       document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).classList.add('mystyle');
-      document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).addEventListener('mouseup', (e) => {
-        this.update(dg);
+      document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).addEventListener('mouseup', async (e) => {
+
+        document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).classList.add('an1')
+        await sleepNow(450);// animation
+        await this.update(dg);
       });
       document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).addEventListener('mousedown', (e) => {
         this.dragAndDrop(document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`), dg);
@@ -173,8 +176,11 @@ const gameX = {
       const dg = (zeroPositionCell + 1);
       this.movedNumber.push(this.gamePole[dg]);
       document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).classList.add('mystyle');
-      document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).addEventListener('mouseup', (e) => {
-        this.update(dg);
+      document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).addEventListener('mouseup', async (e) => {
+
+        document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).classList.add('an2')
+        await sleepNow(450);// animation
+        await this.update(dg);
       });
       document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).addEventListener('mousedown', (e) => {
         this.dragAndDrop(document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`), dg);
@@ -184,8 +190,11 @@ const gameX = {
       const dg = (zeroPositionCell + this.col);
       this.movedNumber.push(this.gamePole[dg]);
       document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).classList.add('mystyle');
-      document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).addEventListener('mouseup', (e) => {
-        this.update(dg);
+      document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).addEventListener('mouseup', async (e) => {
+
+        document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).classList.add('an3')
+        await sleepNow(450);// animation
+        await this.update(dg);
       });
       document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).addEventListener('mousedown', (e) => {
         this.dragAndDrop(document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`), dg);
@@ -196,7 +205,9 @@ const gameX = {
       this.movedNumber.push(this.gamePole[dg]);
       document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).classList.add('mystyle');
       document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).addEventListener('mouseup', async (e) => {
-        // await sleepNow(2000);// animation
+
+        document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).classList.add('an4')
+        await sleepNow(450);// animation
         await this.update(dg);
       });
       document.querySelector(`#cellId${dg} > .wrapper-gamebox-cell-number`).addEventListener('mousedown', (e) => {

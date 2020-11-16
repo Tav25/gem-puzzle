@@ -305,6 +305,118 @@ body {
   background-color: #F2E96B;
 }
 
+.an4 {
+  position: relative;
+  -webkit-animation: myfirst4 0.5s 1 alternate;
+          animation: myfirst4 0.5s 1 alternate;
+}
+
+@-webkit-keyframes myfirst4 {
+  0% {
+    left: 0rem;
+    top: 0rem;
+  }
+  100% {
+    left: 10rem;
+    top: 0rem;
+  }
+}
+
+@keyframes myfirst4 {
+  0% {
+    left: 0rem;
+    top: 0rem;
+  }
+  100% {
+    left: 10rem;
+    top: 0rem;
+  }
+}
+
+.an3 {
+  position: relative;
+  -webkit-animation: myfirst3 0.5s 1 alternate;
+          animation: myfirst3 0.5s 1 alternate;
+}
+
+@-webkit-keyframes myfirst3 {
+  0% {
+    left: 0rem;
+    top: 0rem;
+  }
+  100% {
+    left: 0rem;
+    top: -10rem;
+  }
+}
+
+@keyframes myfirst3 {
+  0% {
+    left: 0rem;
+    top: 0rem;
+  }
+  100% {
+    left: 0rem;
+    top: -10rem;
+  }
+}
+
+.an2 {
+  position: relative;
+  -webkit-animation: myfirst2 0.5s 1 alternate;
+          animation: myfirst2 0.5s 1 alternate;
+}
+
+@-webkit-keyframes myfirst2 {
+  0% {
+    left: 0rem;
+    top: 0rem;
+  }
+  100% {
+    left: -10rem;
+    top: 0rem;
+  }
+}
+
+@keyframes myfirst2 {
+  0% {
+    left: 0rem;
+    top: 0rem;
+  }
+  100% {
+    left: -10rem;
+    top: 0rem;
+  }
+}
+
+.an1 {
+  position: relative;
+  -webkit-animation: myfirst1 0.5s 1 alternate;
+          animation: myfirst1 0.5s 1 alternate;
+}
+
+@-webkit-keyframes myfirst1 {
+  0% {
+    left: 0rem;
+    top: 0rem;
+  }
+  100% {
+    left: 0rem;
+    top: 10rem;
+  }
+}
+
+@keyframes myfirst1 {
+  0% {
+    left: 0rem;
+    top: 0rem;
+  }
+  100% {
+    left: 0rem;
+    top: 10rem;
+  }
+}
+
 .color1 {
   color: #F2357B;
 }
