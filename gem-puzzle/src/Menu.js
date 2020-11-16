@@ -21,7 +21,7 @@ const menuGame = {
           document.querySelector('.menu').innerHTML = 'back';
           showMenu = true;
         } else {
-          if(!game.gameX.endGame){
+          if (!game.gameX.endGame) {
             timer.gameTime.pauseStop();
           }
           game.gameX.initGameCell();
@@ -42,7 +42,7 @@ const menuGame = {
           document.querySelector('body > div.wrapper > div.wrapper-pause').innerHTML = 'continue';
           showPause = true;
         } else {
-          if(!game.gameX.endGame){
+          if (!game.gameX.endGame) {
             timer.gameTime.pauseStop();
           }
           game.gameX.initGameCell();
