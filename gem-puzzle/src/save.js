@@ -11,8 +11,8 @@ let gameSave = {
   },
   // test:'test text',
   point: {
-    g3: [{ move: 12, time: 120 }, { move: 7, time: 121 }, { move: 4, time: 121 }, { move: 11, time: 121 }, { move: 3, time: 121 }, { move: 17, time: 121 }, { move: 27, time: 121 }, { move: 31, time: 121 }, { move: 1, time: 121 }, { move: 15, time: 121 }],
-    // g3: [],
+    // g3: [{ move: 12, time: 120 }, { move: 7, time: 121 }, { move: 4, time: 121 }, { move: 11, time: 121 }, { move: 3, time: 121 }, { move: 17, time: 121 }, { move: 27, time: 121 }, { move: 31, time: 121 }, { move: 1, time: 121 }, { move: 15, time: 121 }],
+    g3: [],
     g4: [],
     g5: [],
     g6: [],

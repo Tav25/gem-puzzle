@@ -11,7 +11,7 @@ const gameX = {
   move: 0,
   col: 4,
   colBuffer: 4,
-  mixingQuantity: 3,
+  mixingQuantity: 300,
   endGame: false,
   gamePole: [],
   gamePoleEtalon: [],
@@ -262,6 +262,7 @@ const gameX = {
     this.endGame = true;
     timer.gameTime.oneSecond = 0;
     saveG.gameSave.addRecord();
+    menu.menuGame.initWin();
   },
 
   dragAndDrop(card, x) {
