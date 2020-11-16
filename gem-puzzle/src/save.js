@@ -33,7 +33,7 @@ let gameSave = {
       if (i < 10) {
         expSave = `${expSave}<span>${(i * 1 + 1)}. m: ${zero(size[positionInArray][i].move)} t:${timer.toStrTimer(size[positionInArray][i].time)}</span><br>`; // (size[positionInArray][i].point + ' ' + size[positionInArray][i].time)
       }
-      console.log(i);
+      // console.log(i);
     }
     return expSave;
   },

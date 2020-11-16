@@ -237,7 +237,7 @@ const gameX = {
 
   update(x) {
     if (!this.endGame) {
-      cl('UPDATE');
+      // cl('UPDATE');
       this.gamePoleZeroMove(this.gamePole[x]);
       this.initGameCell();
       this.initNumbers();
@@ -258,14 +258,14 @@ const gameX = {
         numberMatches++;
       }
     }
-    console.log(numberMatches, this.gamePole.length);
+    // console.log(numberMatches, this.gamePole.length);
     if (numberMatches === this.gamePole.length) {
       this.winFunction();
     }
   },
 
   winFunction() {
-    console.log('win!');
+    // console.log('win!');
     this.endGame = true;
     timer.gameTime.oneSecond = 0;
     saveG.gameSave.addRecord();
