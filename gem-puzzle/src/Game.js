@@ -1,6 +1,7 @@
 import * as timer from './Timer';
 import * as gameSound from './gameSound';
 import * as menu from './Menu';
+import * as saveG from './save';
 
 export { g, gameX };
 
@@ -10,14 +11,14 @@ const gameX = {
   move: 0,
   col: 4,
   colBuffer: 4,
-  mixingQuantity: 5,
+  mixingQuantity: 3,
   endGame: false,
   gamePole: [],
   gamePoleEtalon: [],
   movedNumber: [],
   get col2() { return this.col * this.col; },
-  get cellHeightWidth() { return 90 / this.col; },
-  get numberFontSize() { const size = [8, 4, 2.5, 2, 1.5, 1.3]; return size[this.col - 3]; },
+  get cellHeightWidth() { return 95 / this.col; },
+  get numberFontSize() { const size = [8, 4, 3, 2.2, 1.8, 1.5]; return size[this.col - 3]; },
 
   upGameCol() {
     if (this.colBuffer < 8) {
@@ -59,6 +60,25 @@ const gameX = {
     this.initNumbers();
     this.initZeroPoint();
     menu.menuGame.initTopMenu();
+  },
+
+  newLastGame() {
+    console.log('#Last Game');
+
+    console.log('-------------------------------------------');
+    this.col = saveG.gameSave.lastGame.col;
+    this.gamePole = saveG.gameSave.lastGame.gamePole;
+    timer.gameTime.second = saveG.gameSave.lastGame.time;
+    this.move = saveG.gameSave.lastGame.move;
+    this.endGame = false;
+    this.gamePoleEtalon = saveG.gameSave.lastGame.gamePoleEtalon;
+
+    this.initBox();
+    this.initGameCell();
+    this.initNumbers();
+    this.initZeroPoint();
+    menu.menuGame.initTopMenu();
+    document.querySelector('#movesJS').innerHTML = zero(saveG.gameSave.lastGame.move);
   },
 
   get zeroPosition() { return this.gamePole.indexOf(0); },
@@ -233,10 +253,15 @@ const gameX = {
     }
     console.log(numberMatches, this.gamePole.length);
     if (numberMatches === this.gamePole.length) {
-      console.log('win!');
-      this.endGame = true;
-      timer.gameTime.oneSecond = 0;
+      this.winFunction();
     }
+  },
+
+  winFunction() {
+    console.log('win!');
+    this.endGame = true;
+    timer.gameTime.oneSecond = 0;
+    saveG.gameSave.addRecord();
   },
 
   dragAndDrop(card, x) {

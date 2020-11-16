@@ -1,6 +1,7 @@
 import * as game from './Game';
 import * as gameSound from './gameSound';
 import * as timer from './Timer';
+import * as saveG from './save';
 
 export { menuGame };
 
@@ -20,7 +21,9 @@ const menuGame = {
           document.querySelector('.menu').innerHTML = 'back';
           showMenu = true;
         } else {
-          timer.gameTime.pauseStop();
+          if(!game.gameX.endGame){
+            timer.gameTime.pauseStop();
+          }
           game.gameX.initGameCell();
           game.gameX.initNumbers();
           game.gameX.initZeroPoint();
@@ -39,7 +42,9 @@ const menuGame = {
           document.querySelector('body > div.wrapper > div.wrapper-pause').innerHTML = 'continue';
           showPause = true;
         } else {
-          timer.gameTime.pauseStop();
+          if(!game.gameX.endGame){
+            timer.gameTime.pauseStop();
+          }
           game.gameX.initGameCell();
           game.gameX.initNumbers();
           game.gameX.initZeroPoint();
@@ -65,7 +70,7 @@ const menuGame = {
     </div>
     <div class='wrapper-gamebox-menu-box2'>
     <div class='wrapper-gamebox-menu-box2-bestGames' id='bestGames'>best game</div>
-    <div class='wrapper-gamebox-menu-box2-bestGamesRez' id='bestGamesRez'>dsnf,sdnffdsfndsfnds,mfnds,nf,dsnf,</div>
+    <div class='wrapper-gamebox-menu-box2-bestGamesRez' id='bestGamesRez'>${saveG.gameSave.test}</div>
     </div>
 </div> `;
     console.log('menu');
@@ -79,9 +84,10 @@ const menuGame = {
     </div>
     <div class='wrapper-gamebox-menu-box2'>
     <div class='wrapper-gamebox-menu-box2-bestGames' id='bestGames'>best game</div>
-    <div class='wrapper-gamebox-menu-box2-bestGamesRez' id='bestGamesRez'>dsnf,sdnffdsfndsfnds,mfnds,nf,dsnf,</div>
+    <div class='wrapper-gamebox-menu-box2-bestGamesRez' id='bestGamesRez'>${saveG.gameSave.test}</div>
     </div>
 </div> `;
+
     console.log('menu');
   },
 
@@ -94,11 +100,13 @@ const menuGame = {
       console.log('down');
       game.gameX.downGameCol();
       document.querySelector('#sizShow').innerHTML = ` ${game.gameX.colBuffer}<span class = 'color5'>x</span>${game.gameX.colBuffer}`;
+      document.querySelector('#bestGamesRez').innerHTML = saveG.gameSave.test;
     });
     document.querySelector('#sizeUp').addEventListener('mouseup', (e) => {
       console.log('up');
       game.gameX.upGameCol();
       document.querySelector('#sizShow').innerHTML = `${game.gameX.colBuffer}<span class = 'color5'>x</span>${game.gameX.colBuffer}`;
+      document.querySelector('#bestGamesRez').innerHTML = saveG.gameSave.test;
     });
 
     document.querySelector('#sound').addEventListener('mouseup', (e) => {

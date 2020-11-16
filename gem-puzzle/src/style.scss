@@ -9,7 +9,7 @@
 // $color-6-hex: #9cf26b;
 
 $sizeBorderBig:3;
-$sizeBorderSmall:1;
+$sizeBorderSmall:2;
 
 
 
@@ -130,7 +130,13 @@ body {
             // width: 33%;
             // height: 33%;
 
-            border: 1px dotted black;
+            border: 1px dotted rgba(29, 2, 78,0.2);
+            border-radius: 16px;
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
 
 
             /* 3 */
@@ -139,20 +145,29 @@ body {
 
 
             &-number {
-                width: 90%;
-                height: 90%;
-                background: $color-5-hex;
-                border: 7px solid $color-2-hex;
-                box-sizing: border-box;
-                border-radius: 16px;
-                padding-left: 10px;
-
-                filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-                transform: rotate(-1deg);
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
                 align-items: center;
 
+                // width: 90%;
+                // height: 90%;
+
+                width: 100%;
+                height: 100%;
+
+                background: $color-5-hex;
+                border: 4px solid $color-2-hex;
+                // @include text-stroke($sizeBorderBig, $color-2-hex);
+                box-sizing: border-box;
+                border-radius: 16px;
+                // padding-left: 10px;
+                transform: rotate(-1deg);
+
+                filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
                 cursor: pointer;
-                user-select: none;
+                
                 // transition: transform 1s;
 
             }
@@ -228,15 +243,18 @@ body {
 }
 
 .mystyle {
-    background-color: $color-6-hex;
+    // background-color: $color-6-hex;
     color: $color-5-hex;
     transition: transform 0.5s;
 }
 
 .mystyle:hover {
+    // size: 110%;
+    z-index: 20;
     transform: translate(5px, 5px);
     color: $color-3-hex;
     background-color: $color-5-hex;
+    
 }
 
 
@@ -259,3 +277,4 @@ body {
 .color5 {
     color: $color-5-hex;
 }
+

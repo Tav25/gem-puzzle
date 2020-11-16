@@ -1,6 +1,9 @@
-export {
-  gameTime,
-};
+import * as saveG from './save';
+
+export { gameTime, toStrTimer, zero };
+
+const toStrTimer = (second) => `${zero(Math.floor(second / 60))}:${zero(second % 60)}`;
+const zero = (x) => { if (x < 10) { return x = `0${x}`; } return x; };
 
 const gameTime = {
 
@@ -16,13 +19,14 @@ const gameTime = {
   },
 
   timer() {
-    const zero = (x) => { if (x < 10) { return x = `0${x}`; } return x; };
+    // const zero = (x) => { if (x < 10) { return x = `0${x}`; } return x; };
     setInterval(() => {
       // console.log('this.second=', gameTime.second)
-      const strTimer = `${zero(Math.floor(gameTime.second / 60))}:${zero(gameTime.second % 60)}`;
+      const strTimer = toStrTimer(gameTime.second);
       gameTime.initTime(strTimer);
       //   console.log(gameTime.second);
       gameTime.second += gameTime.oneSecond;
+      saveG.gameSave.addRecordLastGame();
     }, 1000);
   },
 
