@@ -62,8 +62,13 @@ let gameSave = {
 
 };
 
-gameSave.localStorageInit();
-gameSave.localStorageInitLastGame();
+if (localStorage.getItem('lastGameStorage') !== null) {
+  gameSave.localStorageInitLastGame();
+}
+
+if (localStorage.getItem('pointStorage') !== null) {
+  gameSave.localStorageInit();
+}
 
 // localStorage.setItem('pointStorage', JSON.stringify(gameSave.point));
 // this.point = JSON.parse(localStorage.getItem('pointStorage'));
