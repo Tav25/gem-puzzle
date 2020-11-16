@@ -205,10 +205,16 @@ body {
 
             @include text-stroke($sizeBorderBig, $color-2-hex);
 
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+
             &-box1 {
                 // background-color: yellow;
                 font-size: 60px;
-                line-height: 101px;
+                line-height: 60px;
                 display: flex;
                 flex-flow: column nowrap;
                 align-items: center;
@@ -218,13 +224,19 @@ body {
                 color: $color-4-hex;
                 // border: 5px solid #000000;
                 // transform: rotate(-1.22deg);
+                &-win{
+                    // background-color: yellowgreen;
+                    text-align: center;
+                }
             }
+
 
             &-box2 {
                 // background-color: red;
                 display: flex;
                 flex-flow: column nowrap;
                 align-items: center;
+                height: 340px;
 
                 &-bestGames {
                     font-size: 48px;

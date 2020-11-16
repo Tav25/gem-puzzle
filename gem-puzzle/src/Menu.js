@@ -82,9 +82,18 @@ const menuGame = {
     <div class='wrapper-gamebox-menu-box1'>
         <div class='wrapper-gamebox-menu-box1-pause' id='pause'>Pause</div>
     </div>
-    <div class='wrapper-gamebox-menu-box2'>
-    <div class='wrapper-gamebox-menu-box2-bestGames' id='bestGames'>best game</div>
-    <div class='wrapper-gamebox-menu-box2-bestGamesRez' id='bestGamesRez'>${saveG.gameSave.test}</div>
+</div> `;
+
+    console.log('menu');
+  },
+
+  initWin() {
+    document.querySelector('body > div.wrapper > div.wrapper-gamebox').innerHTML = `
+    <div class='wrapper-gamebox-menu'>
+    <div class='wrapper-gamebox-menu-box1'>
+        <div class='wrapper-gamebox-menu-box1-win' id='win'>Win<br>
+        You solved the puzzle <br>in <span class = 'color5'>${timer.toStrTimer(timer.gameTime.second)}</span> <br>and <sapn class = 'color5'>${game.gameX.move}</sapn> moves
+        </div>
     </div>
 </div> `;
 

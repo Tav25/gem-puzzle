@@ -262,6 +262,7 @@ const gameX = {
     this.endGame = true;
     timer.gameTime.oneSecond = 0;
     saveG.gameSave.addRecord();
+    menu.menuGame.initWin();
   },
 
   dragAndDrop(card, x) {
