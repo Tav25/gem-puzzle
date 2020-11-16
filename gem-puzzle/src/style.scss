@@ -283,6 +283,7 @@ body {
     // background-color: $color-6-hex;
     color: $color-5-hex;
     transition: transform 0.5s;
+    
 
 }
 
@@ -298,6 +299,7 @@ body {
 .an4 {
     position: relative;
     animation: myfirst4 0.5s 1 alternate;
+    z-index: 50;
 }
 
 @keyframes myfirst4 {
@@ -315,6 +317,7 @@ body {
 .an3 {
     position: relative;
     animation: myfirst3 0.5s 1 alternate;
+    z-index: 50;
 }
 
 @keyframes myfirst3 {
@@ -332,6 +335,7 @@ body {
 .an2 {
     position: relative;
     animation: myfirst2 0.5s 1 alternate;
+    z-index: 50;
 }
 
 @keyframes myfirst2 {
@@ -349,6 +353,7 @@ body {
 .an1 {
     position: relative;
     animation: myfirst1 0.5s 1 alternate;
+    z-index: 50;
 }
 
 @keyframes myfirst1 {

@@ -309,6 +309,7 @@ body {
   position: relative;
   -webkit-animation: myfirst4 0.5s 1 alternate;
           animation: myfirst4 0.5s 1 alternate;
+  z-index: 50;
 }
 
 @-webkit-keyframes myfirst4 {
@@ -337,6 +338,7 @@ body {
   position: relative;
   -webkit-animation: myfirst3 0.5s 1 alternate;
           animation: myfirst3 0.5s 1 alternate;
+  z-index: 50;
 }
 
 @-webkit-keyframes myfirst3 {
@@ -365,6 +367,7 @@ body {
   position: relative;
   -webkit-animation: myfirst2 0.5s 1 alternate;
           animation: myfirst2 0.5s 1 alternate;
+  z-index: 50;
 }
 
 @-webkit-keyframes myfirst2 {
@@ -393,6 +396,7 @@ body {
   position: relative;
   -webkit-animation: myfirst1 0.5s 1 alternate;
           animation: myfirst1 0.5s 1 alternate;
+  z-index: 50;
 }
 
 @-webkit-keyframes myfirst1 {

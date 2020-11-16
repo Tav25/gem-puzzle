@@ -37,7 +37,7 @@ const menuGame = {
       if (!showMenu) {
         if (!showPause) {
           timer.gameTime.pauseStart();
-          console.log('#top menu');
+          // console.log('#top menu');
           this.initPause();
           document.querySelector('body > div.wrapper > div.wrapper-pause').innerHTML = 'continue';
           showPause = true;
@@ -55,7 +55,7 @@ const menuGame = {
     });
 
     document.querySelector('body > div.wrapper > div.wrapper-newGame').addEventListener('mouseup', (e) => {
-      console.log('#newGame');
+      // console.log('#newGame');
       game.gameX.newGame();
     });
   },
@@ -73,7 +73,7 @@ const menuGame = {
     <div class='wrapper-gamebox-menu-box2-bestGamesRez' id='bestGamesRez'>${saveG.gameSave.test}</div>
     </div>
 </div> `;
-    console.log('menu');
+    // console.log('menu');
   },
 
   initPause() {
@@ -84,7 +84,7 @@ const menuGame = {
     </div>
 </div> `;
 
-    console.log('menu');
+    // console.log('menu');
   },
 
   initWin() {
@@ -97,29 +97,29 @@ const menuGame = {
     </div>
 </div> `;
 
-    console.log('menu');
+    // console.log('menu');
   },
 
   menuListener() {
     document.querySelector('#newGame').addEventListener('mouseup', (e) => {
-      console.log('#newGame');
+      // console.log('#newGame');
       game.gameX.newGame();
     });
     document.querySelector('#sizeDown').addEventListener('mouseup', (e) => {
-      console.log('down');
+      // console.log('down');
       game.gameX.downGameCol();
       document.querySelector('#sizShow').innerHTML = ` ${game.gameX.colBuffer}<span class = 'color5'>x</span>${game.gameX.colBuffer}`;
       document.querySelector('#bestGamesRez').innerHTML = saveG.gameSave.test;
     });
     document.querySelector('#sizeUp').addEventListener('mouseup', (e) => {
-      console.log('up');
+      // console.log('up');
       game.gameX.upGameCol();
       document.querySelector('#sizShow').innerHTML = `${game.gameX.colBuffer}<span class = 'color5'>x</span>${game.gameX.colBuffer}`;
       document.querySelector('#bestGamesRez').innerHTML = saveG.gameSave.test;
     });
 
     document.querySelector('#sound').addEventListener('mouseup', (e) => {
-      console.log('sound');
+      // console.log('sound');
       gameSound.playSoundGame.soundOffOn();
       document.querySelector('#sound > span').innerHTML = gameSound.playSoundGame.soundOn;
     });
