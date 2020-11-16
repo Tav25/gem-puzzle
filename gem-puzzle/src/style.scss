@@ -17,10 +17,10 @@ $sizeBorderSmall:2;
 
 @media (max-width: 767px) {
     html {
-      font-size: 50%;
+        font-size: 50%;
     }
-  }
-  
+}
+
 
 
 body {
@@ -71,6 +71,12 @@ body {
         &-menu {
             color: #F2E96B;
             transform: rotate(0deg);
+            cursor: pointer;
+            transition: transform 0.5s;
+        }
+
+        &-menu:hover {
+            transform: translate(0.1rem, 0.1rem);
         }
 
         &-move {
@@ -95,7 +101,12 @@ body {
         font-weight: normal;
         font-size: 2rem;
         line-height: 3.3rem;
+        cursor: pointer;
+        transition: transform 0.5s;
+    }
 
+    &-pause:hover {
+        transform: translate(0.1rem, 0.1rem);
     }
 
     &-newGame {
@@ -111,7 +122,12 @@ body {
         font-weight: normal;
         font-size: 2rem;
         line-height: 3.3rem;
+        cursor: pointer;
+        transition: transform 0.5s;
+    }
 
+    &-newGame:hover {
+        transform: translate(0.1rem, 0.1rem);
     }
 
     &-gamebox {
@@ -130,7 +146,7 @@ body {
         border: 0.5rem solid $color-2-hex;
         box-sizing: border-box;
         box-shadow: 0px 0.3rem 0.3rem rgba(0, 0, 0, 0.25);
-        border-radius: 3rem;
+        border-radius: 2rem;
         transform: rotate(-1deg);
 
         &-cell {
@@ -138,7 +154,7 @@ body {
             // width: 33%;
             // height: 33%;
 
-            border: 1px dotted rgba(29, 2, 78,0.2);
+            border: 1px dotted rgba(29, 2, 78, 0.2);
             border-radius: 1.2rem;
 
             display: flex;
@@ -175,7 +191,7 @@ body {
                 filter: drop-shadow(0px 0.3rem 0.3rem rgba(0, 0, 0, 0.25));
 
                 cursor: pointer;
-                
+
                 // transition: transform 1s;
 
             }
@@ -230,9 +246,10 @@ body {
                 /* 4 */
 
                 color: $color-4-hex;
+
                 // border: 5px solid #000000;
                 // transform: rotate(-1.22deg);
-                &-win{
+                &-win {
                     // background-color: yellowgreen;
                     text-align: center;
                 }
@@ -274,7 +291,7 @@ body {
     transform: translate(0.5rem, 5px);
     color: $color-3-hex;
     background-color: $color-5-hex;
-    
+
 }
 
 
@@ -298,3 +315,37 @@ body {
     color: $color-5-hex;
 }
 
+
+#sizeDown {
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+#sizeUp {
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+#newGame {
+    cursor: pointer;
+    transition: transform 0.5s;
+
+}
+
+#sound {
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+// 
+
+
+
+#newGame:hover {
+    transform: translate(0.1rem, 0.1rem);
+
+}
+
+#sound:hover {
+    transform: translate(0.1rem, 0.1rem);
+}
