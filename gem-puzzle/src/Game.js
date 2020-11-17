@@ -101,7 +101,7 @@ const gameX = {
     <div class="wrapper">
     <div class="wrapper-text">
     <div class="wrapper-text-time">00:00</div>
-    <div class="wrapper-text-menu menu">Meny</div>
+    <div class="wrapper-text-menu menu">Menu</div>
     <div class="wrapper-text-move">moves: <span id="movesJS">00</span></div> 
     </div>
     <div class="wrapper-gamebox">            
